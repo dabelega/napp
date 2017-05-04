@@ -1,16 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
+import { BrowserHistory as Router,Route } from 'react-router';
 import Home from './components/Home';
-import source from './components/Source';
+import Source from './components/Source';
 
 
 render (
-	<div>
-		<Router>
-        	<Route path="/" component={Home}/>
-        	<Route path="/source" component={source}/>
-    	</Router>
-	</div>,
+		<HashRouter>
+			<div>
+				<Route exact path="/" component={Home} />
+	        	<Route exact path="/source" component={Source} />
+
+        	</div>
+    	</HashRouter>,
 	document.getElementById('app')
 );

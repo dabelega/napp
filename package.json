@@ -19,10 +19,12 @@
   "dependencies": {
     "body-style": "^0.3.0",
     "extract-text-webpack-plugin": "^2.1.0",
+    "lodash": "^4.17.4",
     "node-sass": "^4.5.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
