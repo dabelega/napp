@@ -7,7 +7,7 @@ export default class Source extends React.Component {
 	constructor (){
 		super();
 		this.state = {
-			text: "Initial State"
+			searchString : ''
 		};
 	}
 
@@ -19,16 +19,41 @@ export default class Source extends React.Component {
 			})
 		});
 	}
+
+	handleChange(e){
+
+        this.setState({searchString:e.target.value});
+    }
 	
 	render() {
-		var sources = _.map(this.state.sources, (source) => {
-			return <li> { source.name }</li>;
-		});
+
+		var searchString = this.state.searchString.trim().toLowerCase();
+		var sources = _.map(this.state.sources);
+
+		if(searchString.length > 0){
+
+            sources = sources.filter(function(sourceName){
+                return sourceName.name.toLowerCase().match( searchString );
+            });
+
+        }
+
 		return (
 			<div>
-				<input ref="textBox" type="text" />
-				<ul>{sources}</ul>
-			</div>
+			<input type="text" value={this.state.searchString} onChange={this.handleChange.bind(this)} placeholder="Type here" />
+
+			<ul> 
+
+                { sources.map(function(sourceName){
+                   return <li>{sourceName.name} <a href={sourceName.url}>{sourceName.url}</a></li>
+                }) }
+
+            </ul>
+            </div>
+
+
 		);
 	}
+
+	
 }	

@@ -8,3 +8,32 @@
 	<script src="bundle.js"></script>
 </body>
 </html>
+
+<!--<div>
+				<input ref="query" onChange= { (e) => { this.updateSearch(); }} type="text" />
+				<ul>{sources}</ul>
+				
+				{this.handleChange.bind(this)}
+
+			var sources = _.map(this.state.sources, (source) => {
+			return <li> { source.name }</li>;
+		});
+
+
+
+
+    handleClick(sourceName){
+    	var API_KEY = "213327409d384371851777e7c7f78dfe";
+    	var SORT_BY = 'latest';
+    	var url = `https://newsapi.org/v1/articles?source=${sourceName}&sortBy=${SORT_BY}&apiKey=${API_KEY}`;
+    	Request.get(url).then((response) => {
+    		this.setState({
+				articles: response.body.articles,
+			})
+    	});
+
+    }
+
+    
+
+			</div>-->
