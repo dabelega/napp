@@ -1,11 +1,13 @@
 import React from 'react';
-
+import BodyStyle from 'body-style';
+import '../../sass/styles.scss'; 
 
 export default class App extends React.Component {
 	render() {
 		return (
-     <div>
-        <h1 className='hello'>Hello World</h1>
-      </div>);
+		     <div>
+		    	<BodyStyle className="main-body" />
+		  </div>
+		);
 	}
 }

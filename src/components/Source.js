@@ -1,4 +1,5 @@
 import React from 'react';
+import Request from 'superagent';
 
 export default class Source extends React.Component {
 
@@ -9,14 +10,14 @@ export default class Source extends React.Component {
 		};
 	}
 
-	clicked(){
-		this.setState({text: this.refs.textBox.value});
-	}
+	componentWillMount(){
 
+	}
+	
 	render() {
 		return (
-			{ this.state.text }
-			<input ref="textBox" type="text" />
-			<button id="button" onClick={ (e) => { this.clicked(); } }>Click me</button>
+			<div>
+				<input ref="textBox" type="text" />
+			</div>
 		);
 	}
