@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/dhaniboy09/napp#readme",
   "dependencies": {
+    "body-style": "^0.3.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "node-sass": "^4.5.2",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
