@@ -9,3 +9,12 @@ export function getSources() {
 		});
 	});
 }
+
+export function getArticles(sourceName) {
+	newsAPI.showArticles(sourceName,(data) => {
+		Dispatcher.dispatch({
+			actionType:'NEWS_ARTICLES',
+			data,
+		});
+	});
+}

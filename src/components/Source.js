@@ -12,6 +12,7 @@ export default class Source extends React.Component {
 		this.state = {
 			searchString : '',
 			sources: []
+			
 		};
 
 		this.fetchNewsSources = this.fetchNewsSources.bind(this);
@@ -19,6 +20,10 @@ export default class Source extends React.Component {
 
 	fetchNewsSources(){
 		this.setState({ sources: newsStore.fetchNewsSources() });
+	}
+
+	fetchNewsArticles(){
+		this.setState({ sources: newsStore.fetchNewsArticles() });
 	}
 
 	componentWillMount(){
@@ -31,6 +36,10 @@ export default class Source extends React.Component {
 		// 		sources: response.body.sources,
 		// 	})
 		// });
+	}
+
+	componentWillUnMount(){
+		newsStore.removeListener('sources_change',this.fetchNewsSources);
 	}
 
 	handleChange(e){
@@ -59,10 +68,11 @@ export default class Source extends React.Component {
 			<ul> 
 
                 { sources.map(function(sourceName,index){
-                   return <li key={index}>{sourceName.name} <a href={sourceName.url} >{sourceName.url}</a></li>
+                   return <li key={index}> {sourceName.name} <a href={`#/articles?sourceId=${sourceName.id}`} >{sourceName.url}</a></li>
                 }) }
 
             </ul>
+            
             </div>
 
 
