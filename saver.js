@@ -1,41 +1,40 @@
 import React from 'react';
 import Request from 'superagent';
 import _ from 'lodash';
-import '../../sass/styles.scss';
-import * as newsActions from '../actions/newsActions';
-import newsStore from '../stores/newsStore';
 
 export default class Source extends React.Component {
 
 	constructor (){
 		super();
 		this.state = {
-			searchString : '',
-			sources: []
+			searchString : ''
 		};
-
-		this.fetchNewsSources = this.fetchNewsSources.bind(this);
-	}
-
-	fetchNewsSources(){
-		this.setState({ sources: newsStore.fetchNewsSources() });
 	}
 
 	componentWillMount(){
-
-		newsActions.getSources();
-		newsStore.on('sources_change',this.fetchNewsSources);
-		// var url = "https://newsapi.org/v1/sources?language=en";
-		// Request.get(url).then((response) => {
-		// 	this.setState({
-		// 		sources: response.body.sources,
-		// 	})
-		// });
+		var url = "https://newsapi.org/v1/sources?language=en";
+		Request.get(url).then((response) => {
+			this.setState({
+				sources: response.body.sources,
+			})
+		});
 	}
 
 	handleChange(e){
 
         this.setState({searchString:e.target.value});
+    }
+
+    handleClick(sourceName){
+    	var API_KEY = "213327409d384371851777e7c7f78dfe";
+    	var SORT_BY = 'top';
+    	var url = `https://newsapi.org/v1/articles?source=${sourceName}&sortBy=${SORT_BY}&apiKey=${API_KEY}`;
+    	Request.get(url).then((response) => {
+    		this.setState({
+				articles: response.body.articles,
+			})
+    	});
+
     }
 
 	
@@ -58,8 +57,8 @@ export default class Source extends React.Component {
 
 			<ul> 
 
-                { sources.map(function(sourceName,index){
-                   return <li key={index}>{sourceName.name} <a href={sourceName.url} >{sourceName.url}</a></li>
+                { sources.map(function(sourceName){
+                   return <li>{sourceName.name} <a href={sourceName.url} onClick={(e) => { this.handleClick(sourceName.name);}>{sourceName.url}</a></li>
                 }) }
 
             </ul>
