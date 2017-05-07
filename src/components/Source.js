@@ -4,6 +4,7 @@ import _ from 'lodash';
 import '../../sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';
+import AuthHeader from './AuthHeader';
 
 export default class Source extends React.Component {
 
@@ -62,17 +63,19 @@ export default class Source extends React.Component {
         }
 
 		return (
+
 			<div>
+			<AuthHeader />
 			<input type="text" value={this.state.searchString} onChange={this.handleChange.bind(this)} placeholder="Type here" />
 
 			<ul> 
 
                 { sources.map(function(sourceName,index){
-                   return <li key={index}> {sourceName.name} <a href={`#/articles?sourceId=${sourceName.id}`} >{sourceName.url}</a></li>
+                   return <li key={index}> {sourceName.name} <a href={`/articles?sourceId=${sourceName.id}`} >{sourceName.url}</a></li>
                 }) }
 
             </ul>
-            
+
             </div>
 
 
