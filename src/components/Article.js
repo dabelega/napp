@@ -10,6 +10,7 @@ import newsStore from '../stores/newsStore';
 import queryString from 'query-string';
 import Header from '../components/Header';
 import ArticleHeadline from '../components/ArticleHeadline';
+import Footer from '../components/Footer';
 
 
 export default class Article extends React.Component {
@@ -76,11 +77,13 @@ export default class Article extends React.Component {
 				<div>
 					<Header />
 					<ArticleHeadline />
+					<span className="filter"><button className="button-filter" onClick={this.sortByLatest}> Sort By Latest </button></span><br/>
 					<ul> 
 						<div className="article-list">
 			                { articles.map(function(articleName,index){
 			                   return (
 			                   	<div className="wrapper">
+
 			                   		<div className="left">
 			                   			<img className="resize" src={articleName.urlToImage}/>
 			                   			
@@ -89,10 +92,10 @@ export default class Article extends React.Component {
 
 			                   		<div className="right">
 			                   			<span className="content">
-			                   			<span className="heading">{articleName.title} </span><br/><br/>
+			                   			<div className="heading"><span className="title">{articleName.title}</span></div><br/>
 			                   			<div className="test"><span className="description">{articleName.description}</span></div><br/>
-			                   			<span className="author">Written by: {articleName.author}</span><br/><br/>
-			                   			<button className="button"><span className="button-link"><Link to = "{articleName.url}">Read More</Link></span></button>
+			                   			
+			                   			<button className="button"><span className="button-link"><a href={articleName.url} target="_blank">Read More</a></span></button><br/>
 			                   			
 
 			                   			</span>
@@ -104,7 +107,8 @@ export default class Article extends React.Component {
 			                }) }
 		                </div>
 		            </ul>
-		            <button onClick={this.sortByLatest}> Sort By Latest </button>
+		            
+		           
 	            </div>
             </div>
 		);

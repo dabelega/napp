@@ -195,14 +195,16 @@ li a:hover {
 .articles-main{
 	background: url('/images/background-main.png') repeat-y ;
 	font-family: 'Abel';
-    height: 2800px;  
+    height: 2900px;  
   
 }
 
 .article-list{
 	  width: 100%;
 	  float: left;
-	  padding-left: 65px;
+	  padding-left: 125px;
+	  padding-top: 30px;
+	  
 	  
 }
 
@@ -211,9 +213,7 @@ li a:hover {
     float: left;
     width: 42%;
 }
-.left{
 
-}
 
 .right{
 	margin: 0 auto;
@@ -237,10 +237,11 @@ li a:hover {
 }
 
 .heading{
-	font-size: 25px;
+	font-size: 20px;
 	color: $white;
 	text-decoration: underline;
 	font-weight: bold;
+	width:60%;
 }
 
 .description{
@@ -252,11 +253,11 @@ li a:hover {
 }
 
 .button {
-    background-color: #FFAB4A; /* Green background */
+    background-color: #FFAB4A; 
     border: none; /* Remove borders */
-    color: white; /* White text */
+    color: white; 
     padding: 12px 24px; /* Some padding */
-    font-size: 16px; /* Set a font-size */
+    font-size: 16px; 
 }
 
 .button{
@@ -267,9 +268,24 @@ li a:hover {
 	}
 	
 }
+
+
 .button .button-link:hover{
 	color: #333;
 }
+
+.button-filter {
+    background-color: #000000; 
+    border: none; /* Remove borders */
+    color: white; 
+    padding: 8px 14px; /* Some padding */
+    font-size: 16px; 
+}
+
+.button-filter:hover{
+	color: #333;
+}
+
 
 .author{
 	font-size:18px;
@@ -280,14 +296,19 @@ li a:hover {
 	margin:0 auto;
 	font-size: 18px;
 	color: $white;
-	width: 70%;
+	width: 80%;
 	background-color: #FFAB4A;
 	padding: 10px;
 	border-radius: 3px;
 	margin-bottom: 40px; 
 }
 
+.filter{
+	margin-left:120px; 
+	font-family: 'Abel';
+	padding-bottom: 20px;
 
+}
 
 
 
