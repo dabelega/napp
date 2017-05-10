@@ -4,7 +4,9 @@ import _ from 'lodash';
 import '../../sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';
-import AuthHeader from './AuthHeader';
+import Header from './Header';
+import Footer from './Footer';
+import SourceHeadline from './SourceHeadline';
 
 export default class Source extends React.Component {
 
@@ -14,9 +16,11 @@ export default class Source extends React.Component {
 			searchString : '',
 			sources: []
 			
+			
 		};
 
 		this.fetchNewsSources = this.fetchNewsSources.bind(this);
+		
 	}
 
 	fetchNewsSources(){
@@ -64,18 +68,25 @@ export default class Source extends React.Component {
 
 		return (
 
-			<div>
-			<AuthHeader />
-			<input type="text" value={this.state.searchString} onChange={this.handleChange.bind(this)} placeholder="Type here" />
+			<div className="sources-main">
+				<Header />
+				<div className="search-container">
+					<SourceHeadline />
+					<input type="text" value={this.state.searchString} onChange={this.handleChange.bind(this)} placeholder="Type here" />
+				</div>
+				<br/>
+				<br/>
+				<div className="source-list">
+					<ul> 
 
-			<ul> 
+		                { sources.map(function(sourceName,index,sortOptions){
+		                   return <li key={index}> {sourceName.name} <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sourceName.sortBysAvailable}`} >View Articles</a></li>
+		                }) }
 
-                { sources.map(function(sourceName,index){
-                   return <li key={index}> {sourceName.name} <a href={`/articles?sourceId=${sourceName.id}`} >{sourceName.url}</a></li>
-                }) }
+		            </ul>
+	            </div>
 
-            </ul>
-
+	            <Footer />
             </div>
 
 

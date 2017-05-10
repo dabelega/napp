@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
 $white : #ffffff;
 
+html{
+	body{
+		margin:0;
+	}
+}
 .main-body{
 	margin:0;
 	background: url('/images/background-main.png') repeat-y ;
@@ -48,7 +54,7 @@ $white : #ffffff;
 }
 
 .center-div p{
-	font-family: "Arial Narrow";
+	font-family: 'Abel',serif;
 	font-size: 25px;
 	font-weight: 1px;
 	padding-top: 15px;
@@ -63,6 +69,227 @@ $white : #ffffff;
 	min-width: 100%;
 	min-height: 700px;
 }
+
+th{
+	text-align: left;
+	font-family: 'Arial Narrow';
+	/*background-color: #FFAB4A;*/
+	padding:5px;
+	padding-bottom: 10px;
+	border-radius: 2px;
+}
+
+.footer{
+	background: #262626;
+	padding: 10px;
+	border-radius: 1px;
+	margin-top: 60px; 
+	font-family: 'Abel';
+	color: #89969c;
+	padding-left: 65px;
+
+}
+
+/* Sources Page*/
+
+.sources-main{
+	margin: 0;
+	background: url('/images/background-main.png') repeat-y ;
+	font-family: 'Abel';
+}
+
+.search-container{
+  width: 550px;
+  white-space: nowrap;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.search-container {
+	input{
+		  width: 500px;
+		  height: 50px;
+		  background: #2b303b;
+		  border: none;
+		  font-size: 10pt;
+		  float: left;
+		  color: #63717f;
+		  padding-left: 45px;
+		  -webkit-border-radius: 5px;
+		  -moz-border-radius: 5px;
+		  border-radius: 5px;
+		  
+	}
+  
+}
+
+.search-container input:hover, 
+.search-container input:focus, 
+.search-container input:active{
+    outline:none;
+    background: #ffffff;
+  }
+
+
+
+.source-list {
+  width: 500px;
+  height: 500px;
+  overflow: scroll;;
+  position: relative;
+  background-color: #FFAB4A;
+  padding: 10px;
+  border-radius: 2px;
+  margin: 0 auto;
+
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  /*font: 200 20px/1.5 Helvetica, Verdana, sans-serif;*/
+  border-bottom: 1px solid $white;
+}
+
+li:last-child {
+  border: none;
+}
+
+li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 200px;
+  margin-left: 320px;
+
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+li a:hover {
+  font-size: 15px;
+  background: #f6f6f6;
+}
+
+
+.source-headline{
+	color: $white;
+	font-size: 18px;
+}
+
+.right{
+	float: right;
+}
+
+
+
+/*Articles*/
+.articles-main{
+	background: url('/images/background-main.png') repeat-y ;
+	font-family: 'Abel';
+    height: 2800px;  
+  
+}
+
+.article-list{
+	  width: 100%;
+	  float: left;
+	  padding-left: 65px;
+	  
+}
+
+.article-list1{
+	
+    float: left;
+    width: 42%;
+}
+.left{
+
+}
+
+.right{
+	margin: 0 auto;
+	width: 67%;
+	margin-top: -260px; 
+	padding-left: -200px;
+	
+}
+
+.resize{
+	height: auto; 
+    width: auto; 
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.content{
+	min-height: 400px;
+	width: 400px;
+
+}
+
+.heading{
+	font-size: 25px;
+	color: $white;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.description{
+	font-size: 18px;
+}
+
+.test{
+	width: 57%;
+}
+
+.button {
+    background-color: #FFAB4A; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 24px; /* Some padding */
+    font-size: 16px; /* Set a font-size */
+}
+
+.button{
+	.button-link{
+		color: #000000;
+		text-decoration: none;
+		font-family: 'Abel';
+	}
+	
+}
+.button .button-link:hover{
+	color: #333;
+}
+
+.author{
+	font-size:18px;
+	color: #e2474c;
+}
+
+.article-headline{
+	margin:0 auto;
+	font-size: 18px;
+	color: $white;
+	width: 70%;
+	background-color: #FFAB4A;
+	padding: 10px;
+	border-radius: 3px;
+	margin-bottom: 40px; 
+}
+
+
+
+
 
 /*$white : #ffffff;
 
@@ -95,6 +322,10 @@ $white : #ffffff;
 		}
 }
 
+.tabletext{
+	font-family:'Arial Narrow';
+	text-align: center;
+}
 
 .logo{
 	float: left;

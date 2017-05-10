@@ -4,6 +4,7 @@ import App from 'components/app';
 import Header from 'components/Header';
 import Headline from 'components/Headline';
 import Featured from 'components/Featured';
+import Footer from 'components/Footer';
 
 
 export default class Home extends React.Component {
@@ -14,6 +15,7 @@ export default class Home extends React.Component {
         <Header />
         <Headline />
         <Featured />
+        <Footer />
       </div>
       );
 	}

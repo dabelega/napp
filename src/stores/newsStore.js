@@ -6,7 +6,6 @@ class NewsStores extends EventEmitter{
 		super();
 		this.sources = [];
 		this.articles = [];
-
 	} 
 
 	fetchNewsSources(){
@@ -16,6 +15,7 @@ class NewsStores extends EventEmitter{
 	fetchNewsArticles(){
 		return this.articles;
 	}
+
 
 	handleNewsAction(result) {
 		switch(result.actionType){
@@ -30,6 +30,8 @@ class NewsStores extends EventEmitter{
 				this.emit('articles_change');
 				break;
 			}
+
+			
 		}
 	}	
 }

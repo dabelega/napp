@@ -10,37 +10,65 @@ export default class Featured extends React.Component {
      	<table style={ {width:width} } >
      		<thead>
 			  <tr >
-			    <th style={{width:'30%'}}></th>
-			    <th style={{width:'30%'}}></th> 
-			    <th style={{width:'30%'}}></th> 
-			    <th style={{width:'30%'}}></th> 
+			    <th style={{width:'22%'}}></th>
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			   
 			  </tr>
 			 </thead> 
 
 			 <tbody >
 				  <tr >
-				    <td> <img src="../../images/fox.png" /> </td>
-				    <td><img src="../../images/cnn.png" /> </td>
-				    <td><img src="../../images/techcrunch.png" /></td>
-				    <td><img src="../../images/al-jazeera.png" /></td>
+				    <td><img src="../../images/logos/bbc.png" /></td>
+				    <td><img src="../../images/logos/techrunch.png" /></td>
+				     <td><img src="../../images/logos/espn-main.png" /> </td>
+				    
+				    <td><img src="../../images/logos/nyt.png" /></td>
+				     <td><img src="../../images/logos/espn.png" /></td>
 				    </tr> 
 			   </tbody>
 
 			 <thead>
 			  <tr >
-			    <th style={{width:'30%'}}></th>
-			    <th style={{width:'30%'}}></th> 
-			    <th style={{width:'30%'}}></th> 
-			    <th style={{width:'30%'}}></th> 
+			    <th style={{width:'22%'}}></th>
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			   
 			  </tr>
 			 </thead> 
 			 
 			 <tbody >
 				  <tr >
-				    <td> <img src="../../images/bbc.png" /> </td>
-				    <td><img src="../../images/cnn.png" /> </td>
-				    <td><img src="../../images/cbs.png" /></td>
-				    <td><img src="../../images/msnbc.png" /></td>
+				    <td> <img src="../../images/logos/techradar.png" /> </td>
+				    <td><img src="../../images/logos/al-jazeera.png" /> </td>
+				     <td><img src="../../images/logos/bloomberg.png" /></td>
+				    <td><img src="../../images/logos/next-web.png" /> </td>
+				       <td><img src="../../images/logos/das.png" /> </td>
+				    </tr> 
+			   </tbody>
+
+			   <thead>
+			  <tr >
+			    <th style={{width:'22%'}}></th>
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			    <th style={{width:'22%'}}></th> 
+			   
+			  </tr>
+			 </thead> 
+
+			 <tbody >
+				  <tr >
+				    <td> <img src="../../images/logos/bbc-sport.png" /> </td>
+				    <td><img src="../../images/logos/reuters.png" /> </td>
+				      <td><img src="../../images/logos/usa-today.png" /> </td>
+				    <td><img src="../../images/logos/cnbc.png" /> </td>
+				       <td><img src="../../images/logos/ign.png" /> </td>
 				    </tr> 
 			   </tbody>
 

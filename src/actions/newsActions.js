@@ -10,11 +10,12 @@ export function getSources() {
 	});
 }
 
-export function getArticles(sourceName) {
-	newsAPI.showArticles(sourceName,(data) => {
+export function getArticles(sourceName,sortType) {
+	newsAPI.showArticles(sourceName,sortType,(data) => {
 		Dispatcher.dispatch({
 			actionType:'NEWS_ARTICLES',
 			data,
 		});
 	});
 }
+

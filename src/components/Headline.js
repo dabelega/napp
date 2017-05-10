@@ -7,7 +7,8 @@ export default class Headline extends React.Component {
      <div className="center-div">
      	<p>
      	Napp gathers your favorite news all in one place. No more switching from tab to tab. 
-     	Get the latest headlines from a variety sources and blogs. Stay up to date.
+     	Get the latest headlines from a variety sources and blogs. Stay up to date. Napp can provide headlines 
+     	from 70 worldwide sources, including:
      	</p>
       </div>);
 	}
