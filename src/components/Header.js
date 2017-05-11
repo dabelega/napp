@@ -11,7 +11,7 @@ import MetaTags from 'react-meta-tags';
 var auth0 = new Auth0({
     domain:       'dhaniapps.auth0.com',
     clientID:     'bizu45qJ5e3DSHdjnQduVkJyN0VsfYq8',
-    callbackURL:  'http://127.0.0.1:3000/source',
+    callbackURL:  'http://localhost:3000/source',
     callbackOnLocationHash: true
   });
 

@@ -9,9 +9,15 @@ app.use(express.static(fpath));
 router.get("/",function(req,res){
    res.sendFile(fpath + "index.html");
 })
-router.get("*",function(req,res){
-   res.send("404 not found");
+
+router.get("/source", function(req, res){
+	console.log(res.locals)
 })
+
+// router.get("*",function(req,res){
+//    res.send("404 not found");
+// })
+
 app.use("/",router);
 
 app.listen(process.env.PORT || 3000, function(){
