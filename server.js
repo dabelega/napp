@@ -6,8 +6,8 @@ var router = express.Router();
 var fpath = path.join(__dirname);
 
 app.use(express.static(fpath));
-router.get("/",function(req,res){
-   res.sendFile(fpath + "index.html");
+router.get("*",function(req,res){
+   res.sendFile(fpath + "/index.html");
 })
 
 router.get("/source", function(req, res){
