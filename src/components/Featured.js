@@ -3,11 +3,10 @@ import '../../sass/styles.scss';
 
 export default class Featured extends React.Component {
 	render() {
-		var width: '100%';
-		var colwidth: '25%'; 
+		
 		return (
      <div className="center-div">
-     	<table style={ {width:width} } >
+     	<table style={ {width:'100%'} } >
      		<thead>
 			  <tr >
 			    <th style={{width:'22%'}}></th>

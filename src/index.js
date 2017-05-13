@@ -7,16 +7,16 @@ import Article from './components/Article';
 
 
 render (
-		<Router>
-			<div>
-				<Switch>
-					<Route path="/" exact component={Home} />
-		        	<Route path="/source" exact component={Source} />
-		        	<Route path="/articles" component={Article} />
-		        </Switch>
+  <Router>
+    <div>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/source" exact component={Source} />
+        <Route path="/articles" component={Article} />
+      </Switch>
 
-        	</div>
-    	</Router>,
+    </div>
+  </Router>,
 	document.getElementById('app')
 );
 
