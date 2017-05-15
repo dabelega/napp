@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../utils/platform.js';
-import AuthActions from '../actions/AuthActions';
+import '../../sass/styles.scss';
+import '../utils/auth0.js';
+import * as AuthActions from '../actions/AuthActions';
 import AuthStore from '../stores/AuthStore';
+
 import MetaTags from 'react-meta-tags';
 
 
@@ -14,10 +16,7 @@ var auth0 = new Auth0({
   });
 
 
-
 export default class Header extends React.Component { 
-
-
     constructor() {
         super();
         this.state = {
@@ -36,16 +35,16 @@ export default class Header extends React.Component {
 }
 
 componentWillMount(){
-  var result = auth0.parseHash(window.location.hash);
-  console.log(result);
-  if (result && result.id_token) {
-  auth0.getProfile(result.id_token, (err, profile) => {
-    profile = profile.name;
-    const token = result.id_token;
-    AuthActions.logUserIn(profile, token);
-   this.setState({authenticated: true});
-  });
-}
+    var result = auth0.parseHash(window.location.hash);
+    console.log(result);
+    if (result && result.id_token) {
+    auth0.getProfile(result.id_token, (err, profile) => {
+      profile = profile.name;
+      const token = result.id_token;
+      AuthActions.logUserIn(profile, token);
+     this.setState({authenticated: true});
+    });
+  }
 }
 
   logout() {
@@ -67,15 +66,18 @@ render() {
             <li><a href="/">About Napp</a></li>
             <li><a href="/">Contact us</a></li>
             <li><a href="/source">Sources</a></li>
-             {!this.state.authenticated ? (
-                     <a onClick={()=>this.login()}>&nbsp; Sign In with Google</a> ) : (
+            {!this.state.authenticated ? (
+                     <a onClick={()=>this.login()}>&nbsp;&nbsp;Sign In with Google</a> ) : (
 
-                    <Link to="" onClick={()=>this.logout()}>Sign Out</Link>   
-              )}     
+                    <Link to="" onClick={()=>this.logout()}>&nbsp;&nbsp;Sign Out</Link>   
+                    )}     
             
-
           </ul>
         </div> 
+
+         
+                                                                                         
+         
 
         <div className="main_menu_area">
           <ul id="nav">
