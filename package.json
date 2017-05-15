@@ -4,6 +4,7 @@
   "description": "A news Application",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha -r mock-local-storage --require ignore-styles --compilers js:babel-core/register --colors ./src/test/*/*.spec.js",
     "test:watch": "npm test -- --watch",
     "elint": "eslint . — ext .js — ext .jsx — cache || true",
