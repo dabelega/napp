@@ -9,7 +9,6 @@ import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';
 import queryString from 'query-string';
 import Header from '../components/Header';
-import ArticleHeadline from '../components/ArticleHeadline';
 import Footer from '../components/Footer';
 
 
@@ -76,7 +75,7 @@ export default class Article extends React.Component {
 			<div className="articles-main">
 				<div>
 					<Header />
-					<ArticleHeadline />
+					
 					<span className="filter"><button className="button-filter" onClick={this.sortByLatest}> Sort By Latest </button></span><br/>
 					<ul> 
 						<div className="article-list">
