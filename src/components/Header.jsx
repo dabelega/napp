@@ -71,7 +71,7 @@ render() {
             <li><a href="index.html">Home</a></li>
             <li><a href="/">About Napp</a></li>
             <li><a href="/">Contact us</a></li>
-            <li><a href="/">Sources</a></li>
+            <li><a href="/source">Sources</a></li>
             <li><a href="/">Login</a></li>
           </ul>
         </div> 

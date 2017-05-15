@@ -72,44 +72,42 @@ export default class Article extends React.Component {
 		var articles = _.map(this.state.articles);
 
 		return (
-			<div className="articles-main">
-				<div>
-					<Header />
+		  <div className="wrapper">
+		    <div className="center">
+		      <Header />
+		      <div className="main_content floatleft">
+		        <div className="left_coloum floatleft">
+		              <div>
+					  
 					
-					<span className="filter"><button className="button-filter" onClick={this.sortByLatest}> Sort By Latest </button></span><br/>
-					<ul> 
-						<div className="article-list">
+					  <span className="btn btn-info"><button className="button-filter" onClick={this.sortByLatest}> Sort By Latest </button></span><br/>
+					  <ul> 
 			                { articles.map(function(articleName,index){
 			                   return (
-			                   	<div className="wrapper">
 
-			                   		<div className="left">
-			                   			<img className="resize" src={articleName.urlToImage}/>
-			                   			
-			                   			<br/><br/><br/>
-			                   		</div>
-
-			                   		<div className="right">
-			                   			<span className="content">
-			                   			<div className="heading"><span className="title">{articleName.title}</span></div><br/>
-			                   			<div className="test"><span className="description">{articleName.description}</span></div><br/>
-			                   			
-			                   			<button className="button"><span className="button-link"><a href={articleName.url} target="_blank">Read More</a></span></button><br/>
-			                   			
-
-			                   			</span>
-			                   			
-			                   		</div>
+			                   	<div className="single_left_coloum_wrapper">
+                    				<h3 className="title article-title">{articleName.title}</h3>
+                    			    <div className="single_left_coloum floatleft">	
+	                    				<img src={articleName.urlToImage} alt="" />
+						              	<h3 className="article-author">by {articleName.author}</h3>
+						              	<p>{articleName.description}</p>
+						              	
+						              
+						              <a className="readmore" href={articleName.url}>read more</a>	
+					              </div>	
+			                   	</div>
 			                   		
-			                   	</div>	
+			                   	
 			                   	);
-			                }) }
-		                </div>
+			                }) 
+			            }
+		                
 		            </ul>
-		            
-		           
 	            </div>
-            </div>
+	          </div>
+	        </div>
+	      </div>
+        </div>
 		);
 	}
 	

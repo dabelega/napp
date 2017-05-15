@@ -6,7 +6,7 @@ import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';
 import Header from '../components/Header';
 import Footer from './Footer';
-
+import Trending from '../components/Trending';
 
 export default class Source extends React.Component {
 
@@ -67,25 +67,27 @@ export default class Source extends React.Component {
         }
 
 		return (
+			
+		<div className="wrapper">
+			<div className="center">
+				<Header />
 
-			<div className="wrapper">
-				<div className="center">
-					<Header />
+				<div className="search-container" >
 					<input type="text" value={this.state.searchString} onChange={this.handleChange.bind(this)} placeholder="Type here" />
-				
+				</div>
 				
 				<div className="source-list">
 					<ul> 
-
 		                { sources.map(function(sourceName,index,sortOptions){
-		                   return <li key={index}> {sourceName.name} <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sourceName.sortBysAvailable}`} >View Articles</a></li>
+		                   	return <li key={index}> {sourceName.name} <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sourceName.sortBysAvailable}`} >View Articles</a></li>
 		                }) }
 
 		            </ul>
-		            <Footer />
-		        </div>
-	            </div>
-            </div>
+		         </div>
+		        <Footer />  
+	        </div>
+        </div>
+     
 
 
 		);
