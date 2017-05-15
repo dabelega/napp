@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../utils/platform';
 import AuthActions from '../actions/AuthActions';
 import AuthStore from '../stores/AuthStore';
-
 import MetaTags from 'react-meta-tags';
 
 
@@ -38,6 +37,7 @@ export default class Header extends React.Component {
 
 componentWillMount(){
   var result = auth0.parseHash(window.location.hash);
+  console.log(result);
   if (result && result.id_token) {
   auth0.getProfile(result.id_token, (err, profile) => {
     profile = profile.name;
@@ -55,11 +55,6 @@ componentWillMount(){
     window.location='/';
   }
 
-
-  signIn (){
-    
-  }
-
 render() {
   return (
       <div className="header">
@@ -72,13 +67,19 @@ render() {
             <li><a href="/">About Napp</a></li>
             <li><a href="/">Contact us</a></li>
             <li><a href="/source">Sources</a></li>
-            <li><a href="/">Login</a></li>
+             {!this.state.authenticated ? (
+                     <a onClick={()=>this.login()}>&nbsp; Sign In with Google</a> ) : (
+
+                    <Link to="" onClick={()=>this.logout()}>Sign Out</Link>   
+              )}     
+            
+
           </ul>
         </div> 
 
         <div className="main_menu_area">
           <ul id="nav">
-            <li><a href="/">GENERAL</a></li>
+            <li><a href="/">GENERAL</a></li>                                                                     
             <li><a href="/">SPORTS</a></li>
             <li><a href="/">TECHNOLOGY</a></li>
             <li><a href="/">BUSINESS</a></li>
