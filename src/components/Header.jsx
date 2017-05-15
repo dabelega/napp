@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../utils/platform';
+import '../utils/platform.js';
 import AuthActions from '../actions/AuthActions';
 import AuthStore from '../stores/AuthStore';
 import MetaTags from 'react-meta-tags';
