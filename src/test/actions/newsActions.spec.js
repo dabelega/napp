@@ -2,8 +2,6 @@ import React from 'react';
 import { expect } from 'chai';
 import * as newsActions from '../../actions/newsActions';
 import newsstores from '../../stores/newsStore';
-import newsDispatcher from '../../dispatcher/Appdispatcher';
-
 
 
 describe('Napp Actions', () => {
