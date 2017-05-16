@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha -r mock-local-storage --require ignore-styles --compilers js:babel-core/register --colors ./src/test/*/*.spec.js",
+    "test": "nyc --reporter=html --reporter=text mocha -r mock-local-storage --require ignore-styles --compilers js:babel-core/register --colors ./src/test/*/*.spec.js",
     "test:watch": "npm test -- --watch",
     "elint": "eslint . — ext .js — ext .jsx — cache || true",
-    "elint:table": "eslint . — ext .js — ext .jsx — cache — format table || true", 
-    "elint:summary": "eslint . — ext .js — ext .jsx — cache — format ‘node_modules/eslint-friendly-formatter’ || true"
-
+    "elint:table": "eslint . — ext .js — ext .jsx — cache — format table || true",
+    "elint:summary": "eslint . — ext .js — ext .jsx — cache — format ‘node_modules/eslint-friendly-formatter’ || true",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
+    "coveralls": "^2.13.1",
     "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
@@ -62,6 +63,7 @@
     "ignore-styles": "^5.0.1",
     "mocha": "^3.3.0",
     "mock-local-storage": "^1.0.2",
+    "nyc": "^10.3.2",
     "react-dom": "^15.5.4",
     "react-hot-loader": "^1.3.1",
     "react-test-renderer": "^15.5.4",
