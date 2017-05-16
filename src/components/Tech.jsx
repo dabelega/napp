@@ -8,7 +8,11 @@ export default class Tech extends React.Component {
         <h2 className="title">TECH NEWS</h2>
             
         <div className="single_cat_left_content floatleft">
-          <h3>World's biggest cyberattack sends countries into 'disaster recovery mode'</h3>
+          <h3>
+            <a href="http://money.cnn.com/2017/05/14/technology/ransomware-attack-threat-escalating/">
+              World's biggest cyberattack sends countries into 'disaster recovery mode'
+            </a>
+          </h3>
           <p>The biggest cyberattack the world has ever seen is still claiming victims</p>
           <p className="single_cat_left_content_meta">by 
           <span> Mark Thompson and Jethro Mullen</span>
