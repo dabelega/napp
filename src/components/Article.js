@@ -33,19 +33,15 @@ export default class Article extends React.Component {
 	componentWillMount(){
 
 		window.parsed = queryString.parse(this.props.location.search);
-		var sourceName = parsed.sourceId;
-		//var sortType = parsed.sortOptions;
-
+		let sourceName = parsed.sourceId;
 		newsActions.getArticles(sourceName,'top');
 		newsStore.on('articles_change',this.fetchNewsArticles);
 
 	}
 
 	sortByLatest(){
-		var sourceName = parsed.sourceId;
-		var sortType = parsed.sortOptions;
-		console.log(typeof(sortType));
-		
+		let sourceName = parsed.sourceId;
+		let sortType = parsed.sortOptions;
 		var filter = sortType.split(',');
 			var i = 0;
 			while(i < filter.length){
@@ -53,14 +49,13 @@ export default class Article extends React.Component {
 					newsActions.getArticles(sourceName,filter[i]);
 					newsStore.on('articles_change',this.fetchNewsArticles);
 				}
-
 				i++
 			}
 	}
 	
 	render() {
 		
-		var articles = _.map(this.state.articles);
+		let articles = _.map(this.state.articles);
 
 		return (
 		  <div className="wrapper">
@@ -78,7 +73,7 @@ export default class Article extends React.Component {
 			                { articles.map(function(articleName,index){
 			                   return (
 
-			                   		<div className="col-lg-4">
+			                   		<div className="col-lg-6">
 			                   			<h3 className="title article-title">{articleName.title}</h3>
 	                    				<img src={articleName.urlToImage} alt="" />
 						              	<h3 className="article-author">by {articleName.author}</h3>
@@ -97,6 +92,19 @@ export default class Article extends React.Component {
 		                
 		            </ul>
 	            </div>
+
+	            <div className="banner0-box">
+		            <div className="banner0 floatright">
+		            	<div className="google">
+		            		<h2>Enjoying Napp?</h2>
+		            		<p>
+		            			Napp gives you exclusive access to over 78 news sources. 
+		            			Let us know what you think. <br/><br/>
+		            			Tweet at us using <a>@thenappjournal</a>
+		            		</p>
+		            	</div>
+		            </div>
+		        </div>
 	          </div>
 	            <br/><br/>
 	            <Footer />

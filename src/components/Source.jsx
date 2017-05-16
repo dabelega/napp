@@ -48,8 +48,8 @@ export default class Source extends React.Component {
 	
 	render() {
 
-		var searchString = this.state.searchString.trim().toLowerCase();
-		var sources = _.map(this.state.sources);
+		let searchString = this.state.searchString.trim().toLowerCase();
+		let sources = _.map(this.state.sources);
 
 		if(searchString.length > 0){
 
