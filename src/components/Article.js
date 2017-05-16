@@ -47,18 +47,9 @@ export default class Article extends React.Component {
 		console.log(typeof(sortType));
 		
 		var filter = sortType.split(',');
-		console.log(filter);
-			// for (i = 0; i < filter.length; i++) {
-			// 	if(filter[i] == 'latest'){
-			// 		newsActions.getArticles(sourceName,'latest');
-			//<li key={index}>{articleName.aurthor} {articleName.title} </li>
-			// 		newsStore.on('articles_change',this.fetchNewsArticles);
-			// 	}	
-			// }
 			var i = 0;
 			while(i < filter.length){
 				if(filter[i] == 'latest'){
-					console.log(filter[i]);
 					newsActions.getArticles(sourceName,filter[i]);
 					newsStore.on('articles_change',this.fetchNewsArticles);
 				}
@@ -75,39 +66,42 @@ export default class Article extends React.Component {
 		  <div className="wrapper">
 		    <div className="center">
 		      <Header />
-		      <div className="main_content floatleft">
-		        <div className="left_coloum floatleft">
-		              <div>
+		      <div className="main_content2 floatleft">
+		        <div className="left_coloum2 floatleft">
+		              
 					  
-					
-					  <span className="btn btn-info"><button className="button-filter" onClick={this.sortByLatest}> Sort By Latest </button></span><br/>
+					  <br/><br/>
+					  <span className="button-filter"><button className="btn btn-info" onClick={this.sortByLatest}> Sort By Latest </button></span><br/>
 					  <ul> 
+					  			<div className="row">
+			                   		
 			                { articles.map(function(articleName,index){
 			                   return (
 
-			                   	<div className="single_left_coloum_wrapper">
-                    				<h3 className="title article-title">{articleName.title}</h3>
-                    			    <div className="single_left_coloum floatleft">	
+			                   		<div className="col-lg-4">
+			                   			<h3 className="title article-title">{articleName.title}</h3>
 	                    				<img src={articleName.urlToImage} alt="" />
 						              	<h3 className="article-author">by {articleName.author}</h3>
 						              	<p>{articleName.description}</p>
 						              	
 						              
 						              <a className="readmore" href={articleName.url}>read more</a>	
-					              </div>	
-			                   	</div>
+					              	</div>
 			                   		
 			                   	
 			                   	);
 			                }) 
 			            }
+			           
+			          </div>
 		                
 		            </ul>
 	            </div>
 	          </div>
+	            <br/><br/>
+	            <Footer />
 	        </div>
 	      </div>
-        </div>
 		);
 	}
 	

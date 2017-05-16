@@ -7,7 +7,7 @@ export default class GoogleSignIn extends React.Component {
     return( 
 	  <div className="single_sidebar">
 	    <div className="single_sidebar">
-          <div className="news-letter">
+          <div className="google">
             <h2>Sign In with Google</h2>
             <p>With Google Sign In you can:</p>
             <ul>
@@ -16,7 +16,7 @@ export default class GoogleSignIn extends React.Component {
               <li>Add to favourites</li>
             </ul>
             <button className="btn btn-danger">Sign In now</button>
-            <p className="news-letter-privacy">We will not share your account details!</p>
+            <p className="google-privacy">We will not share your account details!</p>
           </div>
          </div>
        </div>

@@ -32,15 +32,8 @@ export default class Source extends React.Component {
 	}
 
 	componentWillMount(){
-
 		newsActions.getSources();
 		newsStore.on('sources_change',this.fetchNewsSources);
-		// var url = "https://newsapi.org/v1/sources?language=en";
-		// Request.get(url).then((response) => {
-		// 	this.setState({
-		// 		sources: response.body.sources,
-		// 	})
-		// });
 	}
 
 	componentWillUnMount(){
