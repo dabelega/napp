@@ -1,7 +1,4 @@
 node_modules
 README.md
-webpack.config.js
 public/bundle.js
 coverage
-src/tests
-server.js
