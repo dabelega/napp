@@ -1,90 +1,82 @@
 import React from 'react';
-import Request from 'superagent';
 import _ from 'lodash';
 import '../../sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';
 import Header from '../components/Header';
 import Footer from './Footer';
-import Trending from '../components/Trending';
 
 export default class Source extends React.Component {
+  constructor (){
+	super();
+	this.state = {
+      searchString : '',
+      sources: []			
+	};
+	this.fetchNewsSources = this.fetchNewsSources.bind(this);		
+  }
 
-	constructor (){
-		super();
-		this.state = {
-			searchString : '',
-			sources: []
-			
-			
-		};
+  componentWillMount(){
+    newsActions.getSources();
+    newsStore.on('sources_change',this.fetchNewsSources);
+  }
 
-		this.fetchNewsSources = this.fetchNewsSources.bind(this);
-		
-	}
+  componentWillUnMount(){
+    newsStore.removeListener('sources_change',this.fetchNewsSources);
+  }
 
-	fetchNewsSources(){
-		this.setState({ sources: newsStore.fetchNewsSources() });
-	}
+  fetchNewsSources(){
+    this.setState({ sources: newsStore.fetchNewsSources() });
+  }
 
-	fetchNewsArticles(){
-		this.setState({ sources: newsStore.fetchNewsArticles() });
-	}
+  fetchNewsArticles(){
+    this.setState({ sources: newsStore.fetchNewsArticles() });
+  }
 
-	componentWillMount(){
-		newsActions.getSources();
-		newsStore.on('sources_change',this.fetchNewsSources);
-	}
+  handleChange(e){
+    this.setState({searchString:e.target.value});
+  }
 
-	componentWillUnMount(){
-		newsStore.removeListener('sources_change',this.fetchNewsSources);
-	}
-
-	handleChange(e){
-
-        this.setState({searchString:e.target.value});
+  render() {
+    let searchString = this.state.searchString.trim().toLowerCase();
+    let sources = _.map(this.state.sources);
+    
+    if(searchString.length > 0){
+      sources = sources.filter(function(sourceName){
+        return sourceName.name.toLowerCase().match( searchString );
+      });
     }
 
-	
-	render() {
-
-		let searchString = this.state.searchString.trim().toLowerCase();
-		let sources = _.map(this.state.sources);
-
-		if(searchString.length > 0){
-
-            sources = sources.filter(function(sourceName){
-                return sourceName.name.toLowerCase().match( searchString );
-            });
-
-        }
-
-		return (
-			
-		<div className="wrapper">
-			<div className="center">
-				<Header />
-
-				<div className="search-container" >
-					<input type="text" value={this.state.searchString} onChange={this.handleChange.bind(this)} placeholder="Type here" />
-				</div>
-				
-				<div className="source-list">
-					<ul> 
-		                { sources.map(function(sourceName,index,sortOptions){
-		                   	return <li key={index}> {sourceName.name} <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sourceName.sortBysAvailable}`} >View Articles</a></li>
-		                }) }
-
-		            </ul>
-		         </div>
-		        <Footer />  
-	        </div>
+  return (
+    <div className="wrapper">
+      <div className="center">
+        <Header />
+        <div className="search-container" >
+          <input type="text" value={this.state.searchString} onChange={this.handleChange.bind(this)} placeholder="Type here" />
         </div>
-     
+				
+        <div className="source-list">
+          <ul> 
+            { sources.map(function(sourceName,index,sortOptions){
+              return (
+                <li key={index}> 
+                  {sourceName.name} 
+                  <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sourceName.sortBysAvailable}`} >
+                   View Articles
+                  </a>
+                </li>
+               );
+              }) 
+            }
 
-
-		);
-	}
+          </ul>
+        </div>
+        <Footer />  
+      </div>
+    </div>
+  );
+}
 
 	
 }	
+

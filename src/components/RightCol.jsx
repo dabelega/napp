@@ -3,13 +3,11 @@ import '../../sass/styles.scss';
 import GoogleSignIn from '../components/GoogleSignIn';
 import Sports from '../components/Sports';
 
-export default class RightCol extends React.Component {
-  render() {
-    return( 
-	  <div className="sidebar floatright">
-	    <GoogleSignIn />
-	    <Sports />
-	  </div> 
-      );
-	}
-}
+const RightCol = () => (
+  <div className="sidebar floatright">
+    <GoogleSignIn />
+    <Sports />
+  </div>
+);
+
+export default RightCol;
