@@ -63,6 +63,17 @@ img{
  	-ms-transition:all 1.3s ease 0s;
  }
 
+ .about-text{
+ 	font-size: 14px;
+ 	margin-top: -60px;
+ 	line-height: 25px;
+ 	margin-bottom: 30px;
+ 	background-color: rgba(51, 51, 51, 0.1);
+ 	padding: 20px;
+ 	border-radius: 5px;
+ 	color: #fff;
+ }
+
  .floatleft{
  	float: left;
  }
@@ -130,7 +141,6 @@ img{
 .top_menu ul li a:hover{
 	text-decoration:underline;
 }
-
 
 .main_menu_area{
 	overflow:visible; 
@@ -403,15 +413,16 @@ img{
 .banner0{
 	width: 200px;
 	max-width:auto;
-	margin-top: 110px;
+	top: 410px;
+	display: inline-block;
 	position: fixed;
 	left: 70%;
-	display: inline-block;
-	overflow: hidden;
+	
 }
 
 .banner0-box{
 	max-width:22%;
+	bottom: 180px;
 }
 
 .google p{}
@@ -571,6 +582,8 @@ img{
 	text-align:center;
 	color: #fff;
 }
+
+
 
 
 

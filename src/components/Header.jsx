@@ -8,7 +8,7 @@ import AuthStore from '../stores/AuthStore';
 import MetaTags from 'react-meta-tags';
 
 
-var auth0 = new Auth0({
+const auth0 = new Auth0({
     domain:       'dhaniapps.auth0.com',
     clientID:     'bizu45qJ5e3DSHdjnQduVkJyN0VsfYq8',
     callbackURL:  'http://localhost:3000/source',
@@ -36,7 +36,6 @@ export default class Header extends React.Component {
 
 componentWillMount(){
     var result = auth0.parseHash(window.location.hash);
-    console.log(result);
     if (result && result.id_token) {
     auth0.getProfile(result.id_token, (err, profile) => {
       profile = profile.name;
@@ -63,8 +62,8 @@ render() {
         <div className="top_menu floatleft">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="/">About Napp</a></li>
-            <li><a href="/">Contact us</a></li>
+            <li><a href="/about">About Napp</a></li>
+            <li><a href="/contact">Contact us</a></li>
             <li><a href="/source">Sources</a></li>
             {!this.state.authenticated ? (
                      <a onClick={()=>this.login()}>&nbsp;&nbsp;Sign In with Google</a> ) : (
@@ -81,7 +80,7 @@ render() {
 
         <div className="main_menu_area">
           <ul id="nav">
-            <li><a href="/">GENERAL</a></li>                                                                     
+            {/*<li><a href="/">GENERAL</a></li>                                                                     
             <li><a href="/">SPORTS</a></li>
             <li><a href="/">TECHNOLOGY</a></li>
             <li><a href="/">BUSINESS</a></li>
@@ -89,7 +88,7 @@ render() {
             <li><a href="/">ENTERTAINMENT</a></li>
             <li><a href="/">POLITICS</a></li>
             <li><a href="/">MUSIC</a></li>
-            <li><a href="/">SCIENCE AND NATURE</a></li>
+            <li><a href="/">SCIENCE AND NATURE</a></li>*/}
             
           </ul>
         </div> 

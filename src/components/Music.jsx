@@ -1,8 +1,6 @@
 import React from 'react';
 import '../../sass/styles.scss';
 
-
-
 const Music = () => (
   <div className="single_right_coloum">
     <h2 className="title">MUSIC</h2>
