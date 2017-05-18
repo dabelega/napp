@@ -5,12 +5,10 @@ import '../utils/auth0.js';
 import * as AuthActions from '../actions/AuthActions';
 import AuthStore from '../stores/AuthStore';
 
-import MetaTags from 'react-meta-tags';
-
-
+const CLIENT_ID = process.env.AUTH0_ID;
 const auth0 = new Auth0({
     domain:       'dhaniapps.auth0.com',
-    clientID:     'bizu45qJ5e3DSHdjnQduVkJyN0VsfYq8',
+    clientID:     `${CLIENT_ID}`,
     callbackURL:  'http://localhost:3000/source',
     callbackOnLocationHash: true
   });
@@ -26,15 +24,7 @@ export default class Header extends React.Component {
         this.logout = this.logout.bind(this);
   }
 
-  login() {
-        auth0.login({
-          connection: 'google-oauth2',
-        }, () => {
-          alert(arguments, "aksfls");
-        });
-}
-
-componentWillMount(){
+  componentWillMount(){
     var result = auth0.parseHash(window.location.hash);
     if (result && result.id_token) {
     auth0.getProfile(result.id_token, (err, profile) => {
@@ -45,6 +35,16 @@ componentWillMount(){
     });
   }
 }
+
+
+  login() {
+        auth0.login({
+          connection: 'google-oauth2',
+        }, () => {
+          alert(arguments, "aksfls");
+        });
+}
+
 
   logout() {
     // AuthActions.logUserOut();

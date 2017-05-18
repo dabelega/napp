@@ -1,44 +1,56 @@
+import _ from 'lodash';
 import React from 'react';
+import * as newsActions from '../actions/newsActions';
+import newsStore from '../stores/newsStore';
 import '../../sass/styles.scss';
 
-const Featured = () => (
-  <div>
-    <div className="single_left_coloum_wrapper">
-      <h2 className="title">FEATURED NEWS</h2>
-           
-      <div className="single_left_coloum floatleft"> 
-        <img src="../images/single_featured1.jpg" alt="" />
-        <h3>Macron vows to restore France global status</h3>
-        <p>In inaugural speech, Macron promises to restore 
-              Frances lost confidence and reform and relaunch the 
-              European Union..
-        </p>
-        <a className="readmore" href="http://www.aljazeera.com/news/2017/05/macron-vows-restore-france-global-status-170514171704652.html">read more</a> 
+export default class Featured extends React.Component {
+  constructor (){
+  super();
+  this.state = {
+      featured: []     
+  };
+  this.fetchFeaturedArticles = this.fetchFeaturedArticles.bind(this);   
+  }
+
+  componentWillMount(){
+    newsActions.getFeatured();
+    newsStore.on('featured_change',this.fetchFeaturedArticles);
+  }
+
+  fetchFeaturedArticles(){
+    this.setState({ featured: newsStore.fetchFeaturedArticles() });
+  }
+
+  render(){
+    let featuredSplit = [];
+    this.state.featured.map((featured, index) => {
+      if(index < 3){
+        featuredSplit.push(featured);
+      }
+    });
+  
+    return(
+      <div>
+        <div className="single_left_coloum_wrapper">
+          <h2 className="title">FEATURED NEWS</h2>
+          { featuredSplit.map(function(featuredArticle){
+          return( 
+            <div className="single_left_coloum floatleft"> 
+              <img src={featuredArticle.urlToImage} alt="Featured" />
+              <h3>{featuredArticle.title}</h3>
+              <p>{featuredArticle.description}</p>
+              <a className="readmore" href={featuredArticle.url}>read more</a> 
+            </div>
+          );
+        })
+      }
+        </div>
       </div>
+    );
+ } 
+ 
+}
+  
 
-      <div className="single_left_coloum floatleft"> 
-        <img src="../images/single_featured2.jpg" alt="" />
-        <h3>Merkel conservatives win North Rhine-Westphalia vote</h3>
-        <p>Chancellor Angela Merkels Christian Democratic Union (CDU) 
-              has won the regional elections in Germany’s most populous state.
-        </p>
-        <a className="readmore" href="http://www.aljazeera.com/news/2017/05/merkel-conservatives-win-north-rhine-westphalia-vote-170514171755917.html">
-          read more
-        </a> 
-      </div>
 
-      <div className="single_left_coloum floatleft"> 
-        <img src="../images/single_featured3.jpg" alt="" />
-        <h3>Six wounded in Ivory Coast anti-mutiny protest</h3>
-        <p>Witnesses say renegade soldiers opened fire on protesters in 
-              Bouake as opposition to rebellion gathers momentum.
-        </p>
-        <a className="readmore" href="http://www.aljazeera.com/news/2017/05/mutineers-wound-ivory-coast-protest-170514132038161.html">read more</a> 
-      </div>
-
-    </div>
-  </div> 
-
-);
-
-export default Featured;

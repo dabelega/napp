@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../sass/styles.scss';
 import General from '../components/General';
-import Music from '../components/Music';
+import Entertainment from '../components/Entertainment';
 
 const MiddleCol = () => (
   <div className="right_coloum floatright">
     <General />
-    <Music />
+    <Entertainment />
   </div> 
 );
 

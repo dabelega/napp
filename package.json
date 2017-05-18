@@ -25,6 +25,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "body-style": "^0.3.0",
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "firebase": "^3.9.0",
@@ -61,6 +62,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^7.0.0",
     "ignore-styles": "^5.0.1",
+    "jsdom": "^9.7.0",
     "mocha": "^3.3.0",
     "mock-local-storage": "^1.0.2",
     "nyc": "^10.3.2",

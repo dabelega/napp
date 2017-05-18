@@ -46,26 +46,34 @@ export default class Source extends React.Component {
         return sourceName.name.toLowerCase().match( searchString );
       });
     }
+    
 
   return (
     <div className="wrapper">
       <div className="center">
         <Header />
         <div className="search-container" >
-          <input type="text" value={this.state.searchString} onChange={this.handleChange.bind(this)} placeholder="Type here" />
+          <input 
+            type="text" value={this.state.searchString} 
+            onChange={this.handleChange.bind(this)} placeholder="Type here" />
         </div>
 				
         <div className="source-list">
           <ul> 
-            { sources.map(function(sourceName,index,sortOptions){
+            { sources.map(function(sourceName,index){
               return (
-                <li key={index}> 
-                  {sourceName.name} 
-                  <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sourceName.sortBysAvailable}`} >
-                   View Articles
-                  </a>
+                <li key={sourceName.name}> 
+                  {sourceName.name}
+                  { sourceName.sortBysAvailable.map((sortOption) => 
+                    { return( 
+                      <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sortOption}`}>
+                      {sortOption}
+                      </a>
+                      );
+                  })
+                }                  
                 </li>
-               );
+               ); 
               }) 
             }
 

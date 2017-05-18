@@ -6,6 +6,12 @@ class NewsStores extends EventEmitter{
 		super();
 		this.sources = [];
 		this.articles = [];
+		this.general = [];
+		this.featured = [];
+		this.business = [];
+		this.tech = [];
+		this.entertainment = [];
+		this.sports = [];
 	} 
 
 	fetchNewsSources(){
@@ -14,6 +20,30 @@ class NewsStores extends EventEmitter{
 
 	fetchNewsArticles(){
 		return this.articles;
+	}
+
+	fetchGeneralArticles(){
+		return this.general;
+	}
+
+	fetchFeaturedArticles(){
+		return this.featured;
+	}
+
+	fetchBusinessArticles(){
+		return this.business;
+	}
+
+	fetchTechArticles(){
+		return this.tech;
+	}
+
+	fetchEntertainmentArticles(){
+		return this.entertainment;
+	}
+
+	fetchSportsArticles(){
+		return this.sports;
 	}
 
 
@@ -31,7 +61,43 @@ class NewsStores extends EventEmitter{
 				break;
 			}
 
-			
+			case 'NEWS_GENERAL': {
+				this.general = result.data;
+				this.emit('general_change');
+				break;
+			}
+
+			case 'NEWS_FEATURED': {
+				this.featured = result.data;
+				this.emit('featured_change');
+				break;
+			}
+
+			case 'NEWS_BUSINESS': {
+				this.business = result.data;
+				this.emit('business_change');
+				break;
+			}
+
+			case 'NEWS_TECH': {
+				this.tech = result.data;
+				this.emit('tech_change');
+				break;
+			}
+
+			case 'NEWS_ENTERTAINMENT': {
+				this.entertainment = result.data;
+				this.emit('entertainment_change');
+				break;
+			}
+
+			case 'NEWS_SPORTS': {
+				this.sports = result.data;
+				this.emit('sports_change');
+				break;
+			}
+
+
 		}
 	}	
 }

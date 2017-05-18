@@ -1,59 +1,69 @@
+import _ from 'lodash';
 import React from 'react';
 import '../../sass/styles.scss';
+import * as newsActions from '../actions/newsActions';
+import newsStore from '../stores/newsStore';
 
-const General = () => (
-  <div className="single_right_coloum">
-    <h2 className="title">GENERAL</h2>
-    <ul>
-      <li>
-        <div className="single_cat_right_content">
-          <h3>North Korea tests missile, raises new fears in Pacific</h3>
-          <p>
-            North Korea carried out a provocative new ballistic missile 
-            test early Sunday
-          </p>
-          <p className="single_cat_right_content_meta">
-            <a href="http://edition.cnn.com/2017/05/14/asia/north-korea-missile-test-russia-japan/index.html">
-              <span>read more</span>
-            </a> 
-          </p>
-        </div>
-      </li>
 
-      <li>
-        <div className="single_cat_right_content">
-          <h3>Trump&apos;s chief of staff: &quot;We&apos;ve looked at&quot; changing libel laws</h3>
-          <p>
-            A top White House aide says changing libel laws is 
-            &quot;something we&apos;ve looked at
-          </p>
-          <p className="single_cat_right_content_meta">
-            <a href="http://money.cnn.com/2017/04/30/media/reince-priebus-libel-laws/index.html?iid=EL">
-              <span>read more</span>
-            </a>
-          </p>
-        </div>
-      </li>
 
-      <li>
-        <div className="single_cat_right_content">
-          <h3>
-            Carl Bernstein: Comey firing is a &quot;dangerous&quot; moment
-          </h3>
-          <p>
-            Carl Bernstein says the Trump administration 
-            could put the United States
-          </p>
-          <p className="single_cat_right_content_meta">
-            <a href="http://money.cnn.com/2017/05/14/media/carl-bernstein-trump-dangerous-moment/index.html">
-              <span>read more</span>
-            </a>
-          </p>
-        </div>
-      </li>
-    </ul>
-  </div>
+export default class General extends React.Component {
 
-);
+  constructor (){
+  super();
+  this.state = {
+      general: []     
+  };
+  this.fetchGeneralArticles = this.fetchGeneralArticles.bind(this);   
+  }
 
-export default General;
+  componentWillMount(){
+    newsActions.getGeneral();
+    newsStore.on('general_change',this.fetchGeneralArticles);
+  }
+
+  fetchGeneralArticles(){
+    this.setState({ general: newsStore.fetchGeneralArticles() });
+  }
+
+  render(){
+
+    let numItems = 3;
+    let count = 0;
+    let generalSplit = [];
+    let general = _.map(this.state.general);
+
+    while(general.length > 0 && count < numItems){
+      generalSplit.push(general[count]);
+      count++;
+    }
+
+    return(  
+      <div className="single_right_coloum">
+        <h2 className="title">GENERAL</h2>
+        <ul>
+          { generalSplit.map(function(generalArticle){
+            return(
+              <li>
+                <div className="single_cat_right_content">
+                  <h3>{generalArticle.title}</h3>
+                  <p>
+                    {generalArticle.description}
+                  </p>
+                  <p className="single_cat_right_content_meta">
+                    <a href={generalArticle.url}>
+                      <span>read more</span>
+                    </a> 
+                  </p>
+                </div>
+              </li>
+              
+              );
+                
+            })
+          }
+        
+        </ul>
+      </div>
+    );
+  }
+}

@@ -67,7 +67,7 @@ export default class Article extends React.Component {
                 </span><br />
                 <ul> 
                   <div className="row">     		
-                    { articles.map(function(articleName,index){
+                    { articles.map(function(articleName){
                       return (
                         <div className="col-lg-6">
                           <h3 className="title article-title">
