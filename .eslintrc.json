@@ -3,6 +3,7 @@
         "browser": true,
         "commonjs": true,
         "es6": true
+        
     },
     "extends": "airbnb",
     "parser": "babel-eslint",
@@ -22,8 +23,8 @@
             "error",
             "never"
         ],
-        "array-callback-return": "error",
-        "arrow-body-style": "error",
+        "array-callback-return": "off",
+        "arrow-body-style": "off",
         "arrow-parens": "off",
         "arrow-spacing": "off",
         "block-scoped-var": "off",
@@ -240,6 +241,7 @@
         "require-await": "error",
         "require-jsdoc": "off",
         "rest-spread-spacing": "error",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "semi": "off",
         "semi-spacing": [
             "error",

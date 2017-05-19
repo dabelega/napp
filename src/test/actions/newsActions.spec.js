@@ -1,3 +1,4 @@
+/* global define, it, describe */
 import { expect } from 'chai';
 import * as newsActions from '../../actions/newsActions';
 

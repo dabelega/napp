@@ -86,10 +86,16 @@ img{
 	padding-top: 15px;
 }
 
-.spanner{
-	font-size: 20px;
+.filter{
+	padding-left: 15px;
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+
+.source-list a:hover {
 	color: #fff;
 }
+
  /*
  * Header CSS
  */

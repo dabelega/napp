@@ -38,7 +38,7 @@ const About = () => (
           tempor vel neque.
         </p>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   </div>
 );

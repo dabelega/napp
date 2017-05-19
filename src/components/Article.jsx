@@ -22,9 +22,10 @@ export default class Article extends React.Component {
 	}
 
 	componentWillMount(){
-		window.parsed = queryString.parse(this.props.location.search);
-		let sourceName = parsed.sourceId;
-		newsActions.getArticles(sourceName,'top');
+		window.parsed = queryString.parse(location.search);
+		let sourceName = window.parsed.sourceId;
+    let sortType = window.parsed.sortOptions;
+		newsActions.getArticles(sourceName,sortType);
 		newsStore.on('articles_change',this.fetchNewsArticles);
 
 	}
@@ -60,11 +61,6 @@ export default class Article extends React.Component {
             <div className="main_content2 floatleft">
               <div className="left_coloum2 floatleft">
                 <br /><br />
-                <span className="button-filter">
-                  <button className="btn btn-info" onClick={this.sortByLatest}> 
-                    Sort By Latest 
-                  </button>
-                </span><br />
                 <ul> 
                   <div className="row">     		
                     { articles.map(function(articleName){

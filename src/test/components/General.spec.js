@@ -1,3 +1,4 @@
+/* global define, it, describe */
 import React from 'react';
 import {expect} from 'chai';
 import {shallow,mount} from 'enzyme';
@@ -27,7 +28,7 @@ describe('<General />', () => {
   });
 
   it('renders as a <div>', () => {
-  	let shallowWrapper = shallow(<General />);
+  let shallowWrapper = shallow(<General />);
    expect(shallowWrapper.type()).to.eql('div');
  });
 

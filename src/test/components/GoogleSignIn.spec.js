@@ -1,3 +1,4 @@
+/* global define, it, describe */
 import React from 'react';
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
@@ -9,7 +10,7 @@ import GoogleSignIn from '../../components/GoogleSignIn';
 describe('<GoogleSignIn />', () => {
 
   it('renders as a <div>', () => {
-  	let wrapper = shallow(<GoogleSignIn />);
+  let wrapper = shallow(<GoogleSignIn />);
    expect(wrapper.type()).to.eql('div');
  });
 

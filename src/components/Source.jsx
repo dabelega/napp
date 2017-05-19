@@ -40,6 +40,8 @@ export default class Source extends React.Component {
   render() {
     let searchString = this.state.searchString.trim().toLowerCase();
     let sources = _.map(this.state.sources);
+    let BASE = '/articles?sourceId=';
+    let OPT = '&sortOptions='
     
     if(searchString.length > 0){
       sources = sources.filter(function(sourceName){
@@ -55,22 +57,24 @@ export default class Source extends React.Component {
         <div className="search-container" >
           <input 
             type="text" value={this.state.searchString} 
-            onChange={this.handleChange.bind(this)} placeholder="Type here" />
+            onChange={this.handleChange.bind(this)} placeholder="Type here" 
+          />
         </div>
 				
         <div className="source-list">
           <ul> 
-            { sources.map(function(sourceName,index){
+            { sources.map(function(sourceName){
               return (
                 <li key={sourceName.name}> 
                   {sourceName.name}
-                  { sourceName.sortBysAvailable.map((sortOption) => 
-                    { return( 
-                      <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sortOption}`}>
-                      <span class="filter">{sortOption}</span>
-                      </a>  
+                  { sourceName.sortBysAvailable.map((sortOption) =>{ 
+                     return( 
+                       <a href={`${BASE}${sourceName.id}${OPT}${sortOption}`}>
+                         <span className="filter">{sortOption}</span>
+                       </a>  
                       );
                   })
+                  
                 }                  
                 </li>
                ); 

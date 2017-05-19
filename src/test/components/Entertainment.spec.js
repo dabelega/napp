@@ -1,7 +1,7 @@
+/* global define, it, describe */
 import React from 'react';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
-import sinon from 'sinon';
 import Entertainment from '../../components/Entertainment';
 
 describe('<Entertainment />', () => {
