@@ -5,15 +5,15 @@ https://nappnews.herokuapp.com/
 
 The Napp Journal is a news application that consumes the "NEWSAPI" API to display latest news from over 70 sources. Sources include CNN, BBC, Al Jazeera, and much more.
 
-##Functionalities
+## Functionalities
 * Google sign in - Users can sign in with their google accounts
 * Dynamic Home page, which shows all the latest news by category from different sources.
 * Sources - Users can view the full list of news sources provided by NEWSAPI
 * Search - Users can search through list of sources
 * Articles - Users can view articles from a news source by selecting that source.
-		   - Users can also sort through articles by Top and by latest
+  - Users can also sort through articles by Top and by latest
 
-##Limitations
+## Limitations
 
 * The app doesn't provide any database capabillites.
 * The app currently allows sign ins from google accounts only.
@@ -73,6 +73,6 @@ This project is licensed under the MIT License
 * Cohort 26
 * Ugonna Thelma
 * Redd
-* 
+
 
 
