@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';
@@ -41,8 +40,8 @@ export default class Business extends React.Component {
             <img src={entertainmentArticle.urlToImage} alt="" />
             <h3>
               <a href={entertainmentArticle.url}>
-              {entertainmentArticle.title}
-             </a>
+                {entertainmentArticle.title}
+              </a>
             </h3>
           </div>
           );

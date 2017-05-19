@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';
@@ -26,7 +25,7 @@ export default class Sports extends React.Component {
     let sportSplit = [];
 
     this.state.sports.map((sports,index) => {
-      if(index < 5){
+      if(index < 9){
         sportSplit.push(sports);
       }
     });
@@ -36,25 +35,24 @@ export default class Sports extends React.Component {
         <div className="popular">
           <h2 className="title">SPORT HEADLINES</h2>
           <ul>
-        { sportSplit.map(function(sportsArticle){
+            { sportSplit.map(function(sportsArticle){
         return(
 
           <li>
-          <div className="single_popular">      
-            <h3>{sportsArticle.title}
-              <a href={sportsArticle.url} className="readmore">
+            <div className="single_popular">      
+              <h3>{sportsArticle.title}
+                &nbsp;&nbsp;<a href={sportsArticle.url} className="readmore">
                 Read More
               </a>
-            </h3>
-          </div>
-
-        </li>
+              </h3>
+            </div>
+          </li>
           );
         })
       }
-      </ul>
+          </ul>
+        </div>
       </div>
-    </div>
     );
  } 
  

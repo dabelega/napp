@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/dhaniboy09/napp#readme",
   "dependencies": {
+    "auth0-js": "^8.6.1",
+    "auth0-js-react": "^6.8.7",
     "axios": "^0.16.1",
     "body-style": "^0.3.0",
     "dotenv": "^4.0.0",

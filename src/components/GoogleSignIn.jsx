@@ -11,8 +11,9 @@ const GoogleSignIn = () => (
           <li>Access more news sources</li>
           <li>Scrape articles</li>
           <li>Add to favourites</li>
+          <li>Get unlimited access to articles</li>
+          <li>& more</li>
         </ul>
-        <button className="btn btn-danger">Sign In now</button>
         <p className="google-privacy">
           We will not share your account details!
         </p>

@@ -5,6 +5,7 @@ import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';
 import Header from '../components/Header';
 import Footer from './Footer';
+import AboutSlider from '../components/AboutSlider';
 
 export default class Source extends React.Component {
   constructor (){
@@ -54,6 +55,7 @@ export default class Source extends React.Component {
     <div className="wrapper">
       <div className="center">
         <Header />
+        <AboutSlider />
         <div className="search-container" >
           <input 
             type="text" value={this.state.searchString} 

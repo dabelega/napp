@@ -96,6 +96,10 @@ img{
 	color: #fff;
 }
 
+.slider-margin{
+	
+}
+
  /*
  * Header CSS
  */
@@ -107,6 +111,7 @@ img{
 .top_menu{
 	margin-left:60px; 
 	margin-top:60px; 
+	margin-bottom: 5px;
 	width:400px;
 }
 
@@ -157,7 +162,7 @@ img{
 	overflow:visible; 
 	background:#0D0E0F; 
 	min-height:50px;
-	margin-top: 150px;
+	margin-top: 70px;
 }
 
 .main_menu_area {
@@ -424,7 +429,7 @@ img{
 .banner0{
 	width: 200px;
 	max-width:auto;
-	top: 410px;
+	top: 380px;
 	display: inline-block;
 	position: fixed;
 	left: 70%;

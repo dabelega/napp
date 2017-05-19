@@ -35,21 +35,6 @@ export default class Article extends React.Component {
 		this.setState({ articles: newsStore.fetchNewsArticles() });
 	}
 
-
-	sortByLatest(){
-		let sourceName = parsed.sourceId;
-		let sortType = parsed.sortOptions;
-		var filter = sortType.split(',');
-			var i = 0;
-			while(i < filter.length){
-				if(filter[i] == 'latest'){
-					newsActions.getArticles(sourceName,filter[i]);
-					newsStore.on('articles_change',this.fetchNewsArticles);
-				}
-				i++
-			}
-	}
-	
 	render() {
 		
 		let articles = _.map(this.state.articles);
@@ -91,8 +76,6 @@ export default class Article extends React.Component {
                   <div className="google">
                     <h2>Enjoying Napp?</h2>
                     <p>
-                      Napp gives you exclusive access to over 78 news sources. 
-                      Let us know what you think. <br /><br />
                       Tweet at us using <a>@thenappjournal</a>
                     </p>
                   </div>

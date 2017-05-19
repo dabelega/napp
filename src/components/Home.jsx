@@ -4,11 +4,13 @@ import Header from '../components/Header';
 import Slider from '../components/Slider';
 import HomeContents from '../components/HomeContents';
 import Footer from '../components/Footer';
+import Bar from '../components/Bar';
 
 const Home = () => (
   <div className="wrapper">
     <div className="center">
       <Header /> 
+      <Bar />
       <Slider />
       <HomeContents />
       <Footer />

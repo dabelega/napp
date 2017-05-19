@@ -47,7 +47,6 @@ export default class Header extends React.Component {
 
 
   logout() {
-    // AuthActions.logUserOut();
     AuthActions.logUserOut();
     this.setState({authenticated: false});
     window.location='/';
@@ -55,44 +54,27 @@ export default class Header extends React.Component {
 
 render() {
   return (
-      <div className="header">
-        <div className="logo floatleft">
-          <a href="/"><img src="../images/logo copy.png" alt="" /></a>
-        </div>
-        <div className="top_menu floatleft">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="/about">About Napp</a></li>
-            <li><a href="/contact">Contact us</a></li>
-            <li><a href="/source">Sources</a></li>
-            {!this.state.authenticated ? (
-                     <a onClick={()=>this.login()}>&nbsp;&nbsp;Sign In with Google</a> ) : (
-
-                    <Link to="" onClick={()=>this.logout()}>&nbsp;&nbsp;Sign Out</Link>   
-                    )}     
-            
-          </ul>
-        </div> 
-
-         
-                                                                                         
-         
-
-        <div className="main_menu_area">
-          <ul id="nav">
-            {/*<li><a href="/">GENERAL</a></li>                                                                     
-            <li><a href="/">SPORTS</a></li>
-            <li><a href="/">TECHNOLOGY</a></li>
-            <li><a href="/">BUSINESS</a></li>
-            <li><a href="/">GAMING</a></li>
-            <li><a href="/">ENTERTAINMENT</a></li>
-            <li><a href="/">POLITICS</a></li>
-            <li><a href="/">MUSIC</a></li>
-            <li><a href="/">SCIENCE AND NATURE</a></li>*/}
-            
-          </ul>
-        </div> 
+    <div className="header">
+      <div className="logo floatleft">
+        <a href="/"><img src="../images/logo copy.png" alt="" /></a>
       </div>
+      <div className="top_menu floatleft">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Napp</a></li>
+          <li><a href="/contact">Contact us</a></li>
+          <li><a href="/source">Sources</a></li>
+          {!this.state.authenticated ? (
+            <a onClick={()=>this.login()} role="button">
+              &nbsp;&nbsp;Sign In with Google
+            </a> ) : (
+              <Link to="" onClick={()=>this.logout()}>
+                &nbsp;&nbsp;Sign Out
+              </Link>   
+            )}    
+        </ul>
+      </div>  
+    </div>
 
       );
 	}
