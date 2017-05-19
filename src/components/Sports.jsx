@@ -23,16 +23,13 @@ export default class Sports extends React.Component {
   }
 
   render(){
-
-    let numItems = 5;
-    let count = 0;
     let sportSplit = [];
-    let sports = _.map(this.state.sports);
 
-    while(sports.length > 0 && count < numItems){
-      sportSplit.push(sports[count]);
-      count++;
-    }
+    this.state.sports.map((sports,index) => {
+      if(index < 5){
+        sportSplit.push(sports);
+      }
+    });
   
     return(
       <div className="single_sidebar">

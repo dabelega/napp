@@ -1,6 +1,6 @@
 import React from 'react';
 import {expect} from 'chai';
-import {shallow} from 'enzyme';
+import {shallow,mount} from 'enzyme';
 import sinon from 'sinon';
 
 import MiddleCol from '../../components/MiddleCol';
@@ -14,13 +14,13 @@ describe('<MiddleCol />', () => {
  });
 
  it('should render General component', function () {
-    const wrapper = shallow(<MiddleCol />);
+    const wrapper = mount(<MiddleCol />);
     expect(wrapper.find('General')).to.have.length(1);
   }); 
 
- it('should render Music component ', function () {
-    const wrapper = shallow(<MiddleCol />);
-    expect(wrapper.find('Music')).to.have.length(1);
+ it('should render an Entertainment component ', function () {
+    const wrapper = mount(<MiddleCol />);
+    expect(wrapper.find('Entertainment')).to.have.length(1);
   }); 
 
 });

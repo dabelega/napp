@@ -67,8 +67,8 @@ export default class Source extends React.Component {
                   { sourceName.sortBysAvailable.map((sortOption) => 
                     { return( 
                       <a href={`/articles?sourceId=${sourceName.id}&sortOptions=${sortOption}`}>
-                      {sortOption}
-                      </a>
+                      <span class="filter">{sortOption}</span>
+                      </a>  
                       );
                   })
                 }                  

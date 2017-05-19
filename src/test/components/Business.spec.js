@@ -22,19 +22,19 @@ describe('<Business />', () => {
 
   wrapper.setState({
     business: [{
-      urlToImage: 'sldkflsd',
-      title: 'sdlfdsfds',
-      description: 'kslnfds'
+      urlToImage: 'urlToImage',
+      title: 'title',
+      description: 'description'
     },
     {
-      urlToImage: 'sldkflsd',
-      title: 'sdlfdsfds',
-      description: 'kslnfds'
+      urlToImage: 'urlToImage',
+      title: 'title',
+      description: 'description'
     },
     {
-      urlToImage: 'sldkflsd',
-      title: 'sdlfdsfds',
-      description: 'kslnfds'
+      urlToImage: 'urlToImage',
+      title: 'title',
+      description: 'description'
     }]
   });
 

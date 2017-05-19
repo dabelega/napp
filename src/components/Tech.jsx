@@ -23,16 +23,14 @@ export default class Business extends React.Component {
   }
 
   render(){
-
-    let numItems = 4;
-    let count = 0;
     let techSplit = [];
-    let tech = _.map(this.state.tech);
 
-    while(tech.length > 0 && count < numItems){
-      techSplit.push(tech[count]);
-      count++;
-    }
+    this.state.tech.map((tech, index) => {
+      if(index < 4){
+        techSplit.push(tech);
+      }
+    });
+
   
     return(
       <div className="single_left_coloum_wrapper single_cat_left">

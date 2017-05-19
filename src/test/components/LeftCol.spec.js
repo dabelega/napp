@@ -6,6 +6,8 @@ import sinon from 'sinon';
 import LeftCol from '../../components/LeftCol';
 
 
+
+
 describe('<LeftCol />', () => {
 
   it('renders as a <div>', () => {

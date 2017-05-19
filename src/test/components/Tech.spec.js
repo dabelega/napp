@@ -1,30 +1,62 @@
 import React from 'react';
 import {expect} from 'chai';
-import {shallow} from 'enzyme';
-import sinon from 'sinon';
+import {shallow,mount} from 'enzyme';
+
 
 import Tech from '../../components/Tech';
 
 
 describe('<Tech />', () => {
 
+const wrapper = mount(<Tech/>);
+
+  wrapper.setState({
+    tech: [{
+      url: 'url',
+      title: 'title',
+      description: 'description',
+      author: 'author'
+    },
+    {
+      url: 'url',
+      title: 'title',
+      description: 'description',
+      author: 'author'
+    },
+    {
+      urlToImage: 'urlToImage',
+      title: 'title',
+      description: 'description'
+    },
+    {
+      urlToImage: 'urlToImage',
+      title: 'title',
+      description: 'description'
+    },
+    {
+      urlToImage: 'urlToImage',
+      title: 'title',
+      description: 'description'
+    }]
+  });
+
+
+
+
   it('renders as a <div>', () => {
-  	let wrapper = shallow(<Tech />);
-   expect(wrapper.type()).to.eql('div');
+  	let shallowWrapper = shallow(<Tech />);
+   expect(shallowWrapper.type()).to.eql('div');
  });
 
  it('should have 4 headings to display', function () {
-    const wrapper = shallow(<Tech />);
     expect(wrapper.find('h3')).to.have.length(4);
   }); 
 
  it('should have 8 paragraphs to display', function () {
-    const wrapper = shallow(<Tech />);
     expect(wrapper.find('p')).to.have.length(8);
   }); 
 
  it('should display 4 anchor tags', function () {
-    const wrapper = shallow(<Tech />);
     expect(wrapper.find('a')).to.have.length(4);
   }); 
 

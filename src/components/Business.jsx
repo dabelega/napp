@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
 import newsStore from '../stores/newsStore';

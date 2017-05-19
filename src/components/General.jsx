@@ -26,16 +26,13 @@ export default class General extends React.Component {
   }
 
   render(){
-
-    let numItems = 3;
-    let count = 0;
     let generalSplit = [];
-    let general = _.map(this.state.general);
-
-    while(general.length > 0 && count < numItems){
-      generalSplit.push(general[count]);
-      count++;
-    }
+    
+    this.state.general.map((general, index) => {
+      if(index < 3){
+        generalSplit.push(general);
+      }
+    });
 
     return(  
       <div className="single_right_coloum">
