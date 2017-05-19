@@ -9,7 +9,7 @@ const ContactUsSlider = () => (
       <div className="slider">
         <ul className="bxslider">
           <li>
-            <img src="../images/about.jpg" alt="" />
+            <img src="../images/contact.jpg" alt="" />
           </li>
         </ul>
       </div>
