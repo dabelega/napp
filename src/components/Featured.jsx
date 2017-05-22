@@ -1,9 +1,20 @@
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
-import newsStore from '../stores/newsStore';
-import '../../sass/styles.scss';
+import homeNewsStore from '../stores/homeNewsStore';
+import '../../public/sass/styles.scss';
 
+
+/**
+  * The Featured Class displays articles from a random source
+  * It makes an API call using this source and 
+  * renders the output.
+  */
 export default class Featured extends React.Component {
+
+  /**
+   * Initalizes states.
+   * featured: array to hold list of featured articles
+   */
   constructor (){
   super();
   this.state = {
@@ -12,15 +23,31 @@ export default class Featured extends React.Component {
   this.fetchFeaturedArticles = this.fetchFeaturedArticles.bind(this);   
   }
 
+  /**
+   * Lifecycle Method
+   * It initiates the process of calling the NewsAPI
+   */
   componentWillMount(){
     newsActions.getFeatured();
-    newsStore.on('featured_change',this.fetchFeaturedArticles);
+    homeNewsStore.on('change',this.fetchFeaturedArticles);
   }
 
+  /**
+   * This method sets the state of the featured array to equal 
+   * the response from the API call, which contains a list of 
+   * articles from a random source.
+   */
   fetchFeaturedArticles(){
-    this.setState({ featured: newsStore.fetchFeaturedArticles() });
+    this.setState({ featured: homeNewsStore.fetchFeaturedArticles() });
   }
 
+
+  /**
+   * This method renders output as HTML using JSX.
+   * It maps through the featured array and pushes the first three 
+   * contents into a featuredSplit array. 
+   * It then maps through featuredSplit and renders its contents.
+   */
   render(){
     let featuredSplit = [];
     this.state.featured.map((featured, index) => {

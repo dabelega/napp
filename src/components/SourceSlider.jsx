@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../sass/styles.scss';
+import '../../public/sass/styles.scss';
 import Bar from '../components/Bar';
 
 const SourceSlider = () => (
@@ -9,7 +9,7 @@ const SourceSlider = () => (
       <div className="slider">
         <ul className="bxslider">
           <li>
-            <img src="../images/about.jpg" alt="" />
+            <img src="../public/images/source.jpg" alt="" />
           </li>
         </ul>
       </div>

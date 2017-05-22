@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { 
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './components/containers/Home';
 import Source from './components/Source';
 import Article from './components/Article';
 import About from './components/About';

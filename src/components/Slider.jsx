@@ -1,12 +1,12 @@
 import React from 'react';
-import '../../sass/styles.scss';
+import '../../public/sass/styles.scss';
 
 const Slider = () => (
   <div className="slider_area">
     <div className="slider">
       <ul className="bxslider">
         <li>
-          <img src="../images/welcome.png" alt="" />
+          <img src="../public/images/welcome.png" alt="" />
         </li>
       </ul>
     </div>

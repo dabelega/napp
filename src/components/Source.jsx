@@ -1,43 +1,66 @@
 import React from 'react';
 import _ from 'lodash';
-import '../../sass/styles.scss';
+import '../../public/sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
-import newsStore from '../stores/newsStore';
+import sourcesStore from '../stores/sourcesStore';
 import Header from '../components/Header';
 import Footer from './Footer';
-import AboutSlider from '../components/AboutSlider';
+import SourceSlider from '../components/SourceSlider';
 
+
+/**
+  * The Source Class displays the full list of sources.
+  * It makes an API call renders the output.
+  */
 export default class Source extends React.Component {
+
+  /**
+   * Initalizes states.
+   * searhString: holds user's search query
+   * sources: array to hold list of sources
+   */
   constructor (){
 	super();
 	this.state = {
       searchString : '',
-      sources: []			
+      sources: []   	
 	};
-	this.fetchNewsSources = this.fetchNewsSources.bind(this);		
+	this.fetchNewsSources = this.fetchNewsSources.bind(this);	
+  this._handleChange = this._handleChange.bind(this);   	
   }
 
+  /**
+   * Lifecycle Method
+   * It initiates the process of calling the NewsAPI
+   */
   componentWillMount(){
     newsActions.getSources();
-    newsStore.on('sources_change',this.fetchNewsSources);
+    sourcesStore.on('change',this.fetchNewsSources);
   }
 
-  componentWillUnMount(){
-    newsStore.removeListener('sources_change',this.fetchNewsSources);
-  }
-
+  /**
+   * This method sets the state of the sources array to equal 
+   * the response from the API call, which contains the full list of 
+   * sources.
+   */
   fetchNewsSources(){
-    this.setState({ sources: newsStore.fetchNewsSources() });
+    this.setState({ sources: sourcesStore.fetchNewsSources() });
   }
 
-  fetchNewsArticles(){
-    this.setState({ sources: newsStore.fetchNewsArticles() });
-  }
-
-  handleChange(e){
+  /**
+   * This method sets the state of the searchString to equal 
+   * the user's search query.
+   */
+  _handleChange(e){
     this.setState({searchString:e.target.value});
   }
 
+  /**
+   * This method renders output as HTML using JSX.
+   * It maps through the sources array and renders its contents.
+   * It matches the searchString with the list of sources
+   * to provide good User experience when a user performs a search.
+   */
   render() {
     let searchString = this.state.searchString.trim().toLowerCase();
     let sources = _.map(this.state.sources);
@@ -55,11 +78,11 @@ export default class Source extends React.Component {
     <div className="wrapper">
       <div className="center">
         <Header />
-        <AboutSlider />
+        <SourceSlider />
         <div className="search-container" >
           <input 
             type="text" value={this.state.searchString} 
-            onChange={this.handleChange.bind(this)} placeholder="Type here" 
+            onChange={this._handleChange} placeholder="Type here" 
           />
         </div>
 				

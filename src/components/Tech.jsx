@@ -1,10 +1,20 @@
-import _ from 'lodash';
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
-import newsStore from '../stores/newsStore';
-import '../../sass/styles.scss';
+import homeNewsStore from '../stores/homeNewsStore';
+import '../../public/sass/styles.scss';
 
-export default class Business extends React.Component {
+
+/**
+  * The Tech Class displays articles from a technology news source
+  * It makes an API call using this source and 
+  * renders the output.
+  */
+export default class Tech extends React.Component {
+
+  /**
+   * Initalizes states.
+   * tech: array to hold list of tech articles
+   */
   constructor (){
   super();
   this.state = {
@@ -13,15 +23,30 @@ export default class Business extends React.Component {
   this.fetchTechArticles = this.fetchTechArticles.bind(this);   
   }
 
+  /**
+   * Lifecycle Method
+   * It initiates the process of calling the NewsAPI
+   */
   componentWillMount(){
     newsActions.getTech();
-    newsStore.on('tech_change',this.fetchTechArticles);
+    homeNewsStore.on('change',this.fetchTechArticles);
   }
 
+  /**
+   * This method sets the state of the tech array to equal 
+   * the response from the API call, which contains a list of 
+   * articles from a tech news source.
+   */
   fetchTechArticles(){
-    this.setState({ tech: newsStore.fetchTechArticles() });
+    this.setState({ tech: homeNewsStore.fetchTechArticles() });
   }
 
+  /**
+   * This method renders output as HTML using JSX.
+   * It maps through the tech array and pushes the first four 
+   * contents into a techSplit array. 
+   * It then maps through techSplit and renders its contents.
+   */
   render(){
     let techSplit = [];
 

@@ -1,9 +1,20 @@
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
-import newsStore from '../stores/newsStore';
-import '../../sass/styles.scss';
+import homeNewsStore from '../stores/homeNewsStore';
+import '../../public/sass/styles.scss';
 
+
+/**
+  * The Sports Class displays articles from a sports news source
+  * It makes an API call using this source and 
+  * renders the output.
+  */
 export default class Sports extends React.Component {
+
+  /**
+   * Initalizes states.
+   * sports: array to hold list of sport articles
+   */
   constructor (){
   super();
   this.state = {
@@ -12,15 +23,30 @@ export default class Sports extends React.Component {
   this.fetchSportsArticles=this.fetchSportsArticles.bind(this);   
   }
 
+  /**
+   * Lifecycle Method
+   * It initiates the process of calling the NewsAPI
+   */
   componentWillMount(){
     newsActions.getSports();
-    newsStore.on('sports_change',this.fetchSportsArticles);
+    homeNewsStore.on('change',this.fetchSportsArticles);
   }
 
+  /**
+   * This method sets the state of the sports array to equal 
+   * the response from the API call, which contains a list of 
+   * articles from a sports news source.
+   */
   fetchSportsArticles(){
-    this.setState({ sports: newsStore.fetchSportsArticles() });
+    this.setState({ sports: homeNewsStore.fetchSportsArticles() });
   }
 
+  /**
+   * This method renders output as HTML using JSX.
+   * It maps through the sports array and pushes the first ten
+   * contents into a sportSplit array. 
+   * It then maps through sportSplit and renders its contents.
+   */
   render(){
     let sportSplit = [];
 

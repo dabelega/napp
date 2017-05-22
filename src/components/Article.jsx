@@ -1,19 +1,26 @@
 import queryString from 'query-string';
 import React from 'react';
 import _ from 'lodash';
-import '../../sass/styles.scss';
+import '../../public/sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
-import newsStore from '../stores/newsStore';
+import articlesStore from '../stores/articlesStore';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-
+/**
+  * The Articles Class displays articles based on a given source name
+  * and sort type. It makes an API call using these parameters and 
+  * renders the output.
+  */
 export default class Article extends React.Component {
 
+  /**
+   * Initalizes states.
+   * articles: array to hold list of articles
+   */
 	constructor (){
 		super();
 		this.state = {
-			searchString : '',
 			articles: []
 		};
 
@@ -21,20 +28,34 @@ export default class Article extends React.Component {
 		
 	}
 
+  /**
+   * Lifecycle Method
+   * It initiates the process of calling the NewsAPI
+   */
 	componentWillMount(){
 		window.parsed = queryString.parse(location.search);
 		let sourceName = window.parsed.sourceId;
     let sortType = window.parsed.sortOptions;
 		newsActions.getArticles(sourceName,sortType);
-		newsStore.on('articles_change',this.fetchNewsArticles);
+		articlesStore.on('change',this.fetchNewsArticles);
 
 	}
 
-
+ 
+  /**
+   * This method sets the state of the articles array to equal 
+   * the response from the API call, which contains a list of 
+   * articles based on source name and sort type.
+   */
 	fetchNewsArticles(){
-		this.setState({ articles: newsStore.fetchNewsArticles() });
+		this.setState({ articles: articlesStore.fetchNewsArticles() });
 	}
 
+  /**
+   * This method renders output as HTML using JSX.
+   * It also maps through the articles array and
+   * renders its contents.
+   */
 	render() {
 		
 		let articles = _.map(this.state.articles);

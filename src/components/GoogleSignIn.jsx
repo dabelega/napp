@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../sass/styles.scss';
+import '../../public/sass/styles.scss';
 
 const GoogleSignIn = () => (
   <div className="single_sidebar">

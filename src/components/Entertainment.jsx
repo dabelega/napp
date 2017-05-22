@@ -1,9 +1,20 @@
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
-import newsStore from '../stores/newsStore';
-import '../../sass/styles.scss';
+import homeNewsStore from '../stores/homeNewsStore';
+import '../../public/sass/styles.scss';
 
-export default class Business extends React.Component {
+
+/**
+  * The Entertainment Class displays articles from an entertainmet news source
+  * It makes an API call using this source and 
+  * renders the output.
+  */
+export default class Entertainment extends React.Component {
+
+  /**
+   * Initalizes states.
+   * entertainment: array to hold list of entertainment articles
+   */
   constructor (){
   super();
   this.state = {
@@ -12,15 +23,33 @@ export default class Business extends React.Component {
   this.fetchEntertainmentArticles=this.fetchEntertainmentArticles.bind(this);   
   }
 
+  /**
+   * Lifecycle Method
+   * It initiates the process of calling the NewsAPI
+   */
   componentWillMount(){
     newsActions.getEntertainment();
-    newsStore.on('entertainment_change',this.fetchEntertainmentArticles);
+    homeNewsStore.on('change',this.fetchEntertainmentArticles);
   }
 
+  
+  /**
+   * This method sets the state of the entertainment array to equal 
+   * the response from the API call, which contains a list of 
+   * articles from entertainment sources only.
+   */
   fetchEntertainmentArticles(){
-    this.setState({ entertainment: newsStore.fetchEntertainmentArticles() });
+    this.setState({ 
+      entertainment: homeNewsStore.fetchEntertainmentArticles() 
+    });
   }
 
+  /**
+   * This method renders output as HTML using JSX.
+   * It maps through the entertainment array and pushes the first three 
+   * contents into a entertainmentSplit array. 
+   * It then maps through entertainmentSplit and renders its contents.
+   */
   render(){
 
     let entertainmentSplit = [];

@@ -8,7 +8,7 @@ export function getSources(callback){
 	axios.get(url).then((response) => callback (response.data.sources));
 }
 
-export function showArticles(sourceName,sortType,callback){
+export function displayArticles(sourceName,sortType,callback){
 	const URL = `${BASE}=${sourceName}&sortBy=${sortType}&apiKey=${API_KEY}`;
 	axios.get(URL).then((response) => callback (response.data.articles));
 }

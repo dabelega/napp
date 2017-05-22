@@ -1,12 +1,20 @@
 import React from 'react';
-import '../../sass/styles.scss';
+import '../../public/sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
-import newsStore from '../stores/newsStore';
+import homeNewsStore from '../stores/homeNewsStore';
 
 
-
+/**
+  * The General Class displays articles from a random source
+  * It makes an API call using this source and 
+  * renders the output.
+  */
 export default class General extends React.Component {
 
+  /**
+   * Initalizes states.
+   * general: array to hold list of general articles
+   */
   constructor (){
   super();
   this.state = {
@@ -15,15 +23,30 @@ export default class General extends React.Component {
   this.fetchGeneralArticles = this.fetchGeneralArticles.bind(this);   
   }
 
+  /**
+   * Lifecycle Method
+   * It initiates the process of calling the NewsAPI
+   */
   componentWillMount(){
     newsActions.getGeneral();
-    newsStore.on('general_change',this.fetchGeneralArticles);
+    homeNewsStore.on('change',this.fetchGeneralArticles);
   }
 
+  /**
+   * This method sets the state of the general array to equal 
+   * the response from the API call, which contains a list of 
+   * articles from a random source.
+   */
   fetchGeneralArticles(){
-    this.setState({ general: newsStore.fetchGeneralArticles() });
+    this.setState({ general: homeNewsStore.fetchGeneralArticles() });
   }
 
+  /**
+   * This method renders output as HTML using JSX.
+   * It maps through the general array and pushes the first three 
+   * contents into a generalSplit array. 
+   * It then maps through generalSplit and renders its contents.
+   */
   render(){
     let generalSplit = [];
     

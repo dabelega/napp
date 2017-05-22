@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../sass/styles.scss';
+import '../../public/sass/styles.scss';
 import Bar from '../components/Bar';
 
 const ContactUsSlider = () => (
@@ -9,7 +9,7 @@ const ContactUsSlider = () => (
       <div className="slider">
         <ul className="bxslider">
           <li>
-            <img src="../images/contact.jpg" alt="" />
+            <img src="../public/images/contact.jpg" alt="" />
           </li>
         </ul>
       </div>

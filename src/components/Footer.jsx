@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../sass/styles.scss';
+import '../../public/sass/styles.scss';
 
 const Footer = () => (
   <div className="footer_bottom_area">
