@@ -22,6 +22,10 @@ describe('Sources Store', () => {
     expect(sourcesStore.removeChangeListener).to.be.a('function');
   });
 
+  it('should have handleGetSourceAction exist as a function', () => {
+    expect(sourcesStore.handleGetSourceAction).to.be.a('function');
+  });
+
   it ('can be subscribed to the Store changes', () => {
       var callback = sinon.spy();
       sourcesStore.addChangeListener(callback);
