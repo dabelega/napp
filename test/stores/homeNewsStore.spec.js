@@ -9,6 +9,30 @@ describe('Home News Store', () => {
     expect(homeNewsStore).to.exist;
   });
 
+  
+
+  it('should have a fetchGeneralArticles function', () => {
+    expect(homeNewsStore.fetchGeneralArticles).to.be.a('function');
+  });
+
+  it('should have a fetchFeaturedArticles function', () => {
+    expect(homeNewsStore.fetchFeaturedArticles).to.be.a('function');
+  });
+  it('should have a fetchTechArticles function', () => {
+    expect(homeNewsStore.fetchTechArticles).to.be.a('function');
+  });
+  it('should have a fetchBusinessArticles function', () => {
+    expect(homeNewsStore.fetchBusinessArticles).to.be.a('function');
+  });
+  it('should have a fetchSportsArticles function', () => {
+    expect(homeNewsStore.fetchSportsArticles).to.be.a('function');
+  });
+  it('should have a fetchEntertainmentArticles function', () => {
+    expect(homeNewsStore.fetchGeneralArticles).to.be.a('function');
+  });
+
+
+
   it('should initialize Featured articles as empty array', () => {
     expect(homeNewsStore.featured).to.eql([]);
   });
