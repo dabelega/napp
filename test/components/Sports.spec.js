@@ -2,6 +2,7 @@
 import React from 'react';
 import {expect} from 'chai';
 import {shallow,mount} from 'enzyme';
+import '../../test/testUtils/globaldoc';
 import Sports from '../../src/components/Sports';
 
 

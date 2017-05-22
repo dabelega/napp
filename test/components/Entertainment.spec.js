@@ -3,6 +3,7 @@ import React from 'react';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
 import Entertainment from '../../src/components/Entertainment';
+import '../../test/testUtils/globaldoc';
 
 describe('<Entertainment />', () => {
   const wrapper = mount(<Entertainment />);

@@ -2,8 +2,9 @@
 import React from 'react';
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
-
+import '../../test/testUtils/globaldoc';
 import GoogleSignIn from '../../src/components/GoogleSignIn';
+
 
 
 describe('<GoogleSignIn />', () => {

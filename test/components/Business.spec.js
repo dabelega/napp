@@ -2,19 +2,11 @@
 import React from 'react';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
-import { jsdom } from 'jsdom';
+import '../../test/testUtils/globaldoc';
 
 
 import Business from '../../src/components/Business';
 
-global.document = jsdom('');
-global.window = global.document.defaultView;
-
-Object.keys(global.window).map(function(key) {
-  if(!global[key]){
-    global[key] = global.window.key;
-  }
-});
 
 describe('<Business />', () => {
 

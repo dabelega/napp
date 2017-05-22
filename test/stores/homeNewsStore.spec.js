@@ -9,7 +9,7 @@ describe('Home News Store', () => {
     expect(homeNewsStore).to.exist;
   });
 
-  
+
 
   it('should have a fetchGeneralArticles function', () => {
     expect(homeNewsStore.fetchGeneralArticles).to.be.a('function');
@@ -71,6 +71,14 @@ describe('Home News Store', () => {
       homeNewsStore.emit('change');
 
       expect(callback.calledOnce).to.be.true;
+    });
+
+  it ('can be subscribed to the Store changes', () => {
+      var callback = sinon.spy();
+      homeNewsStore.removeChangeListener(callback);
+      homeNewsStore.emit('change');
+
+      expect(callback.calledOnce).to.be.false;
     });
 
 });

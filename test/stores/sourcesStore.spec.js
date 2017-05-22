@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import sourcesStore from '../../src/stores/sourcesStore';
 
+
 describe('Sources Store', () => {
 
   it('should exist', () => {

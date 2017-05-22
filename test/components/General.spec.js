@@ -3,6 +3,7 @@ import React from 'react';
 import {expect} from 'chai';
 import {shallow,mount} from 'enzyme';
 import General from '../../src/components/General';
+import '../../test/testUtils/globaldoc';
 
 
 describe('<General />', () => {

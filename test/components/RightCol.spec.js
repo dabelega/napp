@@ -2,6 +2,7 @@
 import React from 'react';
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
+import '../../test/testUtils/globaldoc';
 
 import RightCol from '../../src/components/containers/RightCol';
 
