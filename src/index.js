@@ -21,7 +21,20 @@ render (
     <div>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route exact path="/source" component={Source} />
+        <Route 
+          exact path="/source" render={() => (
+            isAuthenticated() ? (
+              <Source />
+            ) : (
+              <Redirect 
+                to={{
+                  pathname: '/',
+                  state: 'Please sign in to view sources' 
+                }} 
+              />
+            )
+          )} 
+        />
         <Route path="/articles" component={Article} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={ContactUs} />
