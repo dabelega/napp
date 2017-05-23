@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { 
-  BrowserRouter as Router, Route, Switch
+  BrowserRouter as Router, Route, Switch, Redirect
 } from 'react-router-dom';
 import Home from './components/containers/Home';
 import Source from './components/Source';
@@ -21,16 +21,7 @@ render (
     <div>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route 
-          exact path="/source" render={() => (
-            isAuthenticated() ? (
-              <Source />
-            ) : (
-              <Home />
-            )
-          )} 
-        />
-
+        <Route exact path="/source" component={Source} />
         <Route path="/articles" component={Article} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={ContactUs} />

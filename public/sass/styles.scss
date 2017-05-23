@@ -74,6 +74,17 @@ img{
  	color: #000;
  }
 
+ .sortby{
+ 	margin-top: 50px;
+ }
+
+ .sortby{
+ 	h2{
+ 		text-transform: uppercase;
+ 		color: rgb(161,27,15);
+ 	}
+ }
+
  .floatleft{
  	float: left;
  }
@@ -201,6 +212,14 @@ img{
 
 .main_menu_area ul li a:hover{
 	background:rgb(162,27,15);
+}
+
+.flash{
+	margin-top: 20px;
+	margin-left: 350px;
+	width: 400px;
+	color: red;
+	font-size: 18px;
 }
 
 #nav li {

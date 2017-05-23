@@ -4,6 +4,7 @@ import _ from 'lodash';
 import '../../public/sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
 import articlesStore from '../stores/articlesStore';
+import sourcesStore from '../stores/sourcesStore';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -21,11 +22,12 @@ export default class Article extends React.Component {
 	constructor (){
 		super();
 		this.state = {
-			articles: []
+			articles: [],
+      sources: []
 		};
 
 		this.fetchNewsArticles = this.fetchNewsArticles.bind(this);
-		
+    this.fetchNewsSources = this.fetchNewsSources.bind(this); 
 	}
 
   /**
@@ -38,6 +40,10 @@ export default class Article extends React.Component {
     let sortType = window.parsed.sortOptions;
 		newsActions.getArticles(sourceName,sortType);
 		articlesStore.on('change',this.fetchNewsArticles);
+
+    /* Get sources */
+    newsActions.getSources();
+    sourcesStore.on('change',this.fetchNewsSources);
 
 	}
 
@@ -52,6 +58,16 @@ export default class Article extends React.Component {
 	}
 
   /**
+   * This method sets the state of the sources array to equal 
+   * the response from the API call, which contains the full list of 
+   * sources.
+   */
+  fetchNewsSources(){
+    this.setState({ sources: sourcesStore.fetchNewsSources() });
+  }
+
+
+  /**
    * This method renders output as HTML using JSX.
    * It also maps through the articles array and
    * renders its contents.
@@ -59,11 +75,41 @@ export default class Article extends React.Component {
 	render() {
 		
 		let articles = _.map(this.state.articles);
+    let sources = _.map(this.state.sources);
+    let currentSource = window.parsed.sourceId;
+    let BASE = '/articles?sourceId=';
+    let OPT = '&sortOptions=';
 
       return (
         <div className="wrapper">
           <div className="center">
             <Header />
+            <ul> 
+
+              { sources.map(function(sourceName){
+               if(sourceName.id == currentSource){return (
+                 <div className="sortby">
+                   <li key={sourceName.name}> 
+                     <h2>{sourceName.name}</h2> 
+                     <span>Filter:</span>
+                     { sourceName.sortBysAvailable.map((sortOption) =>{ 
+                       return( 
+                         <a href={`${BASE}${sourceName.id}${OPT}${sortOption}`}>
+                           <span className="filter">{sortOption}</span>
+                         </a>  
+                        );
+                    })
+                    
+                  }              
+                   </li>
+                 </div>
+                 );
+              }
+
+                }) 
+              }
+            </ul>
+
             <div className="main_content2 floatleft">
               <div className="left_coloum2 floatleft">
                 <br /><br />

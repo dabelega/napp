@@ -54,7 +54,8 @@ module.exports = {
      'process': {
        'env': {
          'API_KEY': JSON.stringify(process.env.API_KEY),
-         'AUTH0_ID': JSON.stringify(process.env.AUTH0_ID)
+         'AUTH0_ID': JSON.stringify(process.env.AUTH0_ID),
+         'NODE_ENV': JSON.stringify('development')
        }
      }
    })

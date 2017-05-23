@@ -91,7 +91,7 @@ export default class Source extends React.Component {
             { sources.map(function(sourceName){
               return (
                 <li key={sourceName.name}> 
-                  {sourceName.name}
+                  {sourceName.name} 
                   { sourceName.sortBysAvailable.map((sortOption) =>{ 
                      return( 
                        <a href={`${BASE}${sourceName.id}${OPT}${sortOption}`}>

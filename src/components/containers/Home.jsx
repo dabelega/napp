@@ -6,10 +6,13 @@ import HomeContents from '../containers/HomeContents';
 import Footer from '../../components/Footer';
 import Bar from '../../components/Bar';
 
-const Home = () => (
+const Home = (props) => (
   <div className="wrapper">
     <div className="center">
       <Header /> 
+      <div className="flash">
+        {props.location.state}
+      </div>
       <Bar />
       <Slider />
       <HomeContents />
@@ -19,3 +22,4 @@ const Home = () => (
 );
 
 export default Home;
+
