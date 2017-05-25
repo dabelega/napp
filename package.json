@@ -4,8 +4,12 @@
   "description": "A news Application",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r mock-local-storage --require ignore-styles --compilers js:babel-core/register --colors ./src/test/*/*.spec.js",
-    "test:watch": "npm test -- --watch"
+    "start": "node server.js",
+    "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:watch": "npm test -- --watch",
+    "elint": "eslint . — ext .js — ext .jsx — cache || true",
+    "elint:table": "eslint . — ext .js — ext .jsx — cache — format table || true",
+    "elint:summary": "eslint . — ext .js — ext .jsx — cache — format ‘node_modules/eslint-friendly-formatter’ || true"
   },
   "repository": {
     "type": "git",
@@ -16,14 +20,27 @@
   "bugs": {
     "url": "https://github.com/dhaniboy09/napp/issues"
   },
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "collectCoverage": true,
+     "coverageDirectory": "<rootDir>",
+     "coverageReporters": ["lcov"],
+     "setupTestFrameworkScriptFile": "<rootDir>/__mocks__/localStorageMock.js"
+  },
   "homepage": "https://github.com/dhaniboy09/napp#readme",
   "dependencies": {
+    "auth0-js": "^8.6.1",
+    "auth0-js-react": "^6.8.7",
     "axios": "^0.16.1",
     "body-style": "^0.3.0",
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "firebase": "^3.9.0",
     "flux": "^3.1.2",
+    "jsdom": "^9.12.0",
     "keymirror": "^0.1.1",
     "lodash": "^4.17.4",
     "node-sass": "^4.5.2",
@@ -32,22 +49,37 @@
     "query-string": "^4.3.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-google-login": "^2.8.9",
     "react-meta-tags": "^0.1.3",
     "react-router-dom": "^4.1.1",
+    "rewire": "^2.5.2",
     "superagent": "^3.5.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
+    "coveralls": "^2.13.1",
     "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^7.0.0",
     "ignore-styles": "^5.0.1",
+    "jest": "^20.0.3",
     "mocha": "^3.3.0",
     "mock-local-storage": "^1.0.2",
+    "nyc": "^10.3.2",
     "react-dom": "^15.5.4",
     "react-hot-loader": "^1.3.1",
     "react-test-renderer": "^15.5.4",

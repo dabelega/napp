@@ -3,61 +3,28 @@
 <head>
 	<title>Napp - A News App</title>
 
+<link rel="stylesheet" type="text/css" href="./public/sass/styles.scss" />
+<link rel="stylesheet" type="text/css" href="./public/sass/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="./public/sass/jquery.bxslider.css" />
+ 
 <script src="https://apis.google.com/js/platform.js?onload=triggerGoogleLoaded" async defer></script>
-<script type="text/javascript">
-  function triggerGoogleLoaded() {
-    window.dispatchEvent(new Event('google-loaded'));
-  }
-</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://cdn.auth0.com/js/auth0/8.6.1/auth0.min.js"></script>
 
-<script>
-  
-</script>
+
+<script type="text/javascript" src="./public/js/jquery-min.js"></script> 
+<script type="text/javascript" src="./public/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="./public/js/jquery.bxslider.js"></script> 
+<script type="text/javascript" src="./public/js/selectnav.min.js"></script>
+
+
 </head>
 <body>
-	<div id="app" />
+	<div id="app" class="wrapper">
+    <div class="center">
+    </div>
+  </div>
 	<script src="bundle.js"></script>
 </body>
 </html>
 
-<!--  <script src="https://apis.google.com/js/platform.js" async defer></script> 
-
-
-
-<meta name="google-signin-client_id" content="854182409047-l3d7urc4bu0skikf0o0l16cthve11uup.apps.googleusercontent.com" />
-                <meta name="google-signin-cookiepolicy" content="single_host_origin" />
-                <meta name="google-signin-scope" content="profile email" />
-
-                <div id="my-signin2"></div>	
-
-
-
-
-
-
-                import React from 'react';
-import { render } from 'react-dom';
-import { HashRouter } from 'react-router-dom';
-import { BrowserHistory as Router,Route } from 'react-router';
-import Home from './components/Home';
-import Source from './components/Source';
-import Article from './components/Article';
-
-
-render (
-		<HashRouter>
-			<div>
-				<Route exact path="/" component={Home} />
-	        	<Route exact path="/source" component={Source} />
-	        	<Route exact path="/articles" component={Article} />
-
-
-        	</div>
-    	</HashRouter>,
-	document.getElementById('app')
-);
-
-
-
-
-  -->

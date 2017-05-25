@@ -1,6 +1,4 @@
 node_modules
 README.md
-webpack.config.js
 public/bundle.js
-utils
 coverage
