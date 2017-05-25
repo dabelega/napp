@@ -1,13 +1,14 @@
 import * as newsAPI from '../utils/newsAPI';
 import Dispatcher from '../dispatcher/AppDispatcher';
+import newsConstants from '../constants/newsConstants';
 
 /**
   * This function gets a full list of sources from the NewsAPI
   */
 export function getSources() {
-	newsAPI.getSources((sourceList) => {
+	return newsAPI.getSources((sourceList) => {
 		Dispatcher.dispatch({
-			actionType:'NEWS_SOURCES',
+			actionType:newsConstants.NEWS_SOURCES,
 			sourceList: sourceList
 		});
 	});
@@ -20,12 +21,13 @@ export function getSources() {
   * @param {string} sortType
   */
 export function getArticles(sourceName,sortType) {
-	newsAPI.displayArticles(sourceName,sortType,(articleList) => {
+        return newsAPI.displayArticles(sourceName,sortType,(articleList) => {
 		Dispatcher.dispatch({
-			actionType:'NEWS_ARTICLES',
+			actionType:newsConstants.NEWS_ARTICLES,
 			articleList: articleList
 		});
 	});
+   
 }
 
 /**
@@ -33,9 +35,9 @@ export function getArticles(sourceName,sortType) {
   * home page
   */
 export function getGeneral(){
-	newsAPI.displayGeneral((articleList) => {
+	return newsAPI.displayGeneral((articleList) => {
 		Dispatcher.dispatch({
-			actionType:'NEWS_GENERAL',
+			actionType:newsConstants.NEWS_GENERAL,
 			articleList: articleList,
 		});
 	});
@@ -46,9 +48,9 @@ export function getGeneral(){
   * home page
   */
 export function getFeatured(){
-	newsAPI.displayFeatured((articleList) => {
+	return newsAPI.displayFeatured((articleList) => {
 		Dispatcher.dispatch({
-			actionType:'NEWS_FEATURED',
+			actionType:newsConstants.NEWS_FEATURED,
 			articleList: articleList,
 		});
 	});
@@ -59,9 +61,9 @@ export function getFeatured(){
   * home page
   */
 export function getBusiness(){
-	newsAPI.displayBusiness((articleList) => {
+	return newsAPI.displayBusiness((articleList) => {
 		Dispatcher.dispatch({
-			actionType:'NEWS_BUSINESS',
+			actionType:newsConstants.NEWS_BUSINESS,
 			articleList: articleList,
 		});
 	});
@@ -72,9 +74,9 @@ export function getBusiness(){
   * home page
   */
 export function getTech(){
-	newsAPI.displayTech((articleList) => {
+	return newsAPI.displayTech((articleList) => {
 		Dispatcher.dispatch({
-			actionType:'NEWS_TECH',
+			actionType:newsConstants.NEWS_TECH,
 			articleList: articleList,
 		});
 	});
@@ -85,9 +87,9 @@ export function getTech(){
   * home page
   */
 export function getEntertainment(){
-	newsAPI.displayEntertainment((articleList) => {
+	return newsAPI.displayEntertainment((articleList) => {
 		Dispatcher.dispatch({
-			actionType:'NEWS_ENTERTAINMENT',
+			actionType:newsConstants.NEWS_ENTERTAINMENT,
 			articleList: articleList,
 		});
 	});
@@ -98,9 +100,9 @@ export function getEntertainment(){
   * home page
   */
 export function getSports(){
-	newsAPI.displaySports((articleList) => {
+	return newsAPI.displaySports((articleList) => {
 		Dispatcher.dispatch({
-			actionType:'NEWS_SPORTS',
+			actionType:newsConstants.NEWS_SPORTS,
 			articleList: articleList,
 		});
 	});
