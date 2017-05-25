@@ -25,7 +25,9 @@
       ".*": "<rootDir>/node_modules/babel-jest"
     },
     "collectCoverage": true,
-    "setupTestFrameworkScriptFile": "<rootDir>/__mocks__/localStorageMock.js"
+     "coverageDirectory": "<rootDir>",
+     "coverageReporters": ["lcov"],
+     "setupTestFrameworkScriptFile": "<rootDir>/__mocks__/localStorageMock.js"
   },
   "homepage": "https://github.com/dhaniboy09/napp#readme",
   "dependencies": {
