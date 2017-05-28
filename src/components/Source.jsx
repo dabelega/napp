@@ -82,7 +82,8 @@ export default class Source extends React.Component {
         <div className="search-container" >
           <input 
             type="text" value={this.state.searchString} 
-            onChange={this._handleChange} placeholder="Type here" 
+            onChange={this._handleChange} placeholder="Type here"
+            className="searcher"
           />
         </div>
 				

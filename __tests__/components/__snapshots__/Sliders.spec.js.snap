@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sliders About Slider renders a snapshot 1`] = `
+<div
+  className="slider-margin"
+>
+  <div
+    className="main_menu_area"
+  >
+    <ul
+      id="nav"
+    />
+  </div>
+  <div
+    className="slider_area"
+  >
+    <div
+      className="slider"
+    >
+      <ul
+        className="bxslider"
+      >
+        <li>
+          <img
+            alt=""
+            src="../public/images/about.jpg"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sliders Contact Us Slider renders a snapshot 1`] = `
+<div
+  className="slider-margin"
+>
+  <div
+    className="main_menu_area"
+  >
+    <ul
+      id="nav"
+    />
+  </div>
+  <div
+    className="slider_area"
+  >
+    <div
+      className="slider"
+    >
+      <ul
+        className="bxslider"
+      >
+        <li>
+          <img
+            alt=""
+            src="../public/images/contact.jpg"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sliders Source Slider renders a snapshot 1`] = `
+<div
+  className="slider-margin"
+>
+  <div
+    className="main_menu_area"
+  >
+    <ul
+      id="nav"
+    />
+  </div>
+  <div
+    className="slider_area"
+  >
+    <div
+      className="slider"
+    >
+      <ul
+        className="bxslider"
+      >
+        <li>
+          <img
+            alt=""
+            src="../public/images/source.jpg"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

@@ -13,6 +13,8 @@ body{
 	
 }
 
+strong { font-weight: bold; }
+
 div{
 	overflow:hidden;
 }
@@ -109,6 +111,45 @@ img{
 
 .slider-margin{
 	
+}
+
+.welcome{
+	background-color: rgba(51, 51, 51, 0.1);
+	border-radius: 5px;
+	padding:20px;
+}
+
+.welcome {
+	p{
+		line-height: 23px;
+		color: #000;
+		font-size: 16px;
+	}
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.searcher{}
+
+.error-handler{
+	width:600px;
+	margin: 0 auto;
+	background-color: rgba(51, 51, 51, 0.1);
+	border-radius: 5px;
+	padding: 20px;
+	color: #000;
+	text-align: center;
+	margin-top: 80px;
+}
+
+.error-handler{
+	ul{
+		list-style-type: none;
+	}
 }
 
  /*

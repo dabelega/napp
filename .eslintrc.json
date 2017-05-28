@@ -244,6 +244,7 @@
         "require-jsdoc": "off",
         "rest-spread-spacing": "error",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/forbid-prop-types": ["<enabled>", { "forbid": ["any", "array"] }],
         "semi": "off",
         "semi-spacing": [
             "error",

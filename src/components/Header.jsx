@@ -63,7 +63,7 @@ export default class Header extends React.Component {
   logout() {
     AuthActions.logUserOut();
     this.setState({authenticated: false});
-    window.location='/';
+    this.props.history.push('/');
 }
 
 /*
