@@ -19,7 +19,7 @@ import Footer from '../components/Footer';
 export default class Article extends React.Component {
 
   static propTypes = {
-    history: PropTypes.object.isRequired
+    history: PropTypes.object
   }
 
   /**

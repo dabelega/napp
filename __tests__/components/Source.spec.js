@@ -22,18 +22,4 @@ describe('Source Page', () => {
 			expect(renderedRoot.props.className).toEqual('wrapper');     
 		});
     });
-    
-    describe('Events', () => {
-		it('calls handlechange when input changes', () => {
-			const wrapper = mount(<Source />); 
-			wrapper.setState({
-				searchString: 'cnn'
-			})
-			wrapper._handleChange = jest.fn();
-            wrapper.find('input').simulate('change', {target: {value: wrapper.state().searchString}});
-			
-			expect(wrapper._handleChange).toBeCalledWith('cnn');
-		});
-    });
-
 });
