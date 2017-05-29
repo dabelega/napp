@@ -4,6 +4,10 @@ import Header from '../components/Header';
 import AboutSlider from '../components/AboutSlider';
 import Footer from '../components/Footer';
 
+/**
+ * Stateless component
+ * Simply renders information
+ */
 const About = () => (
   <div className="wrapper">
     <div className="center">

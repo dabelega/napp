@@ -9,6 +9,7 @@ const CHANGE_EVENT = 'change';
   * This function adds user to local storage
   * @param {string} profile
   * @param {string} token
+  * @return {null}
   */
 function setUser(profile, token) {
   if (!localStorage.getItem('id_token')) {
@@ -19,6 +20,8 @@ function setUser(profile, token) {
 
 /**
   * This function removes user from local storage
+  * @param {null}
+  * @return {null}
   */
 function removeUser() {
   localStorage.removeItem('profile');
@@ -33,7 +36,8 @@ class AuthStoreClass extends EventEmitter {
 
   /**
     * This function listens for change event
-    * @param {callback} function
+    * @param {function} callback
+    * @return {null}
     */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback)
@@ -41,7 +45,8 @@ class AuthStoreClass extends EventEmitter {
 
   /**
     * This function removes change event.
-    * @param {callback} function
+    * @param {function} callback
+    * @return {null}
     */
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback)
@@ -50,6 +55,8 @@ class AuthStoreClass extends EventEmitter {
 
   /**
     * This function checks if user is logged in
+    * @param {null}
+    * @return {bool} 
     */
   isAuthenticated() {
     if (localStorage.getItem('id_token')) {

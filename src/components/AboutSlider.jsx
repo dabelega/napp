@@ -2,6 +2,10 @@ import React from 'react';
 import '../../public/sass/styles.scss';
 import Bar from '../components/Bar';
 
+/**
+ * Stateless component
+ * Simply renders Slider for About Component
+ */
 const AboutSlider = () => (	
   <div className="slider-margin">
     <Bar />	

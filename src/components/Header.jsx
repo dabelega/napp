@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import '../../public/sass/styles.scss';
 import '../utils/auth0.js';
 import * as AuthActions from '../actions/AuthActions';
@@ -20,7 +21,10 @@ const auth0 = new Auth0({
 export default class Header extends React.Component { 
 
   /**
-    * Initalizes state
+    * Initalizes states and binds methods
+    * @constructor
+    * @params {null}
+    * @return {null}
     */
   constructor() {
     super();
@@ -33,6 +37,8 @@ export default class Header extends React.Component {
 
   /**
    * Lifecycle Method
+   * @params {null}
+   * @return {null}
    */
   componentWillMount(){
     var result = auth0.parseHash(window.location.hash);
@@ -48,6 +54,8 @@ export default class Header extends React.Component {
  
   /**
    * Logs user in
+   * @params {null}
+   * @return {null}
    */
   login() {
     auth0.login({
@@ -59,6 +67,8 @@ export default class Header extends React.Component {
 
   /**
    * Logs user out
+   * @params {null}
+   * @return {null}
    */
   logout() {
     AuthActions.logUserOut();
@@ -69,6 +79,8 @@ export default class Header extends React.Component {
 /*
  * Renders HTML from JSX
  * Changes Links based on user's login status.
+ * @params {null}
+ * @return {null}
  */
 render() {
   return (
@@ -97,3 +109,6 @@ render() {
       );
 	}
 }
+Header.propTypes = {
+    history: PropTypes.object
+  };

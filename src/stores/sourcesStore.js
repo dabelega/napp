@@ -4,6 +4,13 @@ import Dispatcher from '../dispatcher/AppDispatcher';
 
 
 class SourcesStore extends EventEmitter{
+
+	/*
+	 * Initializes state
+	 * @constructor
+	 * @param {null}
+	 * @return {null}
+     */
 	constructor(){
 		super();
 		this.sources = [];
@@ -11,6 +18,8 @@ class SourcesStore extends EventEmitter{
 
 	/*
 	 * This methods retuns sources array
+	 * @param {null}
+	 * @return {null}
      */
 	fetchNewsSources(){
 		return this.sources;
@@ -18,7 +27,8 @@ class SourcesStore extends EventEmitter{
 
 	/**
       * This function listens for change event
-      * @param {callback} function
+      * @param {function} callback
+      * @return {null}
       */
     addChangeListener(callback) {
         this.on('change', callback);
@@ -26,7 +36,8 @@ class SourcesStore extends EventEmitter{
 
     /**
       * This function removes change event.
-      * @param {callback} function
+      * @param {function} callback
+      * @return {null}
       */
     removeChangeListener(callback) {
       this.removeListener('change', callback);
@@ -35,6 +46,8 @@ class SourcesStore extends EventEmitter{
     /* 
      * This method looks for our various action types so we can
      * respond appropriately
+     * @return {object} result
+     * @return {null}
      */
 	handleGetSourceAction(result) {
 		switch(result.actionType){

@@ -2,6 +2,10 @@ import React from 'react';
 import '../../public/sass/styles.scss';
 import Bar from '../components/Bar';
 
+/**
+ * Stateless component
+ * Simply renders Slider for Sources component
+ */
 const SourceSlider = () => (
   <div className="slider-margin">
     <Bar />		

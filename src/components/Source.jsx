@@ -15,9 +15,10 @@ import SourceSlider from '../components/SourceSlider';
 export default class Source extends React.Component {
 
   /**
-   * Initalizes states.
-   * searhString: holds user's search query
-   * sources: array to hold list of sources
+   * Initalizes states and binds methods
+   * @constructor
+   * @param {null}
+   * @return {null}
    */
   constructor (){
 	super();
@@ -32,6 +33,8 @@ export default class Source extends React.Component {
   /**
    * Lifecycle Method
    * It initiates the process of calling the NewsAPI
+   * @param {null}
+   * @return {null}
    */
   componentWillMount(){
     newsActions.getSources();
@@ -42,6 +45,8 @@ export default class Source extends React.Component {
    * This method sets the state of the sources array to equal 
    * the response from the API call, which contains the full list of 
    * sources.
+   * @param {null}
+   * @return {null}
    */
   fetchNewsSources(){
     this.setState({ sources: sourcesStore.fetchNewsSources() });
@@ -50,6 +55,8 @@ export default class Source extends React.Component {
   /**
    * This method sets the state of the searchString to equal 
    * the user's search query.
+   * @param {object} e
+   * @return {null}
    */
   _handleChange(e){
     this.setState({searchString:e.target.value});
@@ -60,6 +67,8 @@ export default class Source extends React.Component {
    * It maps through the sources array and renders its contents.
    * It matches the searchString with the list of sources
    * to provide good User experience when a user performs a search.
+   * @param {null}
+   * @return {null}
    */
   render() {
     let searchString = this.state.searchString.trim().toLowerCase();

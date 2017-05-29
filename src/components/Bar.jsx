@@ -1,6 +1,10 @@
 import React from 'react';
 import '../../public/sass/styles.scss'; 
 
+/**
+ * Stateless component
+ * Simply renders horizontal bar above sliders
+ */
 const Bar = () => (
   <div className="main_menu_area">
     <ul id="nav">         

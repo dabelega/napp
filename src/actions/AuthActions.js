@@ -6,6 +6,7 @@ import AuthConstants from '../constants/AuthConstants';
   * This function logs in a user with their google account
   * @param {string} profile
   * @param {string} token
+  * @return {null}
   */
 export function logUserIn (profile, token){
     AppDispatcher.dispatch({
@@ -17,6 +18,8 @@ export function logUserIn (profile, token){
 
 /**
   * This function logs out a user
+  * @param {null}
+  * @return {null}
   */
  export function logUserOut(){
     AppDispatcher.dispatch({

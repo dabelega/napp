@@ -19,8 +19,10 @@ import Footer from '../components/Footer';
 export default class Article extends React.Component {
 
   /**
-   * Initalizes states.
-   * articles: array to hold list of articles
+   * Initalizes states and binds methods
+   * @constructor
+   * @param {null}
+   * @return {null}
    */
 	constructor (){
 		super();
@@ -36,6 +38,8 @@ export default class Article extends React.Component {
   /**
    * Lifecycle Method
    * It initiates the process of calling the NewsAPI
+   * @param {null}
+   * @return {null}
    */
 	componentWillMount(){
 		window.parsed = queryString.parse(location.search);
@@ -54,6 +58,8 @@ export default class Article extends React.Component {
    * This method sets the state of the articles array to equal 
    * the response from the API call, which contains a list of 
    * articles based on source name and sort type.
+   * @param {null}
+   * @return {null}
    */
 	fetchNewsArticles(){
 		this.setState({ articles: articlesStore.fetchNewsArticles() });
@@ -63,13 +69,19 @@ export default class Article extends React.Component {
    * This method sets the state of the sources array to equal 
    * the response from the API call, which contains the full list of 
    * sources.
+   * @param {null}
+   * @return {null}
    */
   fetchNewsSources(){
     this.setState({ sources: sourcesStore.fetchNewsSources() });
   }
 
-  
-
+  /**
+   * Implements Back Button
+   * sources.
+   * @param {null}
+   * @return {null}
+   */
   goback(){
     this.props.history.push('/source');
   }
@@ -79,6 +91,8 @@ export default class Article extends React.Component {
    * This method renders output as HTML using JSX.
    * It also maps through the articles array and
    * renders its contents.
+   * @param {null}
+   * @return {null}
    */
 	render() {
     

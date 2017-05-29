@@ -2,6 +2,13 @@ import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher/AppDispatcher';
 
 class ArticlesStores extends EventEmitter{
+
+	/*
+	 * Initializes state
+	 * @constructor
+	 * @param {null}
+	 * @return {null}
+     */
 	constructor(){
 		super();
 		this.articles = [];
@@ -9,6 +16,8 @@ class ArticlesStores extends EventEmitter{
 
 	/*
 	 * This methods retuns articles array
+	 * @param {null}
+	 * @return {null}
      */
 	fetchNewsArticles(){
 		return this.articles;
@@ -16,7 +25,8 @@ class ArticlesStores extends EventEmitter{
 
 	/**
       * This function listens for change event
-      * @param {callback} function
+      * @param {function} callback
+      * @return {null}
       */
     addChangeListener(callback) {
         this.on('change', callback);
@@ -24,7 +34,8 @@ class ArticlesStores extends EventEmitter{
 
     /**
       * This function removes change event.
-      * @param {callback} function
+      * @param {function} callback
+      * @return {null}
       */
     removeChangeListener(callback) {
       this.removeListener('change', callback);
@@ -33,6 +44,7 @@ class ArticlesStores extends EventEmitter{
     /* 
      * This method looks for our various action types so we can
      * respond appropriately
+     * @param {object} result
      */
 	handleGetArticlesAction(result) {
 		switch(result.actionType){
