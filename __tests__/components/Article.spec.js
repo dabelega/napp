@@ -1,5 +1,5 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 import Article from '../../src/components/Article';
@@ -23,9 +23,33 @@ describe('Article Page', () => {
 		});
     });
 
+    describe('State', () => {
+		it('Initial', () => {
+			let wrapper = shallow(<Article />);
+			const initialState = {
+              articles: [],
+              sources: []
+            };
+        expect(wrapper.state()).toEqual(initialState);  
+        expect(wrapper.instance().fetchNewsArticles).toBeDefined();
+        expect(wrapper.instance().fetchNewsSources).toBeDefined();
+        expect(wrapper.instance().goback).toBeDefined();
+		});
+    });
+
+    describe('Methods', () => {
+		it('should have certain Methods', () => {
+			let wrapper = shallow(<Article />); 
+				expect(wrapper.instance().fetchNewsArticles).toBeDefined();
+				expect(wrapper.instance().fetchNewsSources).toBeDefined();
+				expect(wrapper.instance().goback).toBeDefined();
+		});
+		
+    });
+
     describe('Interactions', () => {
         const wrapper = mount(<Article />)
-		it('should set state correctly (Articles)', () => {
+		it('should render state correctly (Articles)', () => {
 			wrapper.setState({
 				articles: [{
 					urlToImage: 'urlToImage',
@@ -42,7 +66,7 @@ describe('Article Page', () => {
            expect(p.text()).toBe('Article Description');    
 		});
 
-		it('should set state correctly (Sources)', () => {
+		it('should render state correctly (Sources)', () => {
 			wrapper.setState({
 				sources: [{
 					name: 'Source Name',

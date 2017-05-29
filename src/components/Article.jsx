@@ -126,7 +126,7 @@ export default class Article extends React.Component {
               }
             </ul>
             <button 
-              className="btn btn-info"
+              className="btn btn-info backer"
               onClick={() =>this.goback()} 
             >
            Go back</button>  

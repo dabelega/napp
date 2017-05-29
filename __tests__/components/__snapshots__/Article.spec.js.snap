@@ -65,7 +65,7 @@ exports[`Article Page Tests for JSX renders a snapshot 1`] = `
     </div>
     <ul />
     <button
-      className="btn btn-info"
+      className="btn btn-info backer"
       onClick={[Function]}
     >
       Go back
