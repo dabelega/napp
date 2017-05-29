@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test:watch": "npm test -- --watch",
     "elint": "eslint . — ext .js — ext .jsx — cache || true",
     "elint:table": "eslint . — ext .js — ext .jsx — cache — format table || true",
