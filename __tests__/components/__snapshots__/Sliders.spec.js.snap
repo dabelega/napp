@@ -64,6 +64,27 @@ exports[`Sliders Contact Us Slider renders a snapshot 1`] = `
 </div>
 `;
 
+exports[`Sliders Home Slider renders a snapshot 1`] = `
+<div
+  className="slider_area"
+>
+  <div
+    className="slider"
+  >
+    <ul
+      className="bxslider"
+    >
+      <li>
+        <img
+          alt=""
+          src="../public/images/welcome.png"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
 exports[`Sliders Source Slider renders a snapshot 1`] = `
 <div
   className="slider-margin"

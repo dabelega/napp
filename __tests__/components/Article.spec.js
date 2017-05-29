@@ -23,6 +23,12 @@ describe('Article Page', () => {
 		});
     });
 
+    describe('Redirect', () => {
+		it('should have a redirect function', () => {
+			expect(Article.goback).toBeDefined();  
+		});
+    });
+
     describe('Interactions', () => {
         const wrapper = mount(<Article />)
 		it('should set state correctly (Articles)', () => {

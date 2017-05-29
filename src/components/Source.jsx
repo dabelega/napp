@@ -91,11 +91,14 @@ export default class Source extends React.Component {
           <ul> 
             { sources.map(function(sourceName){
               return (
-                <li key={sourceName.name}> 
+                <li key={sourceName.name} className="key-sort"> 
                   {sourceName.name} 
                   { sourceName.sortBysAvailable.map((sortOption) =>{ 
                      return( 
-                       <a href={`${BASE}${sourceName.id}${OPT}${sortOption}`} key={sortOption}>
+                       <a 
+                         href={`${BASE}${sourceName.id}${OPT}${sortOption}`} 
+                         key={sortOption}
+                       >
                          <span className="filter">{sortOption}</span>
                        </a>  
                       );

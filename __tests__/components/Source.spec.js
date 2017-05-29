@@ -23,4 +23,21 @@ describe('Source Page', () => {
 		});
     });
 
+    describe('Interactions', () => {
+        const wrapper = mount(<Source />)
+		it('should set state correctly (Sources)', () => {
+			wrapper.setState({
+				sources: [{
+					name: 'Source Name',
+					sortBysAvailable:[
+						'top',
+						'latest'
+					]
+				}]
+           }); 
+           const li = wrapper.find('.key-sort'); 
+           expect(li.text()).toBe('Source Nametoplatest');  
+		});
+    });
+
 });

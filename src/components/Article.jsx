@@ -114,7 +114,7 @@ export default class Article extends React.Component {
                            href={`${BASE}${sourceName.id}${OPT}${sortOption}`} 
                            key={sortOption}
                          >
-                           <span className="filter">{sortOption}</span>
+                           <span className="filter spanate">{sortOption}</span>
                          </a>  
                         );
                     })

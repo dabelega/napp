@@ -25,6 +25,14 @@
       ".*": "<rootDir>/node_modules/jest-css-modules"
     },
     "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/utils/auth0.js"
+    ],
     "coverageDirectory": "<rootDir>/coverage",
     "coverageReporters": [
       "lcov"
