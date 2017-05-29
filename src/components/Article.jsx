@@ -18,10 +18,6 @@ import Footer from '../components/Footer';
   */
 export default class Article extends React.Component {
 
-  static propTypes = {
-    history: PropTypes.object
-  }
-
   /**
    * Initalizes states.
    * articles: array to hold list of articles
@@ -208,3 +204,8 @@ export default class Article extends React.Component {
 
     }
 }	
+
+Article.propTypes = {
+    history: PropTypes.object
+  };
+

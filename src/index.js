@@ -17,7 +17,7 @@ function isAuthenticated() {
   }
 
 render (
-  <Router history={history}>
+  <Router>
     <div>
       <Switch>
         <Route path="/" exact component={Home} />

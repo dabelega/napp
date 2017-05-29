@@ -31,7 +31,8 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/src/index.js",
-      "<rootDir>/src/utils/auth0.js"
+      "<rootDir>/src/utils/auth0.js",
+      "<rootDir>/src/components/app.jsx"
     ],
     "coverageDirectory": "<rootDir>/coverage",
     "coverageReporters": [

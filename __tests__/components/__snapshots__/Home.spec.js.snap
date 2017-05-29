@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page Home renders a snapshot 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="center"
+  >
+    <div
+      className="header"
+    >
+      <div
+        className="logo floatleft"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt=""
+            src="../public/images/logo copy.png"
+          />
+        </a>
+      </div>
+      <div
+        className="top_menu floatleft"
+      >
+        <ul>
+          <li>
+            <a
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+            >
+              About Napp
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact"
+            >
+              Contact us
+            </a>
+          </li>
+          <li>
+            <a
+              href="/source"
+            >
+              Sources
+            </a>
+          </li>
+          <a
+            onClick={[Function]}
+            role="button"
+          >
+              Sign In with Google
+          </a>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="flash"
+    />
+    <div
+      className="main_menu_area"
+    >
+      <ul
+        id="nav"
+      />
+    </div>
+    <div
+      className="slider_area"
+    >
+      <div
+        className="slider"
+      >
+        <ul
+          className="bxslider"
+        >
+          <li>
+            <img
+              alt=""
+              src="../public/images/welcome.png"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="content_area"
+    >
+      <div
+        className="welcome"
+      >
+        <p>
+          The Napp Journal provides news headlines from over 78 news sources. These news Sources include CNN, BBC, Al Jazeera, and much more. The App provides a friendly user interface that allows you view major headlines at a glance.
+        </p>
+        <p>
+          You can view all the news sources, review headlines and more. Start exploring now! and thank us later!.. *_*
+        </p>
+      </div>
+    </div>
+    <div
+      className="footer_bottom_area"
+    >
+      <div
+        className="copyright_text"
+      >
+        <p>
+          Copyright © 2017 Napp. All rights reserved
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

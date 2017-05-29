@@ -245,6 +245,7 @@
         "rest-spread-spacing": "error",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/forbid-prop-types": [1, { "forbid": ["any", "array"] }],
+        "react/require-default-props":"off",
         "semi": "off",
         "semi-spacing": [
             "error",
