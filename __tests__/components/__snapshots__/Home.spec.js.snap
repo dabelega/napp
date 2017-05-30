@@ -49,23 +49,15 @@ exports[`Home Page Home renders a snapshot 1`] = `
           </li>
           <li>
             <a
-              href="/source"
+              onClick={[Function]}
+              role="button"
             >
-              Sources
+              Sign In with Google
             </a>
           </li>
-          <a
-            onClick={[Function]}
-            role="button"
-          >
-              Sign In with Google
-          </a>
         </ul>
       </div>
     </div>
-    <div
-      className="flash"
-    />
     <div
       className="main_menu_area"
     >

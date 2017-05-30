@@ -26,12 +26,8 @@ render (
             isAuthenticated() ? (
               <Source />
             ) : (
-              <Redirect 
-                to={{
-                  pathname: '/',
-                  state: 'Please sign in to view sources' 
-                }} 
-              />
+              
+              <Home />
             )
           )} 
         />

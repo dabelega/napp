@@ -8,13 +8,10 @@ import Footer from '../../components/Footer';
 import Bar from '../../components/Bar';
 
 
-const Home = (props) => (
+const Home = () => (
   <div className="wrapper">
     <div className="center">
       <Header /> 
-      <div className="flash">
-        {props.location.state}
-      </div>
       <Bar />
       <Slider />
       <HomeContents />
@@ -23,9 +20,6 @@ const Home = (props) => (
   </div> 
 );
 
-Home.propTypes = {
-    location: PropTypes.object.isRequired
-  }
 
 export default Home;
 
