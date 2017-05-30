@@ -41,7 +41,7 @@ export default class Header extends React.Component {
    * @return {null}
    */
   componentWillMount(){
-    var result = auth0.parseHash(window.location.hash);
+    let result = auth0.parseHash(window.location.hash);
     if (result && result.id_token) {
     auth0.getProfile(result.id_token, (err, profile) => {
       profile = profile.name;
