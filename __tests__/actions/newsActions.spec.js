@@ -7,7 +7,7 @@ import newsConstants from '../../src/constants/newsConstants';
 
 describe('News API Actions', () => {
 
-  describe('News API Actions toBeDefined', () => {
+  describe('#getSources and #getArticles functions', () => {
     it('should exist', () => {
     expect(newsActions.getSources).toBeDefined();
     }); 
@@ -16,7 +16,7 @@ describe('News API Actions', () => {
     }); 
   });
   
-  describe('Dispatcher Calls', () => {
+  describe('A Dispatcher Call', () => {
     let spyDispatcher;
     beforeEach(() => {
      jest.mock('axios');
