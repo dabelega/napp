@@ -10,6 +10,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 
+let sourceName;
+let sortType;
 
 /**
   * The Articles Class displays articles based on a given source name
@@ -43,10 +45,10 @@ export default class Article extends React.Component {
    * Initiates Actions, listens to Store and calls methods that set state.
    * @return {void}
    */
-	componentWillMount(){
+	componentDidMount(){
 		window.parsed = queryString.parse(location.search);
-		let sourceName = window.parsed.sourceId;
-    let sortType = window.parsed.sortOptions;
+    sortType = window.parsed.sortOptions;
+		sourceName = window.parsed.sourceId;
 		newsActions.getArticles(sourceName,sortType);
 		articlesStore.on('change',this.fetchNewsArticles);
 
@@ -104,7 +106,7 @@ export default class Article extends React.Component {
 		const ERROR = this.state.articles;
 		let articles = _.map(this.state.articles);
     let sources = _.map(this.state.sources);
-    let currentSource = window.parsed.sourceId;
+    let currentSource = sourceName;
     let BASE = '/articles?sourceId=';
     let OPT = '&sortOptions=';
 

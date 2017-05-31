@@ -10,7 +10,7 @@ const CLIENT_ID = process.env.AUTH0_ID;
 const auth0 = new Auth0({
     domain:       'dhaniapps.auth0.com',
     clientID:     `${CLIENT_ID}`,
-    callbackURL:  'http://nappnews.herokuapp.com/source',
+    callbackURL:  'http://localhost:3000/source',
     callbackOnLocationHash: true
   });
 
@@ -94,27 +94,26 @@ render() {
         <a href="/"><img src="../public/images/logo copy.png" alt="" /></a>
       </div>
       <div className="top_menu floatleft">
-      {!this.state.authenticated ? (
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About Napp</a></li>
-          <li><a href="/contact">Contact us</a></li>
-          <li><a onClick={()=>this.login()} role="button">
-              Sign In with Google
-            </a></li>  
-        </ul>
+        {!this.state.authenticated ? (
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Napp</a></li>
+            <li><a href="/contact">Contact us</a></li>
+            <li><a onClick={()=>this.login()} role="button">
+                Sign In with Google
+              </a></li>  
+          </ul>
 
              ) : (
-            <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About Napp</a></li>
-          <li><a href="/contact">Contact us</a></li>
-          <li><a href="/source">Sources</a></li>
-            <li><Link to="" onClick={()=>this.logout()}>
-                &nbsp;&nbsp;Sign Out
-              </Link> </li>
-            
-        </ul> 
+               <ul>
+                 <li><a href="/">Home</a></li>
+                 <li><a href="/about">About Napp</a></li>
+                 <li><a href="/contact">Contact us</a></li>
+                 <li><a href="/source">Sources</a></li>
+                 <li><Link to="" onClick={()=>this.logout()}>
+                      &nbsp;&nbsp;Sign Out
+                    </Link> </li>
+               </ul> 
                 
             )}  
         
