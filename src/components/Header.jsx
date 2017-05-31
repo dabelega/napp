@@ -17,14 +17,17 @@ const auth0 = new Auth0({
 /**
   * The Header Class authenticates a user using Auth0 API and
   * modifies itself based on the user's login status.
+  *
+  * @class Header
+  * @extends {React.Component}
   */
 export default class Header extends React.Component { 
 
   /**
     * Initalizes states and binds methods
+    *
     * @constructor
-    * @params {null}
-    * @return {null}
+    * @return {void}
     */
   constructor() {
     super();
@@ -37,8 +40,10 @@ export default class Header extends React.Component {
 
   /**
    * Lifecycle Method
-   * @params {null}
-   * @return {null}
+   * Adds login token to localstorage and
+   * sets authentication to true.
+   *
+   * @return {void}
    */
   componentWillMount(){
     let result = auth0.parseHash(window.location.hash);

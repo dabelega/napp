@@ -15,14 +15,16 @@ import Footer from '../components/Footer';
   * The Articles Class displays articles based on a given source name
   * and sort type. It makes an API call using these parameters and 
   * renders the output.
+  *
+  * @class Article
+  * @extends {React.Component}
   */
 export default class Article extends React.Component {
 
   /**
    * Initalizes states and binds methods
    * @constructor
-   * @param {null}
-   * @return {null}
+   * @return {void}
    */
 	constructor (){
 		super();
@@ -37,9 +39,9 @@ export default class Article extends React.Component {
 
   /**
    * Lifecycle Method
-   * It initiates the process of calling the NewsAPI
-   * @param {null}
-   * @return {null}
+   * Retrieves Query paramaters from URL {Source Name and Sort Type}
+   * Initiates Actions, listens to Store and calls methods that set state.
+   * @return {void}
    */
 	componentWillMount(){
 		window.parsed = queryString.parse(location.search);
@@ -58,8 +60,9 @@ export default class Article extends React.Component {
    * This method sets the state of the articles array to equal 
    * the response from the API call, which contains a list of 
    * articles based on source name and sort type.
-   * @param {null}
-   * @return {null}
+   *
+   * @method fetchNewsArticles
+   * @return {void}
    */
 	fetchNewsArticles(){
 		this.setState({ articles: articlesStore.fetchNewsArticles() });
@@ -69,8 +72,9 @@ export default class Article extends React.Component {
    * This method sets the state of the sources array to equal 
    * the response from the API call, which contains the full list of 
    * sources.
-   * @param {null}
-   * @return {null}
+   *
+   * @method fetchNewsSources
+   * @return {void}
    */
   fetchNewsSources(){
     this.setState({ sources: sourcesStore.fetchNewsSources() });
@@ -78,9 +82,9 @@ export default class Article extends React.Component {
 
   /**
    * Implements Back Button
-   * sources.
-   * @param {null}
-   * @return {null}
+   * 
+   * @method goback
+   * @return {void}
    */
   goback(){
     this.props.history.push('/source');
@@ -91,8 +95,9 @@ export default class Article extends React.Component {
    * This method renders output as HTML using JSX.
    * It also maps through the articles array and
    * renders its contents.
-   * @param {null}
-   * @return {null}
+   *
+   * @method render
+   * @return {void}
    */
 	render() {
     
@@ -110,7 +115,10 @@ export default class Article extends React.Component {
             <Header />
             
               
-            <ul> 
+            <ul>
+
+              {/* BEGIN: Map through sources array and display sort 
+              options for given source */} 
 
               { sources.map(function(sourceName){
                if(sourceName.id == currentSource){return (
@@ -138,13 +146,20 @@ export default class Article extends React.Component {
 
                 }) 
               }
+              {/* END: Map through sources array and display sort 
+              options for given source */} 
+
+
             </ul>
             <button 
               className="btn btn-info backer"
               onClick={() =>this.goback()} 
             >
            Go back</button>  
-            
+
+            {/* If there's a Bad request, render an 
+               error page */} 
+               
             { (ERROR >= 400) ? (
               <div className="error-handler">
                 <h1>Oops! Something bad Happend</h1> <br /><br />
