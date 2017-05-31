@@ -1,13 +1,20 @@
 import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher/AppDispatcher';
 
+/**
+  * Data Store for Articles
+  *
+  * @class ArticleStore
+  * @extends {EventEmitter}
+  */
+
 class ArticlesStores extends EventEmitter{
 
 	/*
 	 * Initializes state
+	 *
 	 * @constructor
-	 * @param {null}
-	 * @return {null}
+	 * @return {void}
      */
 	constructor(){
 		super();
@@ -16,8 +23,9 @@ class ArticlesStores extends EventEmitter{
 
 	/*
 	 * This methods retuns articles array
-	 * @param {null}
-	 * @return {null}
+	 * 
+	 @ @function fetchNewsArticles
+	 * @return {void}
      */
 	fetchNewsArticles(){
 		return this.articles;
@@ -25,8 +33,10 @@ class ArticlesStores extends EventEmitter{
 
 	/**
       * This function listens for change event
-      * @param {function} callback
-      * @return {null}
+      *
+      * @function addChangelistener
+      * @callback requestCallback
+      * @return {void}
       */
     addChangeListener(callback) {
         this.on('change', callback);
@@ -34,8 +44,10 @@ class ArticlesStores extends EventEmitter{
 
     /**
       * This function removes change event.
-      * @param {function} callback
-      * @return {null}
+      *
+      * @function removeChangeListener
+      * @callback requestCallback
+      * @return {void}
       */
     removeChangeListener(callback) {
       this.removeListener('change', callback);
@@ -44,6 +56,8 @@ class ArticlesStores extends EventEmitter{
     /* 
      * This method looks for our various action types so we can
      * respond appropriately
+     *
+     * @function handleGetArticlesAction
      * @param {object} result
      */
 	handleGetArticlesAction(result) {

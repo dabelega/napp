@@ -7,9 +7,9 @@ class SourcesStore extends EventEmitter{
 
 	/*
 	 * Initializes state
+	 *
 	 * @constructor
-	 * @param {null}
-	 * @return {null}
+	 * @return {void}
      */
 	constructor(){
 		super();
@@ -18,8 +18,9 @@ class SourcesStore extends EventEmitter{
 
 	/*
 	 * This methods retuns sources array
-	 * @param {null}
-	 * @return {null}
+	 *
+	 * @function fecthNewsSources
+	 * @return {void}
      */
 	fetchNewsSources(){
 		return this.sources;
@@ -27,8 +28,10 @@ class SourcesStore extends EventEmitter{
 
 	/**
       * This function listens for change event
-      * @param {function} callback
-      * @return {null}
+      *
+      * @function addChangeListener
+      * @callback requestCallback
+      * @return {void}
       */
     addChangeListener(callback) {
         this.on('change', callback);
@@ -36,8 +39,10 @@ class SourcesStore extends EventEmitter{
 
     /**
       * This function removes change event.
-      * @param {function} callback
-      * @return {null}
+      *
+      * @function removeChangeListener
+      * @callback requestCallback
+      * @return {void}
       */
     removeChangeListener(callback) {
       this.removeListener('change', callback);
@@ -46,8 +51,9 @@ class SourcesStore extends EventEmitter{
     /* 
      * This method looks for our various action types so we can
      * respond appropriately
-     * @return {object} result
-     * @return {null}
+     * 
+     * @function handleGetSourceAction
+     * @return {void}
      */
 	handleGetSourceAction(result) {
 		switch(result.actionType){

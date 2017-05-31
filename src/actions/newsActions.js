@@ -4,6 +4,9 @@ import newsConstants from '../constants/newsConstants';
 
 /**
   * This function gets a full list of sources from the NewsAPI
+  *
+  * @function getSources
+  * @return {void}
   */
 export function getSources() {
 	return newsAPI.getSources((sourceList) => {
@@ -17,8 +20,11 @@ export function getSources() {
 /**
   * This function gets articles based on the Source Name and the
   * sort type. Sort Type could either be Top or Latest
+  *
   * @param {string} sourceName
   * @param {string} sortType
+  * @function getArticles
+  * @return {void}
   */
 export function getArticles(sourceName,sortType) {
         return newsAPI.displayArticles(sourceName,sortType,(articleList) => {
