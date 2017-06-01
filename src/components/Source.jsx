@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { 
-  Redirect
+  Redirect, withRouter
 } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory'
 import '../../public/sass/styles.scss';
@@ -21,7 +21,7 @@ const history = createHistory();
   * @class Source
   * @extends {React.Component}
   */
-export default class Source extends React.Component {
+ class Source extends React.Component {
 
   /**
    * Initalizes states and binds methods
@@ -65,7 +65,7 @@ export default class Source extends React.Component {
   goToArticles(link){
     console.log(link);
     //this.props.history.push('/');
-    this.context.router.history.push(link);
+    this.props.history.push(link);
     //history.push(link);
       
     
@@ -169,10 +169,11 @@ export default class Source extends React.Component {
 
 	
 }
+export default withRouter(Source);
 
-Source.contextTypes = {
-  router: React.PropTypes.shape({
-    history: React.PropTypes.object.isRequired,
-  }),
-};
+// Source.contextTypes = {
+//   router: React.PropTypes.shape({
+//     history: React.PropTypes.object.isRequired,
+//   }),
+// };
 
