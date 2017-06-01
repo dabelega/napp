@@ -63,7 +63,11 @@ exports[`Home Page renders a snapshot 1`] = `
     >
       <ul
         id="nav"
-      />
+      >
+        <span
+          className="u-id"
+        />
+      </ul>
     </div>
     <div
       className="slider_area"

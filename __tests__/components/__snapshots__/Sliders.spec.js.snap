@@ -9,7 +9,11 @@ exports[`Sliders About Slider renders a snapshot 1`] = `
   >
     <ul
       id="nav"
-    />
+    >
+      <span
+        className="u-id"
+      />
+    </ul>
   </div>
   <div
     className="slider_area"
@@ -41,7 +45,11 @@ exports[`Sliders Contact Us Slider renders a snapshot 1`] = `
   >
     <ul
       id="nav"
-    />
+    >
+      <span
+        className="u-id"
+      />
+    </ul>
   </div>
   <div
     className="slider_area"
@@ -94,7 +102,11 @@ exports[`Sliders Source Slider renders a snapshot 1`] = `
   >
     <ul
       id="nav"
-    />
+    >
+      <span
+        className="u-id"
+      />
+    </ul>
   </div>
   <div
     className="slider_area"
