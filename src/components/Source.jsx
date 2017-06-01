@@ -30,7 +30,7 @@ export default class Source extends React.Component {
       sources: []   	
 	};
 	this.fetchNewsSources = this.fetchNewsSources.bind(this);	
-  this._handleChange = this._handleChange.bind(this);   	
+  this.handleChange = this.handleChange.bind(this);   	
   }
 
   /**
@@ -62,7 +62,7 @@ export default class Source extends React.Component {
    * @param {object} e
    * @return {void}
    */
-  _handleChange(e){
+  handleChange(e){
     this.setState({searchString:e.target.value});
   }
 
@@ -95,7 +95,7 @@ export default class Source extends React.Component {
         <div className="search-container" >
           <input 
             type="text" value={this.state.searchString} 
-            onChange={this._handleChange} placeholder="Type here"
+            onChange={this.handleChange} placeholder="Type here"
             className="searcher"
           />
         </div>

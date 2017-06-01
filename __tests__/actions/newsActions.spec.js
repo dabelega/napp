@@ -1,5 +1,3 @@
-/* global define, it, describe */
-// import mockAxios from '../../__mocks__/axiosMock';
 import * as newsActions from '../../src/actions/newsActions';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 import newsConstants from '../../src/constants/newsConstants';
@@ -37,7 +35,7 @@ describe('News API Actions', () => {
         })
     ); 
     
-    it('should get articles given a source', () => 
+    it('should get articles given a source and sort type', () => 
       newsActions.getArticles('abc-news-au', 'top')
         .then(() => {
           const dispatchCall = spyDispatcher.mock.calls[0][0];

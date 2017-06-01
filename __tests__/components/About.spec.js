@@ -4,10 +4,8 @@ import About from '../../src/components/About';
 
 
 describe('About Page', () => {
-	describe('About', () => {
 		it('renders a snapshot', () => {
           const tree = renderer.create(<About />).toJSON();
           expect(tree).toMatchSnapshot();
 		});
-    });
 });

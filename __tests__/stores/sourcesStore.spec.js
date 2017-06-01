@@ -1,4 +1,3 @@
-/* global define, it, describe */
 import sourcesStore from '../../src/stores/sourcesStore';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 import newsConstants from '../../src/constants/newsConstants';
@@ -42,7 +41,7 @@ describe('Sources Store', () => {
     expect(sourcesStore.handleGetSourceAction).toBeDefined();
   });
 
-  it('should return all articles', () => {
+  it('should return all sources', () => {
       dispatcherCallMock(sourcesAction);
       let result = (sourcesStore.fetchNewsSources());
       expect(result[0].id).toBe("abc-news-au");

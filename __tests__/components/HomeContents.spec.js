@@ -1,4 +1,4 @@
-/* global define, it, describe */
+/* global it, describe */
 import React from 'react';
 import {shallow} from 'enzyme';
 

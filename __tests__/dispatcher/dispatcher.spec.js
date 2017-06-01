@@ -1,4 +1,4 @@
-/* global define, it, describe */
+/* global it, describe */
 import { expect } from 'chai';
 import Dispatcher from '../../src/dispatcher/AppDispatcher';
 

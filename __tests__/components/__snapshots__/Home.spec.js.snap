@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home Page Home renders a snapshot 1`] = `
+exports[`Home Page renders a snapshot 1`] = `
 <div
   className="wrapper"
 >

@@ -8,26 +8,23 @@ const shallowRenderer = new ReactShallowRenderer();
 shallowRenderer.render(<Source />);
 
 describe('Source Page', () => {
-	describe('Tests for JSX', () => {
-		it('renders a snapshot', () => {
-          const tree = renderer.create(<Source />).toJSON();
-          expect(tree).toMatchSnapshot();
-		});
-    });
 
     describe('Render function', () => {
+
+        const wrapper = mount(<Source />)
+
 		it('Renders the root element', () => {
 			const renderedRoot = shallowRenderer.getRenderOutput();
 			expect(renderedRoot.type).toEqual("div");
 			expect(renderedRoot.props.className).toEqual('wrapper');     
 		});
-    });
 
-    
+		it('renders a snapshot', () => {
+          const tree = renderer.create(<Source />).toJSON();
+          expect(tree).toMatchSnapshot();
+		});
 
-    describe('Interactions', () => {
-        const wrapper = mount(<Source />)
-		it('should set state correctly (Sources)', () => {
+		it('should render updated state correctly (Sources)', () => {
 			wrapper.setState({
 				sources: [{
 					name: 'Source Name',
@@ -40,6 +37,6 @@ describe('Source Page', () => {
            const li = wrapper.find('.key-sort'); 
            expect(li.text()).toBe('Source Nametoplatest');  
 		});
-    });
+    }); 
 
 });

@@ -1,4 +1,3 @@
-/* global define, it, describe */
 import * as AuthActions from '../../src/actions/AuthActions';
 
 

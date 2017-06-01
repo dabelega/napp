@@ -1,4 +1,3 @@
-/* global define, it, describe */
 import articlesStore from '../../src/stores/articlesStore';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 import newsConstants from '../../src/constants/newsConstants';

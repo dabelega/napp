@@ -8,23 +8,9 @@ const shallowRenderer = new ReactShallowRenderer();
 shallowRenderer.render(<Article />);
 
 describe('Article Page', () => {
-	describe('Tests for JSX', () => {
-		it('renders a snapshot', () => {
-          const tree = renderer.create(<Article />).toJSON();
-          expect(tree).toMatchSnapshot();
-		});
-    });
 
-    describe('Render function', () => {
-		it('Renders the root elements', () => {
-			const renderedRoot = shallowRenderer.getRenderOutput();
-			expect(renderedRoot.type).toEqual("div");
-			expect(renderedRoot.props.className).toEqual('wrapper');    
-		});
-    });
-
-    describe('State', () => {
-		it('Initial', () => {
+	describe('Constructor', () => {
+		it('should set initial states correctly', () => {
 			let wrapper = shallow(<Article />);
 			const initialState = {
               articles: [],
@@ -38,7 +24,7 @@ describe('Article Page', () => {
     });
 
     describe('Methods', () => {
-		it('should have certain Methods', () => {
+		it('should be defined', () => {
 			let wrapper = shallow(<Article />); 
 				expect(wrapper.instance().fetchNewsArticles).toBeDefined();
 				expect(wrapper.instance().fetchNewsSources).toBeDefined();
@@ -47,8 +33,21 @@ describe('Article Page', () => {
 		
     });
 
-    describe('Interactions', () => {
+    describe('Render function', () => {
+
         const wrapper = mount(<Article />)
+
+		it('renders a snapshot', () => {
+			const tree = renderer.create(<Article />).toJSON();
+			expect(tree).toMatchSnapshot();
+		});
+
+		it('Renders the root elements', () => {
+			const renderedRoot = shallowRenderer.getRenderOutput();
+			expect(renderedRoot.type).toEqual("div");
+			expect(renderedRoot.props.className).toEqual('wrapper');    
+		});
+
 		it('should render state correctly (Articles)', () => {
 			wrapper.setState({
 				articles: [{
@@ -66,7 +65,7 @@ describe('Article Page', () => {
            expect(p.text()).toBe('Article Description');    
 		});
 
-		it('should render state correctly (Sources)', () => {
+		it('should render updated state correctly (Sources)', () => {
 			wrapper.setState({
 				sources: [{
 					name: 'Source Name',
@@ -80,7 +79,5 @@ describe('Article Page', () => {
            expect(h2.text()).toBe('Source Name');  
 		});
     });
-
-
     
 });
