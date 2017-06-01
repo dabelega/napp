@@ -1,13 +1,13 @@
 /* global define, it, describe */
-import { expect } from 'chai';
 import * as AuthActions from '../../src/actions/AuthActions';
+
 
 describe('Napp Auth Actions', () => {
 	it('should exist', () => {
-    expect(AuthActions.logUserIn).to.exist;
+    expect(AuthActions.logUserIn).toBeDefined();
   }); 
 	it('should exist', () => {
-    expect(AuthActions.logUserOut).to.exist;
-  }); 
+    expect(AuthActions.logUserOut).toBeDefined();
+  });   
 
 });

@@ -1,15 +1,15 @@
 import * as newsAPI from '../src/utils/newsAPI';
 
 
-describe('newsAPI Page', () => {
-	describe('NewsAPI', () => {
+describe('On the News API page', () => {
+	describe('#displayArticles and #getSources Functions', () => {
 		it('should exist', () => {	
           expect(newsAPI.displayArticles).toBeDefined();
           expect(newsAPI.getSources).toBeDefined();
        });
     }); 
 
-    describe('Promises', () => {
+    describe('After the API Call', () => {
       const	articles = [
 			{
 				"author": "TNW Deals",
@@ -78,18 +78,24 @@ describe('newsAPI Page', () => {
                 ]
             }
         ]
+        describe('#displayArticles', () => {
+			it('should get the correct list of articles', () => {	
+				newsAPI.displayArticles(
+					'the-next-web', 'top', (articleList) => {
+				expect(articleList).toEqual(articles);
+				});
+			});
+        });
 
-        it('should get correct data from API (articles)', () => {	
-           newsAPI.displayArticles('the-next-web', 'top', (articleList) => {
-            expect(articleList).toEqual(articles);
-          });
-        });   
-
-        it('should get correct data from API (sources)', () => {	
-           newsAPI.displayArticles('the-next-web', 'top', (sourceList) => {
+        describe('#getSources', () => {
+			it('should get the correct list of sources', () => {	
+            newsAPI.displayArticles('the-next-web', 'top', (sourceList) => {
             expect(sourceList).toEqual(sources);
           });
-       });
+         });
+       });      
+
+        
 
     });    
 });
