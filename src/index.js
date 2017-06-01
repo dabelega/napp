@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { 
-  BrowserRouter as Router, Route, Switch, Redirect
+  BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
 import Home from './components/containers/Home';
 import Source from './components/Source';
@@ -31,7 +31,7 @@ render (
             )
           )} 
         />
-        <Route path="/articles" component={Article} />
+        <Route path="/articles/:id/:sort" component={Article} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={ContactUs} />
       </Switch>

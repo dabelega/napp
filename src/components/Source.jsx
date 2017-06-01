@@ -1,5 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+import createHistory from 'history/createBrowserHistory'
 import '../../public/sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
 import sourcesStore from '../stores/sourcesStore';
@@ -7,6 +9,7 @@ import Header from '../components/Header';
 import Footer from './Footer';
 import SourceSlider from '../components/SourceSlider';
 
+const history = createHistory();
 
 /**
   * The Source Class displays the full list of sources.
@@ -30,7 +33,8 @@ export default class Source extends React.Component {
       sources: []   	
 	};
 	this.fetchNewsSources = this.fetchNewsSources.bind(this);	
-  this.handleChange = this.handleChange.bind(this);   	
+  this.handleChange = this.handleChange.bind(this);   
+  this.goToArticles = this.goToArticles.bind(this);	
   }
 
   /**
@@ -53,6 +57,14 @@ export default class Source extends React.Component {
    */
   fetchNewsSources(){
     this.setState({ sources: sourcesStore.fetchNewsSources() });
+  }
+
+  goToArticles(link){
+    console.log(link);
+    //this.props.history.push('/');
+    this.context.router.history.push(link);
+    //history.push(link);
+    
   }
 
   /**
@@ -102,22 +114,42 @@ export default class Source extends React.Component {
 				
         <div className="source-list">
           <ul> 
-            { sources.map(function(sourceName){
+            { sources.map((sourceName) => {
+              <li>{sourceName.name}</li>
               return (
                 <li key={sourceName.name} className="key-sort"> 
                   {sourceName.name} 
-                  { sourceName.sortBysAvailable.map((sortOption) =>{ 
-                     return( 
-                       <a 
-                         href={`${BASE}${sourceName.id}${OPT}${sortOption}`} 
-                         key={sortOption}
-                       >
-                         <span className="filter">{sortOption}</span>
-                       </a>  
+                  <ul>
+                    { sourceName.sortBysAvailable.map((sortOption) => { 
+                      return (
+                        <a 
+                          onClick={()=>this.goToArticles(`/articles/${sourceName.id}/${sortOption}`)} 
+                          className="filter"
+                          role="button"
+                        > {sortOption}
+                        </a>                        
                       );
+                      
+
+                        // <li>
+                        //   <Link to={{
+                        //     pathname: `/articles/${sourceName.id}/${sortOption}`
+                          
+                        //    }}
+                        //   >
+                        //   {sortOption}</Link>
+                        // </li>
+                       // <a 
+                       //   href={`${BASE}${sourceName.id}${OPT}${sortOption}`} 
+                       //   key={sortOption}
+                       // >
+                       //   <span className="filter">{sortOption}</span>
+                       // </a>  
+                      
                   })
                   
-                }                  
+                }             
+                  </ul>     
                 </li>
                ); 
               }) 
@@ -132,5 +164,9 @@ export default class Source extends React.Component {
 }
 
 	
-}	
+}
+
+Source.contextTypes = {
+    router: PropTypes.object
+}
 
