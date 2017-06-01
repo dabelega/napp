@@ -4,7 +4,7 @@ import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 import newsConstants from '../../src/constants/newsConstants';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
-const callback = AppDispatcher.register.mock.calls[0][0];
+const dispatcherCallMock = AppDispatcher.register.mock.calls[0][0];
 
 const articlesAction = {
       actionType: newsConstants.NEWS_ARTICLES,
@@ -39,7 +39,7 @@ describe('Articles Store', () => {
   });
 
   it('should return all articles', () => {
-      callback(articlesAction);
+      dispatcherCallMock(articlesAction);
       let result = (articlesStore.fetchNewsArticles());
       expect(result[0].author).toBe("TNW Deals");
       expect(result[0].title).toBe("Build electronics projects");
