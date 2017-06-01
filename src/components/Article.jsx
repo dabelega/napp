@@ -39,7 +39,8 @@ export default class Article extends React.Component {
 	}
 
   componentWillMount(){
-    
+    console.log('this.props.match.params.sort');
+    console.log(this.props.match.params.sort);
   }
 
   /**
