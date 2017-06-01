@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { 
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
+import history from 'history';
 import Home from './components/containers/Home';
 import Source from './components/Source';
 import Article from './components/Article';
@@ -22,7 +23,7 @@ render (
       <Switch>
         <Route path="/" exact component={Home} />
         <Route 
-          exact path="/source" render={() => (
+          exact path="/source" render={() => (                                                                                           
             isAuthenticated() ? (
               <Source />
             ) : (
@@ -32,7 +33,7 @@ render (
           )} 
         />
         <Route path="/articles/:id/:sort" component={Article} />
-        <Route path="/about" component={About} />
+        <Route path="/about" component={About} />                                                                                        
         <Route path="/contact" component={ContactUs} />
       </Switch>
 

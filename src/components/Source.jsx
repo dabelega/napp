@@ -1,6 +1,9 @@
 import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
+import { 
+  Redirect
+} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory'
 import '../../public/sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
@@ -64,6 +67,7 @@ export default class Source extends React.Component {
     //this.props.history.push('/');
     this.context.router.history.push(link);
     //history.push(link);
+      
     
   }
 
@@ -167,6 +171,8 @@ export default class Source extends React.Component {
 }
 
 Source.contextTypes = {
-    router: PropTypes.object
-}
+  router: React.PropTypes.shape({
+    history: React.PropTypes.object.isRequired,
+  }),
+};
 

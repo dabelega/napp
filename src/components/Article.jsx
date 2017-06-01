@@ -39,8 +39,11 @@ export default class Article extends React.Component {
 	}
 
   componentWillMount(){
-    console.log('this.props.match.params.sort');
-    console.log(this.props.match.params.sort);
+    sortType = this.props.match.params.sort;
+    sourceName = this.props.match.params.id;
+    newsActions.getArticles(sourceName,sortType);
+    articlesStore.on('change',this.fetchNewsArticles);
+    
   }
 
   /**
@@ -50,10 +53,7 @@ export default class Article extends React.Component {
    * @return {void}
    */
 	componentDidMount(){
-    sortType = this.props.match.params.sort;
-		sourceName = this.props.match.params.id;
-		newsActions.getArticles(sourceName,sortType);
-		articlesStore.on('change',this.fetchNewsArticles);
+    
 
     /* Get sources */
     // newsActions.getSources();
