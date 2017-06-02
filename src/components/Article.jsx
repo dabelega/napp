@@ -40,14 +40,6 @@ export default class Article extends React.Component {
     this.getSortedArticles = this.getSortedArticles.bind(this);
 	}
 
-  componentWillMount(){
-    // sortType = this.props.match.params.sort;
-    // sourceName = this.props.match.params.id;
-    // newsActions.getArticles(sourceName,sortType);
-    // articlesStore.on('change',this.fetchNewsArticles);
-    
-  }
-
   /**
    * Lifecycle Method
    * Retrieves Query paramaters from URL {Source Name and Sort Type}
@@ -65,7 +57,12 @@ export default class Article extends React.Component {
     newsActions.getSources();
     sourcesStore.on('change',this.fetchNewsSources);
 	}
-  
+
+  /**
+   * This method filters articles based on 
+   * sortType
+   * @return {void}
+   */
   getSortedArticles(sourceName,sortType){
     newsActions.getArticles(sourceName,sortType);
     articlesStore.on('change',this.fetchNewsArticles);

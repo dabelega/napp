@@ -58,6 +58,13 @@ import SourceSlider from '../components/SourceSlider';
     this.setState({ sources: sourcesStore.fetchNewsSources() });
   }
 
+
+  /**
+   * This method redirects to the articles page 
+   * based on the sort option selected.
+   *
+   * @return {void}
+   */
   goToArticles(link){
     this.props.history.push(link);
   }
@@ -145,9 +152,8 @@ import SourceSlider from '../components/SourceSlider';
 }
 export default withRouter(Source);
 
-// Source.contextTypes = {
-//   router: React.PropTypes.shape({
-//     history: React.PropTypes.object.isRequired,
-//   }),
-// };
+Source.propTypes = {
+    history: PropTypes.object
+  };
+
 
