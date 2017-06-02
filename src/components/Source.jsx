@@ -1,10 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-import { 
-  Redirect, withRouter
-} from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory'
+import { withRouter } from 'react-router-dom';
 import '../../public/sass/styles.scss';
 import * as newsActions from '../actions/newsActions';
 import sourcesStore from '../stores/sourcesStore';
@@ -12,7 +9,6 @@ import Header from '../components/Header';
 import Footer from './Footer';
 import SourceSlider from '../components/SourceSlider';
 
-const history = createHistory();
 
 /**
   * The Source Class displays the full list of sources.
@@ -63,12 +59,7 @@ const history = createHistory();
   }
 
   goToArticles(link){
-    console.log(link);
-    //this.props.history.push('/');
     this.props.history.push(link);
-    //history.push(link);
-      
-    
   }
 
   /**
@@ -93,8 +84,6 @@ const history = createHistory();
   render() {
     let searchString = this.state.searchString.trim().toLowerCase();
     let sources = _.map(this.state.sources);
-    let BASE = '/articles?sourceId=';
-    let OPT = '&sortOptions='
     
     if(searchString.length > 0){
       sources = sources.filter(function(sourceName){
@@ -130,25 +119,10 @@ const history = createHistory();
                           onClick={()=>this.goToArticles(`/articles/${sourceName.id}/${sortOption}`)} 
                           className="filter"
                           role="button"
+                          key={sortOption}
                         > {sortOption}
                         </a>                        
                       );
-                      
-
-                        // <li>
-                        //   <Link to={{
-                        //     pathname: `/articles/${sourceName.id}/${sortOption}`
-                          
-                        //    }}
-                        //   >
-                        //   {sortOption}</Link>
-                        // </li>
-                       // <a 
-                       //   href={`${BASE}${sourceName.id}${OPT}${sortOption}`} 
-                       //   key={sortOption}
-                       // >
-                       //   <span className="filter">{sortOption}</span>
-                       // </a>  
                       
                   })
                   

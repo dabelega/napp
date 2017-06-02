@@ -91,7 +91,7 @@ render() {
   return (
     <div className="header">
       <div className="logo floatleft">
-        <a href="/"><img src="../public/images/logo copy.png" alt="" /></a>
+        <a href="/"><img src="/public/images/logo copy.png" alt="" /></a>
       </div>
       <div className="top_menu floatleft">
         {!this.state.authenticated ? (

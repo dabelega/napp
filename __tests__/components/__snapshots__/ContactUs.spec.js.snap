@@ -18,7 +18,7 @@ exports[`Contact Us Page renders a snapshot 1`] = `
         >
           <img
             alt=""
-            src="../public/images/logo copy.png"
+            src="/public/images/logo copy.png"
           />
         </a>
       </div>

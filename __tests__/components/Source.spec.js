@@ -4,14 +4,16 @@ import renderer from 'react-test-renderer';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 import Source from '../../src/components/Source';
 
+
+
 const shallowRenderer = new ReactShallowRenderer();
-shallowRenderer.render(<Source />);
+shallowRenderer.render(<Source.WrappedComponent />);
 
 describe('Source Page', () => {
 
     describe('Render function', () => {
 
-        const wrapper = mount(<Source />)
+        const wrapper = mount(<Source.WrappedComponent />)
 
 		it('Renders the root element', () => {
 			const renderedRoot = shallowRenderer.getRenderOutput();
@@ -20,7 +22,7 @@ describe('Source Page', () => {
 		});
 
 		it('renders a snapshot', () => {
-          const tree = renderer.create(<Source />).toJSON();
+          const tree = renderer.create(<Source.WrappedComponent />).toJSON();
           expect(tree).toMatchSnapshot();
 		});
 
@@ -35,7 +37,7 @@ describe('Source Page', () => {
 				}]
            }); 
            const li = wrapper.find('.key-sort'); 
-           expect(li.text()).toBe('Source Nametoplatest');  
+           expect(li.text()).toBe('Source Name top latest');  
 		});
     }); 
 

@@ -12,7 +12,9 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: "/public",
+        chunkFilename: "[id].chunk.js",
     },
     resolve: {
         modules: ['node_modules', 'src'],

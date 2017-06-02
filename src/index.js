@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { createBrowserHistory } from 'history';
 import { 
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import '../public-path';
 import Home from './components/containers/Home';
 import Source from './components/Source';
 import Article from './components/Article';

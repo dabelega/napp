@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import '../../public/sass/styles.scss';
 import * as newsActions from '../actions/newsActions'; 
 import articlesStore from '../stores/articlesStore';
-//import sourcesStore from '../stores/sourcesStore';
+import sourcesStore from '../stores/sourcesStore';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Bar from '../components/Bar'
 
 
 let sourceName;
@@ -35,14 +36,15 @@ export default class Article extends React.Component {
 		};
 
 		this.fetchNewsArticles = this.fetchNewsArticles.bind(this);
-    //this.fetchNewsSources = this.fetchNewsSources.bind(this); 
+    this.fetchNewsSources = this.fetchNewsSources.bind(this); 
+    this.getSortedArticles = this.getSortedArticles.bind(this);
 	}
 
   componentWillMount(){
-    sortType = this.props.match.params.sort;
-    sourceName = this.props.match.params.id;
-    newsActions.getArticles(sourceName,sortType);
-    articlesStore.on('change',this.fetchNewsArticles);
+    // sortType = this.props.match.params.sort;
+    // sourceName = this.props.match.params.id;
+    // newsActions.getArticles(sourceName,sortType);
+    // articlesStore.on('change',this.fetchNewsArticles);
     
   }
 
@@ -53,13 +55,21 @@ export default class Article extends React.Component {
    * @return {void}
    */
 	componentDidMount(){
+    sortType = this.props.match.params.sort;
+    sourceName = this.props.match.params.id;
+    newsActions.getArticles(sourceName,sortType);
+    articlesStore.on('change',this.fetchNewsArticles);
     
 
     /* Get sources */
-    // newsActions.getSources();
-    // sourcesStore.on('change',this.fetchNewsSources);
+    newsActions.getSources();
+    sourcesStore.on('change',this.fetchNewsSources);
 	}
-
+  
+  getSortedArticles(sourceName,sortType){
+    newsActions.getArticles(sourceName,sortType);
+    articlesStore.on('change',this.fetchNewsArticles);
+  }
  
   /**
    * This method sets the state of the articles array to equal 
@@ -81,9 +91,9 @@ export default class Article extends React.Component {
    * @method fetchNewsSources
    * @return {void}
    */
-  // fetchNewsSources(){
-  //   this.setState({ sources: sourcesStore.fetchNewsSources() });
-  // }
+  fetchNewsSources(){
+     this.setState({ sources: sourcesStore.fetchNewsSources() });
+   }
 
   /**
    * Implements Back Button
@@ -94,6 +104,8 @@ export default class Article extends React.Component {
   goback(){
     this.props.history.push('/source');
   }
+
+
 
 
   /**
@@ -108,8 +120,8 @@ export default class Article extends React.Component {
     
 		const ERROR = this.state.articles;
 		let articles = _.map(this.state.articles);
-    // let sources = _.map(this.state.sources);
-    // let currentSource = sourceName;
+    let sources = _.map(this.state.sources);
+    let currentSource = sourceName;
     
 
       return (
@@ -117,16 +129,37 @@ export default class Article extends React.Component {
         <div className="wrapper">
           <div className="center">
             <Header />
-            
+            <Bar />
               
             <ul>
 
               {/* BEGIN: Map through sources array and display sort 
               options for given source */} 
 
-                     
-                   
-                 
+              { sources.map((sourceName) => {
+               if(sourceName.id == currentSource){return (
+                 <div className="sortby" key={sourceName.name}>
+                   <li> 
+                     <h2 className="source-name">{sourceName.name}</h2> 
+                     <span>Sort By:</span>
+                     { sourceName.sortBysAvailable.map((sortOption) =>{ 
+                       return( 
+                         <a 
+                           onClick={() => this.getSortedArticles(sourceName.id, sortOption)} 
+                           key={sortOption}
+                         >
+                           <span className="filter spanate">{sortOption}</span>
+                         </a>  
+                        );
+                    })
+                    
+                  }            
+                   </li>
+                 </div>
+                 );
+              }
+                }) 
+              } 
               
               {/* END: Map through sources array and display sort 
               options for given source */} 
@@ -138,6 +171,7 @@ export default class Article extends React.Component {
               onClick={() =>this.goback()} 
             >
            Go back</button>  
+
 
             {/* If there's a Bad request, render an 
                error page */} 
@@ -217,6 +251,8 @@ export default class Article extends React.Component {
 }	
 
 Article.propTypes = {
-    history: PropTypes.object
+    history: PropTypes.object,
+    match: PropTypes.object,
+    params: PropTypes.object
   };
 
