@@ -18,7 +18,7 @@ describe('Article Page', () => {
         expect(wrapper.state()).toEqual(initialState);  
         expect(wrapper.instance().fetchNewsArticles).toBeDefined();
         expect(wrapper.instance().fetchNewsSources).toBeDefined();
-        expect(wrapper.instance().goback).toBeDefined();
+        expect(wrapper.instance().getArticles).toBeDefined();
 		});
     });
 
@@ -27,7 +27,7 @@ describe('Article Page', () => {
 			let wrapper = shallow(<Article />); 
 				expect(wrapper.instance().fetchNewsArticles).toBeDefined();
 				expect(wrapper.instance().fetchNewsSources).toBeDefined();
-				expect(wrapper.instance().goback).toBeDefined();
+				expect(wrapper.instance().getArticles).toBeDefined();
 		});
 		
     });

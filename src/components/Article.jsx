@@ -37,7 +37,7 @@ export default class Article extends React.Component {
 
 		this.fetchNewsArticles = this.fetchNewsArticles.bind(this);
     this.fetchNewsSources = this.fetchNewsSources.bind(this); 
-    this.getSortedArticles = this.getSortedArticles.bind(this);
+    this.getArticles = this.getArticles.bind(this);
 	}
 
   /**
@@ -63,7 +63,7 @@ export default class Article extends React.Component {
    * sortType
    * @return {void}
    */
-  getSortedArticles(sourceName,sortType){
+  getArticles(sourceName,sortType){
     newsActions.getArticles(sourceName,sortType);
     articlesStore.on('change',this.fetchNewsArticles);
   }
@@ -150,7 +150,7 @@ export default class Article extends React.Component {
                      { sourceName.sortBysAvailable.map((sortOption) =>{ 
                        return( 
                          <a 
-                           onClick={() => this.getSortedArticles(sourceName.id, sortOption)} 
+                           onClick={() => this.getArticles(sourceName.id, sortOption)} 
                            key={sortOption}
                          >
                            <span className="filter spanate">{sortOption}</span>
