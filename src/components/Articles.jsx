@@ -69,6 +69,17 @@ export default class Articles extends React.Component {
   }
 
   /**
+   * Goes back to the sources page.
+   * 
+   * @method goback
+   * @return {void}
+   */
+  getSources(){
+    this.props.history.push('/source');
+  }
+
+
+  /**
    * Lifecycle Method
    * Called once the component unmounts. 
    *
@@ -102,17 +113,7 @@ export default class Articles extends React.Component {
      this.setState({ sources: sourcesStore.fetchNewsSources() });
    }
 
-  /**
-   * Goes back to the sources page.
-   * 
-   * @method goback
-   * @return {void}
-   */
-  getSources(){
-    this.props.history.push('/source');
-  }
-
-
+  
   /**
    * This method renders output as HTML using JSX.
    * It also maps through the articles array and
