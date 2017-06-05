@@ -5,6 +5,8 @@ import Bar from '../components/Bar';
 /**
  * Stateless component
  * Simply renders Slider for About Component
+ *
+ * @return {void}
  */
 const AboutSlider = () => (	
   <div className="slider-margin">

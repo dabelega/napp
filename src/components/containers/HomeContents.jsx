@@ -1,6 +1,13 @@
 import React from 'react';
 import '../../../public/sass/styles.scss';
 
+
+/**
+ * Stateless Component
+ * It simply renders welcome message on the home page
+ * 
+ * @return {void}
+ */
 const HomeContents = () => (
   <div className="content_area">
     <div className="welcome">

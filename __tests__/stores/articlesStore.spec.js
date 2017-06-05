@@ -1,12 +1,11 @@
 import articlesStore from '../../src/stores/articlesStore';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
-import newsConstants from '../../src/constants/newsConstants';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
 const dispatcherCallMock = AppDispatcher.register.mock.calls[0][0];
 
 const articlesAction = {
-      actionType: newsConstants.NEWS_ARTICLES,
+      actionType: 'NEWS_ARTICLES',
       articleList: [
         {
           author: "TNW Deals",
@@ -25,16 +24,12 @@ const articlesAction = {
 
 describe('Articles Store', () => {
 
-  it('should exist', () => {
-    expect(articlesStore).toBeDefined();
+  it('should be initialized as an empty array', () => {
+      expect(articlesStore.fetchNewsArticles()).toEqual([]);
   });
 
-  it('should have addChangeListener exist as a function', () => {
-    expect(articlesStore.addChangeListener).toBeDefined();
-  });
-
-  it('should have removeChangeListener exist as a function', () => {
-    expect(articlesStore.removeChangeListener).toBeDefined();
+  it('should register a callback with the dispatcher', () => {
+    expect(dispatcherCallMock.length).toBe(1);
   });
 
   it('should return all articles', () => {

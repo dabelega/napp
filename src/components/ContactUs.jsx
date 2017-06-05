@@ -4,6 +4,13 @@ import Header from '../components/Header';
 import ContactUsSlider from '../components/ContactUsSlider';
 import Footer from '../components/Footer';
 
+
+/**
+ * Stateless component
+ * Simply renders contact information
+ *
+ * @return {void}
+ */
 const ContactUs = () => (
   <div className="wrapper">
     <div className="center">

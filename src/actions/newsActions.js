@@ -1,6 +1,5 @@
 import * as newsAPI from '../utils/newsAPI';
 import Dispatcher from '../dispatcher/AppDispatcher';
-import newsConstants from '../constants/newsConstants';
 
 /**
   * This function gets a full list of sources from the NewsAPI
@@ -11,7 +10,7 @@ import newsConstants from '../constants/newsConstants';
 export function getSources() {
 	return newsAPI.getSources((sourceList) => {
 		Dispatcher.dispatch({
-			actionType:newsConstants.NEWS_SOURCES,
+			actionType:'NEWS_SOURCES',
 			sourceList: sourceList
 		});
 	});
@@ -29,7 +28,7 @@ export function getSources() {
 export function getArticles(sourceName,sortType) {
         return newsAPI.displayArticles(sourceName,sortType,(articleList) => {
 		Dispatcher.dispatch({
-			actionType:newsConstants.NEWS_ARTICLES,
+			actionType:'NEWS_ARTICLES',
 			articleList: articleList
 		});
 	});

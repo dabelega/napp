@@ -5,6 +5,8 @@ import '../../public/sass/styles.scss';
 /**
  * Stateless component
  * Sets Body style
+ *
+ * @return {void}
  */
 const App = () => (
   <div>

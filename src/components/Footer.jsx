@@ -5,6 +5,8 @@ import '../../public/sass/styles.scss';
 /**
  * Stateless component
  * Simply renders Footer for components
+ *
+ * @return {void}
  */
 const Footer = () => (
   <div className="footer_bottom_area">

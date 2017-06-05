@@ -26,11 +26,8 @@ export function displayArticles(sourceName,sortType,callback){
 	return axios.get(URL).then((response) => callback(response.data.articles))
 	.catch(function (error) {
     if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
        return callback(error.response.status);
     } else if (error.request) {
-      // The request was made but no response was received
        return callback(error.request);
     } 
   });	

@@ -2,7 +2,7 @@ import testdata from './mockData.json';
 
 const axios = jest.genMockFromModule('axios');
 
-function get(data) {
+function get() {
 	return Promise.resolve(testdata);
 }
 

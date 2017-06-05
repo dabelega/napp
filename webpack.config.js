@@ -1,13 +1,13 @@
+require('dotenv').config();
 const webpack = require('webpack');
 const path = require('path');
-const env = require('dotenv').config();
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
  
 module.exports = {
     devtool: 'inline-source-map',
     entry: [
-        './src/index.js',
+        './src/index.jsx',
         './public/sass/styles.scss'
     ],
     output: {

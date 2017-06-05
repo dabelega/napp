@@ -6,7 +6,10 @@ import Footer from '../components/Footer';
 
 /**
  * Stateless component
- * Simply renders information
+ * Simply renders information about the Napp 
+ * Journal Team
+ *
+ * @return {void}
  */
 const About = () => (
   <div className="wrapper">

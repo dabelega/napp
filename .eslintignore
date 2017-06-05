@@ -2,3 +2,4 @@ node_modules
 README.md
 public/bundle.js
 coverage
+src/utils/auth0.js

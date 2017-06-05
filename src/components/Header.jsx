@@ -6,11 +6,14 @@ import '../utils/auth0.js';
 import * as AuthActions from '../actions/AuthActions';
 import AuthStore from '../stores/AuthStore';
 
+/**
+  * Initalize Auth0 parameters
+  */
 const CLIENT_ID = process.env.AUTH0_ID;
 const auth0 = new Auth0({
     domain:       'dhaniapps.auth0.com',
     clientID:     `${CLIENT_ID}`,
-    callbackURL:  'http://nappnews.herokuapp.com/source',
+    callbackURL:  'http://localhost:3000/source',
     callbackOnLocationHash: true
   });
 
@@ -65,9 +68,7 @@ export default class Header extends React.Component {
   login() {
     auth0.login({
       connection: 'google-oauth2',
-    }, () => {
-          alert(arguments, "aksfls");
-        });
+    });
 }
 
   /**

@@ -1,12 +1,11 @@
 import sourcesStore from '../../src/stores/sourcesStore';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
-import newsConstants from '../../src/constants/newsConstants';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
 const dispatcherCallMock = AppDispatcher.register.mock.calls[0][0];
 
 const sourcesAction = {
-      actionType: newsConstants.NEWS_SOURCES,
+      actionType: 'NEWS_SOURCES',
       sourceList: [
         {
           id: "abc-news-au",
@@ -25,23 +24,15 @@ const sourcesAction = {
 
 describe('Sources Store', () => {
 
-  it('should exist', () => {
-    expect(sourcesStore).toBeDefined();
+  it('should register a callback with the dispatcher', () => {
+    expect(dispatcherCallMock.length).toBe(1);
   });
 
-  it('should have addChangeListener exist as a function', () => {
-    expect(sourcesStore.addChangeListener).toBeDefined();
+  it('should be initialized as an empty array', () => {
+      expect(sourcesStore.fetchNewsSources()).toEqual([]);
   });
 
-  it('should have removeChangeListener exist as a function', () => {
-    expect(sourcesStore.removeChangeListener).toBeDefined();
-  });
-
-  it('should have handleGetSourceAction exist as a function', () => {
-    expect(sourcesStore.handleGetSourceAction).toBeDefined();
-  });
-
-  it('should return all sources', () => {
+  it('should register all sources', () => {
       dispatcherCallMock(sourcesAction);
       let result = (sourcesStore.fetchNewsSources());
       expect(result[0].id).toBe("abc-news-au");

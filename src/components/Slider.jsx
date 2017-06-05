@@ -1,6 +1,12 @@
 import React from 'react';
 import '../../public/sass/styles.scss';
 
+/**
+ * Stateless component
+ * Simply renders a slider
+ *
+ * @return {void}
+ */
 const Slider = () => (
   <div className="slider_area">
     <div className="slider">

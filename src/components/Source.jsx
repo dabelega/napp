@@ -46,6 +46,16 @@ import SourceSlider from '../components/SourceSlider';
     newsActions.getSources();
     sourcesStore.on('change',this.fetchNewsSources);
   }
+  
+  /**
+   * Lifecycle Method
+   * Called once the component unmounts.
+   * 
+   * @return {void}
+   */
+  componentWillUnMount() {
+    sourcesStore.removeChangeListener(this.fetchNewsSources);
+  }
 
   /**
    * This method sets the state of the sources array to equal 
@@ -114,20 +124,20 @@ import SourceSlider from '../components/SourceSlider';
 				
         <div className="source-list">
           <ul> 
-            { sources.map((sourceName) => {
-              <li>{sourceName.name}</li>
+            { sources.map((source) => {
+              <li>{source.name}</li>
               return (
-                <li key={sourceName.name} className="key-sort"> 
-                  {sourceName.name} 
+                <li key={source.name} className="key-sort"> 
+                  {source.name} 
                   <ul>
-                    { sourceName.sortBysAvailable.map((sortOption) => { 
+                    { source.sortBysAvailable.map((sort) => { 
                       return (
                         <a 
-                          onClick={()=>this.goToArticles(`/articles/${sourceName.id}/${sortOption}`)} 
+                          onClick={()=>this.goToArticles(`/articles/${source.id}/${sort}`)} 
                           className="filter"
                           role="button"
-                          key={sortOption}
-                        > {sortOption}
+                          key={sort}
+                        > {sort}
                         </a>                        
                       );
                       

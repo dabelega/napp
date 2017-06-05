@@ -5,34 +5,34 @@ import Dispatcher from '../dispatcher/AppDispatcher';
 
 class SourcesStore extends EventEmitter{
 
-	/*
+	/**
 	 * Initializes state
 	 *
 	 * @constructor
 	 * @return {void}
-     */
+   */
 	constructor(){
 		super();
 		this.sources = [];
 	} 
 
-	/*
+	/**
 	 * This methods retuns sources array
 	 *
 	 * @function fecthNewsSources
 	 * @return {void}
-     */
+   */
 	fetchNewsSources(){
 		return this.sources;
 	}
 
 	/**
-      * This function listens for change event
-      *
-      * @function addChangeListener
-      * @callback requestCallback
-      * @return {void}
-      */
+    * This function listens for change event
+    *
+    * @function addChangeListener
+    * @callback requestCallback
+    * @return {void}
+    */
     addChangeListener(callback) {
         this.on('change', callback);
     }
@@ -48,7 +48,7 @@ class SourcesStore extends EventEmitter{
       this.removeListener('change', callback);
     }
 
-    /* 
+    /** 
      * This method looks for our various action types so we can
      * respond appropriately
      * 

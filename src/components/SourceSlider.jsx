@@ -5,6 +5,8 @@ import Bar from '../components/Bar';
 /**
  * Stateless component
  * Simply renders Slider for Sources component
+ *
+ * @return {void}
  */
 const SourceSlider = () => (
   <div className="slider-margin">

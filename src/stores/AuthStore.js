@@ -1,11 +1,11 @@
 import { EventEmitter } from 'events';
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import AuthConstants from '../constants/AuthConstants';
+import Dispatcher from '../dispatcher/AppDispatcher';
 
 
-const CHANGE_EVENT = 'change';
 
-/**
+class AuthStore extends EventEmitter{
+
+  /**
   * This function adds user to local storage
   *
   * @function setUser
@@ -13,7 +13,7 @@ const CHANGE_EVENT = 'change';
   * @param {string} token
   * @return {void}
   */
-function setUser(profile, token) {
+setUser(profile, token) {
   if (!localStorage.getItem('id_token')) {
     localStorage.setItem('profile', JSON.stringify(profile));
     localStorage.setItem('id_token', token);
@@ -26,31 +26,14 @@ function setUser(profile, token) {
   * @function removeUser
   * @return {void}
   */
-function removeUser() {
+removeUser() {
   localStorage.removeItem('profile');
   localStorage.removeItem('id_token');
 }
 
-/**
-  * Data store for Authentication
-  *
-  * @class AuthStoreClass
-  * @extends {EventEmitter}
-  */
-
-class AuthStoreClass extends EventEmitter {
-  emitChange() {
-    this.emit(CHANGE_EVENT);
-  }
-
-  /**
-    * This function listens for change event
-    *
-    * @callback requestCallback
-    * @return {void}
-    */
+  
   addChangeListener(callback) {
-    this.on(CHANGE_EVENT, callback)
+    this.on('change', callback)
   }
 
   /**
@@ -60,7 +43,7 @@ class AuthStoreClass extends EventEmitter {
     * @return {null}
     */
   removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback)
+    this.removeListener('change', callback)
   }
 
 
@@ -76,31 +59,29 @@ class AuthStoreClass extends EventEmitter {
     return false;
   }
 
+  handleAuthAction(action) {
+
+    switch(action.actionType) {
+
+    case 'LOGIN_USER': {
+      this.setUser(action.profile, action.token);
+      this.emit('change');
+      break;
+    }
+
+    case 'LOGOUT_USER': {
+      this.removeUser();
+      this.emit('change');
+      break;
+    }  
+
+   
+   }
+    
+  } 
 }
 
-const AuthStore = new AuthStoreClass();
 
-/* Here we register a callback for the dispatcher
- * and look for our various action types so we can
- * respond appropriately
- */
-AuthStore.dispatchToken = AppDispatcher.register(action => {
-
-  switch(action.actionType) {
-
-    case AuthConstants.LOGIN_USER:
-      setUser(action.profile, action.token);
-      AuthStore.emitChange();
-      break
-
-    case AuthConstants.LOGOUT_USER:
-      removeUser();
-      AuthStore.emitChange();
-      break
-
-    default:
-  }
-
-});
-
-export default AuthStore;
+const authStore = new AuthStore();
+Dispatcher.register(authStore.handleAuthAction.bind(authStore));
+export default authStore;

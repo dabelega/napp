@@ -24,20 +24,20 @@ class ArticlesStores extends EventEmitter{
 	/*
 	 * This methods retuns articles array
 	 * 
-	 @ @function fetchNewsArticles
+	 * @function fetchNewsArticles
 	 * @return {void}
-     */
+   */
 	fetchNewsArticles(){
 		return this.articles;
 	}
 
 	/**
-      * This function listens for change event
-      *
-      * @function addChangelistener
-      * @callback requestCallback
-      * @return {void}
-      */
+    * This function listens for change event
+    *
+    * @function addChangelistener
+    * @callback requestCallback
+    * @return {void}
+    */
     addChangeListener(callback) {
         this.on('change', callback);
     }

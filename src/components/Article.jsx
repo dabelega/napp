@@ -67,6 +67,16 @@ export default class Article extends React.Component {
     newsActions.getArticles(sourceName,sortType);
     articlesStore.on('change',this.fetchNewsArticles);
   }
+
+  /**
+   * Lifecycle Method
+   * Called once the component unmounts. 
+   *
+   * @return {void}
+   */
+  componentWillUnMount() {
+    articlesStore.removeChangeListener(this.fetchNewsArticles);
+  }
  
   /**
    * This method sets the state of the articles array to equal 
@@ -101,8 +111,6 @@ export default class Article extends React.Component {
   goback(){
     this.props.history.push('/source');
   }
-
-
 
 
   /**
