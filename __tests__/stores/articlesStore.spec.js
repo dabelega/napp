@@ -1,4 +1,4 @@
-import ArticlesStore from '../../src/stores/articlesStore';
+import ArticlesStore from '../../src/stores/ArticlesStore';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
