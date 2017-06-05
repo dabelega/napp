@@ -1,4 +1,4 @@
-import * as NewsActions from '../../src/actions/NewsActions';
+import * as NewsActions from '../../src/actions/newsActions';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 
 

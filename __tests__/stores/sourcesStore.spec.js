@@ -1,4 +1,4 @@
-import SourcesStore from '../../src/stores/SourcesStore';
+import SourcesStore from '../../src/stores/sourcesStore';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
