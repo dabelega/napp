@@ -1,4 +1,4 @@
-import * as newsActions from '../../src/actions/newsActions';
+import * as NewsActions from '../../src/actions/NewsActions';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 
 
@@ -30,11 +30,11 @@ describe('News API Actions', () => {
   describe('Test for getSources function', () => {
 
     it('should have a getSources function', () => {
-      expect(newsActions.getSources).toBeDefined();
+      expect(NewsActions.getSources).toBeDefined();
     });
 
     it('should dispatch an action', () => 
-      newsActions.getSources()
+      NewsActions.getSources()
         .then(() => {
           const dispatchCall = spyDispatcher.mock.calls[0][0];
           expect(spyDispatcher).toHaveBeenCalled();
@@ -47,11 +47,11 @@ describe('News API Actions', () => {
   describe('Test for getArticles function', () => {
 
     it('should have a getArticles function', () => {
-      expect(newsActions.getArticles).toBeDefined();
+      expect(NewsActions.getArticles).toBeDefined();
     }); 
     
     it('should dispatch an action', () => 
-      newsActions.getArticles('abc-news-au', 'top')
+      NewsActions.getArticles('abc-news-au', 'top')
         .then(() => {
           const dispatchCall = spyDispatcher.mock.calls[0][0];
           expect(spyDispatcher).toHaveBeenCalled();

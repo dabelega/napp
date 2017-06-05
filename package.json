@@ -32,7 +32,7 @@
       "<rootDir>/node_modules/",
       "<rootDir>/src/index.jsx",
       "<rootDir>/src/utils/auth0.js",
-      "<rootDir>/src/components/app.jsx"
+      "<rootDir>/src/components/App.jsx"
     ],
     "coverageDirectory": "<rootDir>/coverage",
     "coverageReporters": [

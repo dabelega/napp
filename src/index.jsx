@@ -4,8 +4,8 @@ import { createBrowserHistory } from 'history';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import '../public-path';
 import Home from './components/containers/Home';
-import Source from './components/Source';
-import Article from './components/Article';
+import Sources from './components/Sources';
+import Articles from './components/Articles';
 import About from './components/About';
 import ContactUs from './components/ContactUs';
 
@@ -38,14 +38,14 @@ render (
         <Route 
           exact path="/source" render={() => (
             isAuthenticated() ? (
-              <Source />
+              <Sources />
             ) : (
               
               <Home />
             )
           )} 
         />
-        <Route path="/articles/:id/:sort" component={Article} />
+        <Route path="/articles/:id/:sort" component={Articles} />
         <Route path="/about" component={About} /> 
         <Route path="/contact" component={ContactUs} />
       </Switch>

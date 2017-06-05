@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Source Page Render function renders a snapshot 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="center"
+  >
+    <div
+      className="header"
+    >
+      <div
+        className="logo floatleft"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt=""
+            src="/public/images/logo copy.png"
+          />
+        </a>
+      </div>
+      <div
+        className="top_menu floatleft"
+      >
+        <ul>
+          <li>
+            <a
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+            >
+              About Napp
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact"
+            >
+              Contact us
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={[Function]}
+              role="button"
+            >
+              Sign In with Google
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="slider-margin"
+    >
+      <div
+        className="main_menu_area"
+      >
+        <ul
+          id="nav"
+        >
+          <span
+            className="u-id"
+          />
+        </ul>
+      </div>
+      <div
+        className="slider_area"
+      >
+        <div
+          className="slider"
+        >
+          <ul
+            className="bxslider"
+          >
+            <li>
+              <img
+                alt=""
+                src="../public/images/source.jpg"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      className="search-container"
+    >
+      <input
+        className="searcher"
+        onChange={[Function]}
+        placeholder="Type here"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="source-list"
+    >
+      <ul />
+    </div>
+    <div
+      className="footer_bottom_area"
+    >
+      <div
+        className="copyright_text"
+      >
+        <p>
+          Copyright © 2017 Napp. All rights reserved
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

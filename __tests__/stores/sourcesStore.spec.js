@@ -1,4 +1,4 @@
-import sourcesStore from '../../src/stores/sourcesStore';
+import SourcesStore from '../../src/stores/SourcesStore';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
@@ -29,12 +29,12 @@ describe('Sources Store', () => {
   });
 
   it('should be initialized as an empty array', () => {
-      expect(sourcesStore.fetchNewsSources()).toEqual([]);
+      expect(SourcesStore.fetchNewsSources()).toEqual([]);
   });
 
   it('should register all sources', () => {
       dispatcherCallMock(sourcesAction);
-      let result = (sourcesStore.fetchNewsSources());
+      let result = (SourcesStore.fetchNewsSources());
       expect(result[0].id).toBe("abc-news-au");
       expect(result[0].name).toBe("ABC News (AU)");
       expect(result[0].description).toBe("Australian news source"); 
