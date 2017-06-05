@@ -46,6 +46,18 @@ import SourceSlider from '../components/SourceSlider';
     newsActions.getSources();
     sourcesStore.on('change',this.fetchNewsSources);
   }
+
+  
+  /**
+   * This method redirects to the articles page 
+   * based on the sort option selected.
+   *
+   * @return {void}
+   */
+  getArticles(link){
+    this.props.history.push(link);
+  }
+
   
   /**
    * Lifecycle Method
@@ -68,16 +80,6 @@ import SourceSlider from '../components/SourceSlider';
     this.setState({ sources: sourcesStore.fetchNewsSources() });
   }
 
-
-  /**
-   * This method redirects to the articles page 
-   * based on the sort option selected.
-   *
-   * @return {void}
-   */
-  goToArticles(link){
-    this.props.history.push(link);
-  }
 
   /**
    * This method sets the state of the searchString to equal 
@@ -133,7 +135,7 @@ import SourceSlider from '../components/SourceSlider';
                     { source.sortBysAvailable.map((sort) => { 
                       return (
                         <a 
-                          onClick={()=>this.goToArticles(`/articles/${source.id}/${sort}`)} 
+                          onClick={()=>this.getArticles(`/articles/${source.id}/${sort}`)} 
                           className="filter"
                           role="button"
                           key={sort}
