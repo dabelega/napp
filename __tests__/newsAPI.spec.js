@@ -1,4 +1,4 @@
-import * as newsAPI from '../src/utils/newsAPI';
+import * as NewsApi from '../src/utils/NewsApi';
 
 const articles = [
 			{
@@ -12,23 +12,23 @@ const articles = [
         ]
 
 const sources = [
-            { 
-                "id": "abc-news-au",
-                "name": "ABC News (AU)",
-                "description": "Australia's most trusted source of...",
-                "url": "http://www.abc.net.au/news",
-                "category": "general",
-                "language": "en",
-                "country": "au",
-                "urlsToLogos": {
-                    "small": "",
-                    "medium": "",
-                    "large": ""
-                },
-                "sortBysAvailable": [
-                    "top"
-                ]
-            }
+      { 
+          "id": "abc-news-au",
+          "name": "ABC News (AU)",
+          "description": "Australia's most trusted source of...",
+          "url": "http://www.abc.net.au/news",
+          "category": "general",
+          "language": "en",
+          "country": "au",
+          "urlsToLogos": {
+              "small": "",
+              "medium": "",
+              "large": ""
+          },
+          "sortBysAvailable": [
+              "top"
+          ]
+      }
         ]
 
 
@@ -36,11 +36,11 @@ describe('News API call ', () => {
 
 	describe('displayArticles Function', () => {
 		it('should exist', () => {	
-          expect(newsAPI.displayArticles).toBeDefined();
+          expect(NewsApi.displayArticles).toBeDefined();
        });
 
        it('should get list of articles', () => {	
-			newsAPI.displayArticles('the-next-web', 'top', (articleList) => {
+			NewsApi.displayArticles('the-next-web', 'top', (articleList) => {
               expect(articleList).toEqual(articles);
 			});
 		});
@@ -50,15 +50,15 @@ describe('News API call ', () => {
     describe('getSources Function', () => {
 
         it('should exist', () => {	
-          expect(newsAPI.getSources).toBeDefined();
+          expect(NewsApi.getSources).toBeDefined();
        });
 
         it('should get list of sources', () => {	
-            newsAPI.displayArticles('the-next-web', 'top', (sourceList) => {
+            NewsApi.displayArticles('the-next-web', 'top', (sourceList) => {
             expect(sourceList).toEqual(sources);
-          });
+          }); 
         });
-    });      
+    });
 
 });
 

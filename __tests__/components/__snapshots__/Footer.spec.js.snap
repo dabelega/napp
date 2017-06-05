@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact Us Page renders a snapshot 1`] = `
+<div
+  className="footer_bottom_area"
+>
+  <div
+    className="copyright_text"
+  >
+    <p>
+      Copyright © 2017 Napp. All rights reserved
+    </p>
+  </div>
+</div>
+`;

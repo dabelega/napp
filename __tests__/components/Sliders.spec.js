@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 import AboutSlider from '../../src/components/AboutSlider';
-import SourceSlider from '../../src/components/SourceSlider';
+import SourcesSlider from '../../src/components/SourcesSlider';
 import ContactUsSlider from '../../src/components/ContactUsSlider';
 import Slider from '../../src/components/Slider';
 
@@ -15,7 +15,7 @@ describe('Sliders', () => {
 
     describe('Source Slider', () => {
 		it('renders a snapshot', () => {
-          const tree = renderer.create(<SourceSlider />).toJSON();
+          const tree = renderer.create(<SourcesSlider />).toJSON();
           expect(tree).toMatchSnapshot();
 		});
     });

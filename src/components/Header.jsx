@@ -13,7 +13,7 @@ const CLIENT_ID = process.env.AUTH0_ID;
 const auth0 = new Auth0({
     domain:       'dhaniapps.auth0.com',
     clientID:     `${CLIENT_ID}`,
-    callbackURL:  'http://nappnews.herokuapp.com/source',
+    callbackURL:  'http://localhost:3000/source',
     callbackOnLocationHash: true
   });
 

@@ -6,6 +6,9 @@
         "jest": true
         
     },
+    "globals": {
+        "Auth0": true
+    },
     "extends": "airbnb",
     "parser": "babel-eslint",
     "parserOptions": {

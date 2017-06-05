@@ -8,7 +8,7 @@ import Dispatcher from '../dispatcher/AppDispatcher';
   * @extends {EventEmitter}
   */
 
-class ArticlesStores extends EventEmitter{
+class ArticlesStore extends EventEmitter{
 
 	/*
 	 * Initializes state
@@ -73,6 +73,6 @@ class ArticlesStores extends EventEmitter{
 }
 
 
-const articlesStore = new ArticlesStores();
+const articlesStore = new ArticlesStore();
 Dispatcher.register(articlesStore.handleGetArticlesAction.bind(articlesStore));
 export default articlesStore;

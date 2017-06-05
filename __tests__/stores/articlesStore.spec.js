@@ -1,4 +1,4 @@
-import articlesStore from '../../src/stores/articlesStore';
+import ArticlesStore from '../../src/stores/ArticlesStore';
 import AppDispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
@@ -25,7 +25,7 @@ const articlesAction = {
 describe('Articles Store', () => {
 
   it('should be initialized as an empty array', () => {
-      expect(articlesStore.fetchNewsArticles()).toEqual([]);
+      expect(ArticlesStore.fetchNewsArticles()).toEqual([]);
   });
 
   it('should register a callback with the dispatcher', () => {
@@ -34,7 +34,7 @@ describe('Articles Store', () => {
 
   it('should return all articles', () => {
       dispatcherCallMock(articlesAction);
-      let result = (articlesStore.fetchNewsArticles());
+      let result = (ArticlesStore.fetchNewsArticles());
       expect(result[0].author).toBe("TNW Deals");
       expect(result[0].title).toBe("Build electronics projects");
       expect(result[0].description).toBe("Understanding electronics"); 

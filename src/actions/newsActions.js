@@ -1,4 +1,4 @@
-import * as newsAPI from '../utils/newsAPI';
+import * as NewsApi from '../utils/NewsApi';
 import Dispatcher from '../dispatcher/AppDispatcher';
 
 /**
@@ -8,7 +8,7 @@ import Dispatcher from '../dispatcher/AppDispatcher';
   * @return {void}
   */
 export function getSources() {
-	return newsAPI.getSources((sourceList) => {
+	return NewsApi.getSources((sourceList) => {
 		Dispatcher.dispatch({
 			actionType:'NEWS_SOURCES',
 			sourceList: sourceList
@@ -26,7 +26,7 @@ export function getSources() {
   * @return {void}
   */
 export function getArticles(sourceName,sortType) {
-        return newsAPI.displayArticles(sourceName,sortType,(articleList) => {
+        return NewsApi.displayArticles(sourceName,sortType,(articleList) => {
 		Dispatcher.dispatch({
 			actionType:'NEWS_ARTICLES',
 			articleList: articleList
