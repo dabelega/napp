@@ -16,9 +16,6 @@ describe('Article Page', () => {
               sources: []
             };
         expect(wrapper.state()).toEqual(initialState);  
-        expect(wrapper.instance().fetchNewsArticles).toBeDefined();
-        expect(wrapper.instance().fetchNewsSources).toBeDefined();
-        expect(wrapper.instance().getArticles).toBeDefined();
 		});
     });
 
